@@ -37,6 +37,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'ready'], f
     	Route::group(['prefix' => 'post', 'as' => 'post.'], function() {
     		Route::get('add', 'PostController@add')->name('add');
     		Route::post('add', 'PostController@store');
+    		Route::get('edit/{post}', 'PostController@edit')->name('edit');
+    		Route::post('edit/{post}', 'PostController@update');
     	});
     });
+});
+
+Route::group(['as' => 'blog.'], function() {
+	Route::get('/', 'BlogController@index')->name('index');
+	Route::get('{post}', 'BlogController@show')->name('show');
 });

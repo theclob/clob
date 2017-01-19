@@ -2,9 +2,9 @@
 
 namespace Clob\Http\Middleware;
 
+use Closure;
 use Clob\Option;
 use Clob\User;
-use Closure;
 use Illuminate\Support\Facades\Schema;
 
 class SetupRequired

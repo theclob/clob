@@ -24,7 +24,7 @@
 				<tbody>
 					@foreach($posts as $post)
 						<tr>
-							<td>{{ $post->title }}</td>
+							<td><a href="{{ route('admin.post.edit', $post) }}">{{ $post->title }}</a></td>
 							<td class="hidden-xs">{{ $post->published_at }}</td>
 							<td class="hidden-xs hidden-sm">{{ $post->tags }}</td>
 						</tr>

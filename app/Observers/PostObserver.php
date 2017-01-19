@@ -2,6 +2,7 @@
 
 namespace Clob\Observers;
 
+use Parsedown;
 use Clob\Post;
 use Illuminate\Support\Str;
 
@@ -17,5 +18,12 @@ class PostObserver
 		}
 
 		$post->slug = $slug;
+	}
+
+	public function saving(Post $post)
+	{
+		$parsedown = new Parsedown;
+
+		$post->html_content = $parsedown->text($post->markdown_content);
 	}
 }

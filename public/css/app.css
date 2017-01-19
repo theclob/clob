@@ -1380,7 +1380,7 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: #f3f3f3;
+  background-color: #f9f9f9;
 }
 
 input,
@@ -1428,7 +1428,7 @@ img {
 .img-thumbnail {
   padding: 4px;
   line-height: 1.428571429;
-  background-color: #f3f3f3;
+  background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 0;
   -webkit-transition: all 0.2s ease-in-out;
@@ -2736,7 +2736,7 @@ th {
 }
 
 .table .table {
-  background-color: #f3f3f3;
+  background-color: #f9f9f9;
 }
 
 .table-condensed > thead > tr > th,
@@ -4652,7 +4652,7 @@ tbody.collapse.in {
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   color: #555555;
-  background-color: #f3f3f3;
+  background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
   cursor: default;
@@ -4735,7 +4735,7 @@ tbody.collapse.in {
   .nav-tabs-justified > .active > a, .nav-tabs.nav-justified > .active > a,
   .nav-tabs-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:hover,
   .nav-tabs-justified > .active > a:focus, .nav-tabs.nav-justified > .active > a:focus {
-    border-bottom-color: #f3f3f3;
+    border-bottom-color: #f9f9f9;
   }
 }
 
@@ -5715,7 +5715,7 @@ a.badge:hover, a.badge:focus {
   padding: 4px;
   margin-bottom: 20px;
   line-height: 1.428571429;
-  background-color: #f3f3f3;
+  background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 0;
   -webkit-transition: border 0.2s ease-in-out;
@@ -7684,6 +7684,32 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important;
+  }
+}
+
+.panel-toolbar {
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.panel-toolbar .btn {
+  margin-right: 5px;
+}
+
+.hljs {
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+textarea.form-control {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 13px;
+}
+
+@media screen and (max-width: 767px) {
+  textarea.form-control {
+    max-height: 200px;
   }
 }
 

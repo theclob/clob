@@ -2,71 +2,51 @@
 	<div class="panel-heading">
 		<h4 class="panel-title">{{ $title }}</h4>
 	</div>
-	<form method="post">
+	{!! BootForm::open() !!}
 		{!! csrf_field() !!}
+		@if(isset($post))
+			{!! BootForm::bind($post) !!}
+
+			<div class="panel-toolbar">
+				<a href="{{ route('blog.show', $post) }}" target="_blank" class="btn btn-default">View Post</a>
+				{!! BootForm::submit('hidden submit')->addClass('hidden')->attribute('tabindex', -1)->attribute('name', 'action')->attribute('value', 'default') !!}
+				{!! BootForm::submit('Delete Post')->addClass('btn-danger')->attribute('name', 'action')->attribute('value', 'delete')->attribute('id', 'deleteBtn') !!}
+			</div>
+			
+		@endif		
 		<div class="panel-body">
 			@if($errors->first())
 				<div class="alert alert-danger">
 					Whoops, we ran into a problem!
 				</div>
 			@endif
-			<div class="form-horizontal">
-				<div class="form-group @if($errors->has('title')) has-error @endif">
-					<label class="control-label col-sm-2 col-md-1" for="title">Title</label>
-					<div class="col-sm-10 col-md-11">
-						<input class="form-control" name="title" id="title" value="{{ old('title') }}">
-						@if($errors->has('title'))
-							<span class="help-block">{{ $errors->first('title') }}</span>
-						@endif
-					</div>
+			<div class="row">
+				<div class="col-md-9">
+					{!! BootForm::text('Title', 'title') !!}
+					{!! BootForm::textarea('Post', 'markdown_content')
+								->rows(25)
+								->helpBlock('To format your post, use <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown</a>.') !!}
+					<hr class="visible-xs visible-sm">
 				</div>
-			</div>
-			<hr>
-			<div class="form-group @if($errors->has('markdown_content')) has-error @endif">
-				<label class="control-label" for="markdown_content">Post</label>
-				<textarea class="form-control" name="markdown_content" id="markdown_content" rows="10" placeholder="“There is no greater agony than bearing an untold story inside you.” ― Maya Angelou, I Know Why the Caged Bird Sings">{{ old('markdown_content') }}</textarea>
-				<span class="help-block">
-					@if($errors->has('markdown_content'))
-						{{ $errors->first('markdown_content')}}
-					@else
-						To format your post, use <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown</a>.
-					@endif
-				</span>
-			</div>
-			<hr>
-			<div class="form-horizontal">
-				<div class="form-group @if($errors->has('published_at')) has-error @endif">
-					<label class="control-label col-sm-3 col-md-2" for="published_at">Publish Date</label>
-					<div class="col-sm-5 col-md-4">
-						<input class="form-control" name="published_at" id="published_at" placeholder="YYYY-MM-DD HH:MM:SS" value="{{ old('published_at') }}">
-					</div>
-					<div class="col-sm-9 col-sm-offset-3 col-md-offset-2">
-						<span class="help-block">
-						@if($errors->has('published_at'))
-							{{ $errors->first('published_at') }}
-						@else
-							Schedule posts for later by setting a publish date in the future. Leave blank to publish immediately.</span>
-						@endif
-					</div>
-				</div>
-				<div class="form-group @if($errors->has('tags')) has-error @endif">
-					<label class="control-label col-sm-3 col-md-2" for="tags">Tags</label>
-					<div class="col-sm-9 col-md-10">
-						<input class="form-control" name="tags" id="tags" placeholder="e.g. javascript, node, webpack" value="{{ old('tags') }}">
-						<span class="help-block">
-							@if($errors->has('tags'))
-								{{ $errors->first('tags') }}
-							@else
-								Separate tags with commas.
-							@endif
-						</span>
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-sm-4 col-md-12">
+							{!! BootForm::text('Publish Date', 'published_at')
+										->placeholder('YYYY-MM-DD HH:MM:SS')
+										->helpBlock('Schedule posts for later by setting a publish date in the future. Leave blank to publish immediately.') !!}
+						</div>
+						<div class="col-sm-8 col-md-12">
+							{!! BootForm::text('Tags', 'tags')
+										->placeholder('e.g. php, laravel, vue')
+										->helpBlock('Separate tags with commas.') !!}
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="panel-footer text-right">
-			<button type="submit" class="btn btn-primary">Save</button>
+			<button type="submit" name="action" value="save" class="btn btn-primary">Save</button>
 			<a href="{{ route('admin.index') }}" class="btn btn-link">Cancel</a>
 		</div>
-	</form>
+	{!! BootForm::close() !!}
 </div>

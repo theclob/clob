@@ -2,9 +2,9 @@
 
 namespace Clob\Http\Controllers\Admin;
 
-use Clob\Http\Controllers\Controller;
 use Clob\Post;
 use Illuminate\Http\Request;
+use Clob\Http\Controllers\Controller;
 
 class MainController extends Controller
 {

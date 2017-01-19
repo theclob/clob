@@ -127,6 +127,7 @@ Version 0.1 (January 2017):
 * Post Editor (Markdown)
 * Blog homepage
 * Post view
+* GitHub Flavored Markdown support
 
 Version 0.2 (February 2017):
 
@@ -139,8 +140,8 @@ Version 0.3 (March 2017):
 
 * Comments Module
 * OAuth authentication
-* GFM support
 * Share on Hacker News, Reddit, Twitter
+* Image upload
 
 Version 0.4 (April 2017):
 
