@@ -1,4 +1,4 @@
-@extends('blog.layout', ['title' => 'Blog Home'])
+@extends('blog.layout', ['title' => $post->title])
 
 @section('content')
 	<h2>{{ $post->title }}</h2>
@@ -6,7 +6,7 @@
 	<hr>
 	<p class="small">
 		Posted by {{ $post->user->name }} on {{ $post->published_at->format('jS F Y @ g:ia') }}</small>
-		@if($post->tags)		
+		@if($post->tags)
 			<br><strong>Tags:</strong> {{ $post->tags }}
 		@endif
 	</p>

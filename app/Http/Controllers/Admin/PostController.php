@@ -5,6 +5,7 @@ namespace Clob\Http\Controllers\Admin;
 use Clob\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Clob\Http\Requests\SaveBlogPost;
 use Clob\Http\Controllers\Controller;
 
 class PostController extends Controller
@@ -14,20 +15,19 @@ class PostController extends Controller
     	return view('admin.post.add');
     }
 
-    public function store()
+    private function setPostData(Post $post)
     {
-    	$this->validate(request(), [
-    		'title' => 'required',
-    		'markdown_content' => 'required',
-    		'published_at' => 'date'
-    	]);
+        $post->title = request()->title;
+        $post->markdown_content = request()->markdown_content;
+        $post->published_at = request()->published_at ?: Carbon::now();
+        $post->tags = request()->tags ?: null;
 
-    	$post = new Post;
-    	$post->title = request()->title;
-    	$post->markdown_content = request()->markdown_content;
-    	$post->published_at = request()->published_at ?: Carbon::now();
-    	$post->tags = request()->tags ?: null;
+        return $post;
+    }
 
+    public function store(SaveBlogPost $request)
+    {
+    	$post = $this->setPostData(new Post);
     	$user = request()->user();
     	$user->posts()->save($post);
 
@@ -39,7 +39,7 @@ class PostController extends Controller
         return view('admin.post.edit')->withPost($post);
     }
 
-    public function update(Post $post)
+    public function update(SaveBlogPost $request, Post $post)
     {
         // Handle delete post request
         if(request()->action === 'delete') {
@@ -48,17 +48,7 @@ class PostController extends Controller
             return redirect()->route('admin.index')->withStatus('Post deleted successfully.');
         }
 
-        $this->validate(request(), [
-            'title' => 'required',
-            'markdown_content' => 'required',
-            'published_at' => 'date'
-        ]);
-
-        $post->title = request()->title;
-        $post->markdown_content = request()->markdown_content;
-        $post->published_at = request()->published_at ?: Carbon::now();
-        $post->tags = request()->tags ?: null;
-
+        $post = $this->setPostData($post);
         $post->save();
 
         return redirect()->route('admin.index')->withStatus('Post updated successfully.');

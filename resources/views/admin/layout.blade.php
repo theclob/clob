@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="{{ elixir('css/app.css') }}">
 </head>
 <body>
-	<div class="container">		
+	<div class="container">
 		<div class="row">
 			<div class="col-sm-6">
 				<h1><a href="{{ route('admin.index') }}">clob Admin</a></h1>
@@ -24,7 +24,7 @@
 				</form>
 				<br>
 			</div>
-		</div>		
+		</div>
 
 		@yield('content')
 	</div>

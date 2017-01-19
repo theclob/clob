@@ -12,8 +12,8 @@
 				{!! BootForm::submit('hidden submit')->addClass('hidden')->attribute('tabindex', -1)->attribute('name', 'action')->attribute('value', 'default') !!}
 				{!! BootForm::submit('Delete Post')->addClass('btn-danger')->attribute('name', 'action')->attribute('value', 'delete')->attribute('id', 'deleteBtn') !!}
 			</div>
-			
-		@endif		
+
+		@endif
 		<div class="panel-body">
 			@if($errors->first())
 				<div class="alert alert-danger">

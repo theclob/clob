@@ -176,6 +176,7 @@ return [
         Clob\Providers\AuthServiceProvider::class,
         // Clob\Providers\BroadcastServiceProvider::class,
         Clob\Providers\EventServiceProvider::class,
+        Clob\Providers\ComposerServiceProvider::class,
         Clob\Providers\RouteServiceProvider::class,
 
     ],
