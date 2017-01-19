@@ -18,9 +18,15 @@
 			{!! csrf_field() !!}
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h4 class="panel-title">Step {{ $step }} of 3 - {{ $title }}</h4>
+					<h4 class="panel-title">Step {{ $step }} of 2 - {{ $title }}</h4>
 				</div>
 				<div class="panel-body">
+					@if(session()->has('error'))
+						<div class="alert alert-danger">
+							<p>{{ session('error') }}</p><br>
+							<p>{{ session('message') }}</p>
+						</div>
+					@endif
 					@yield('content')
 				</div>
 				@yield('table')
@@ -33,5 +39,7 @@
 			</div>
 		</form>
 	</div>
+
+	@yield('scripts')
 </body>
 </html>

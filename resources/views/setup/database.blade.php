@@ -1,13 +1,6 @@
 @extends('setup.layout', ['title' => 'Database Setup', 'step' => 1])
 
-@section('content')	
-	@if(session()->has('error'))
-		<div class="alert alert-danger">			
-			<p>{{ session('error') }}</p><br>
-			<p>{{ session('message') }}</p>
-		</div>
-	@endif
-
+@section('content')		
 	<p>Welcome to <strong>clob</strong>! Let's get you up and running.</p>
 	<p>First, we need to make sure your database is configured correctly so we can install some tables. Below are the environment variables we've detected on your Web server that point to your database. Please review these details and make sure they're correct.</p>	
 @endsection
@@ -34,5 +27,5 @@
 @endsection
 
 @section('footer')
-	<a href="{{ route('setup.database') }}" class="btn btn-lg btn-primary">Next &raquo;</a>
+	<a href="{{ route('setup.database') }}" class="btn btn-primary">Next &raquo;</a>
 @endsection

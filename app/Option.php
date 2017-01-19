@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Clob;
 
 use Illuminate\Database\Eloquent\Model;
 

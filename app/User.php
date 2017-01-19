@@ -1,9 +1,10 @@
 <?php
 
-namespace App;
+namespace Clob;
 
-use Illuminate\Notifications\Notifiable;
+use Clob\Notifications\SendResetPasswordToken;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -26,4 +27,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new SendResetPasswordToken($token));
+    }
+
+    public function posts()
+    {
+        return $this->hasMany('Clob\Post');
+    }
 }

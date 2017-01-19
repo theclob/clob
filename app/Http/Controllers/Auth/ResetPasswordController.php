@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Clob\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use Clob\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ResetPasswordController extends Controller
@@ -25,7 +25,9 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected function redirectTo() {
+        return route('admin.index');
+    }
 
     /**
      * Create a new controller instance.

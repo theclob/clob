@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOptionsTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreateOptionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('options', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->longText('description')->nullable();
+            $table->string('slug')->unique();
+            $table->longText('markdown_content');
+            $table->longText('html_content');
+            $table->string('tags');
+            $table->timestamp('published_at');
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ class CreateOptionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('options');
+        Schema::dropIfExists('posts');
     }
 }

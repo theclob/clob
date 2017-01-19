@@ -1,27 +1,40 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Clob\Http\Controllers;
 
-use App\Option;
-use App\User;
+use Clob\Mail\VerifyAdminEmail;
+use Clob\Option;
+use Clob\User;
+use Carbon\Carbon;
+use Illuminate\Auth\Passwords\TokenRepositoryInterface;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 use PDOException;
 use Symfony\Component\Debug\Exception\FatalThrowableError;
 
 class SetupController extends Controller
 {
+
+	private function generateToken()
+	{
+		$hashKey = config('app.key');
+
+		if(Str::startsWith($hashKey, 'base64:')) {
+			$hashKey = base64_decode(substr($hashKey, 7));
+		}
+
+		return hash_hmac('sha256', Str::random(40), $hashKey);
+	}
+
 	public function index()
 	{
-		// TODO Determine if email already verified - if so, redirect to admin login screen
-		// TODO Wrap above logic into middleware so setup can never be reached if already completed
-		// TODO Determine if blog setup already run
-
-		// TODO Determine if migrations already run
 		if(Schema::hasTable('options')) {
 			return view('setup.blog');
 		}
@@ -58,21 +71,29 @@ class SetupController extends Controller
 
 	public function blog()
 	{
-		// TODO Wrap all of this in try catch block, likely to have exceptions when sending the verification email.
+		if(request()->action === 'prev') {
+			try {
+				$exitCode = Artisan::call('migrate:reset');
+
+				return redirect()->back();
+			} catch(FatalThrowableError | QueryException $e) {
+				$error = 'Whoops, looks like there\'s a problem with one of the database migration scripts. Review any changes you made to ' . $e->getFile() . ' and try again.';
+
+				return redirect()->back()->with($error)->withMessage($e->getMessage());
+			}
+		}
 
 		// Validate form
 		$this->validate(request(), [
-			'domain' => 'required',
 			'title' => 'required',
-			'name' => 'required',
-			'email' => 'required',
-			'password' => 'required'
+			'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6',
 		]);
 
 		$options = Option::firstOrNew([]);
-		$options->domain = request()->domain;
 		$options->title = request()->title;
-		$options->description = request()->description;
+		$options->description = request()->description ?: null;
 		$options->save();
 
 		// Delete any users in the table (shouldn't be any in there, but belt and braces...)
@@ -80,11 +101,10 @@ class SetupController extends Controller
 		$user = new User;
 		$user->name = request()->name;
 		$user->email = request()->email;
-		// TODO create user verification token and assign it to their record.
-		$user->password = Hash::make(request()->password);
+		$user->password = bcrypt(request()->password);
 		$user->save();
 
-		// TODO Send verification email with token link.
+		Auth::login($user, true);
 
 		return redirect()->back();
 	}

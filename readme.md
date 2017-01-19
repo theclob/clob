@@ -182,6 +182,13 @@ Version 1.0 (December 2017):
 * Native apps for Linux, Mac, Windows, Android and iOS
 * Hosted version live
 
+## Things to be considered before v1.0 release
+
+* Automatic incremental updates
+* Major upgrades
+* Theming system
+* Plugin architecture
+
 ## License (MIT)
 
 Copyright 2017 Joe Lennon
