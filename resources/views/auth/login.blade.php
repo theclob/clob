@@ -1,4 +1,4 @@
-@extends('auth.layout', ['title' => 'Login'])
+@extends('auth.layout', ['title' => trans('auth.login.title')])
 
 @section('content')
 <div class="container">
@@ -6,63 +6,21 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4 class="panel-title">clob Admin Login</h4>
+                    <h4 class="panel-title">{{ trans('auth.login.title_verbose') }}</h4>
                 </div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : ''}}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('admin.auth.forgot') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                {!! BootForm::openHorizontal(['md' => [4, 6]]) !!}
+                    {{ csrf_field() }}
+                    <div class="panel-body">
+                        @include('common.alerts')
+                        {!! BootForm::email(trans('auth.login.email'), 'email')->required()->autofocus() !!}
+                        {!! BootForm::password(trans('auth.login.password'), 'password')->required() !!}
+                        {!! BootForm::checkbox(trans('auth.login.remember'), 'remember') !!}
+                    </div>
+                    <div class="panel-footer">
+                        <button type="submit" class="btn btn-primary pull-right">{{ trans('auth.login.login') }}</button>
+                        <a class="btn btn-link" href="{{ route('admin.auth.forgot') }}">{{ trans('auth.login.forgot') }}</a>
+                    </div>
+                {!! BootForm::close() !!}
             </div>
         </div>
     </div>

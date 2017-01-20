@@ -2,8 +2,8 @@
 
 namespace Clob\Http\ViewComposers;
 
-use Illuminate\View\View;
 use Clob\Option;
+use Illuminate\View\View;
 
 class OptionsComposer
 {
@@ -25,6 +25,7 @@ class OptionsComposer
      */
     public function compose(View $view)
     {
+        // Get the blog options and attach to the view
         $options = Option::first();
 
         $view->with('options', $options);

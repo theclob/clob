@@ -2,8 +2,8 @@
 
 namespace Clob\Providers;
 
-use Clob\Observers\PostObserver;
 use Clob\Post;
+use Clob\Observers\PostObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Attach PostObserver to listen for Post events
         Post::observe(PostObserver::class);
     }
 

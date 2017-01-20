@@ -2,9 +2,9 @@
 
 namespace Clob;
 
+use Illuminate\Notifications\Notifiable;
 use Clob\Notifications\SendResetPasswordToken;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -28,11 +28,22 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Override the default password reset email notification
+     *
+     * @param string $token
+     * @return void
+     */
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new SendResetPasswordToken($token));
     }
 
+    /**
+     * The Post objects that belong to this User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function posts()
     {
         return $this->hasMany('Clob\Post');

@@ -2,9 +2,9 @@
 
 namespace Clob\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use Clob\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -23,6 +23,11 @@ class LoginController extends Controller
         logout as performLogout;
     }
 
+    /**
+     * Redirect to the admin dashboard after login
+     *
+     * @return \Illuminate\Routing\UrlGenerator
+     */
     protected function redirectTo()
     {
         return route('admin.index');
@@ -38,6 +43,12 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
 
+    /**
+     * Override default logout to use custom redirect
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function logout(Request $request)
     {
         $this->performLogout($request);

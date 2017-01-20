@@ -16,4 +16,21 @@ return [
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
+    'login' => [
+        'title' => 'Login',
+        'title_verbose' => 'Login to clob Admin',
+        'email' => 'Email Address',
+        'password' => 'Password',
+        'remember' => 'Remember Me',
+        'login' => 'Login &raquo;',
+        'forgot' => 'Forgot Your Password?'
+    ],
+
+    'reset' => [
+        'title' => 'Password Recovery',
+        'title_verbose' => 'Recover your clob Admin password',
+        'send' => 'Send Reset Link',
+        'back' => 'Back to Login'
+    ]
+
 ];

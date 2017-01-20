@@ -1,7 +1,7 @@
-@extends('admin.layout', ['title' => "Edit Post (ID: $post->id)"])
+@extends('admin.layout', ['title' => trans('admin.post.edit', ['id' => $post->id])])
 
 @section('content')
-	@include('admin.post.form', ['title' => "Edit Post (ID: $post->id)"])
+	@include('admin.post.form', ['title' => trans('admin.post.edit', ['id' => $post->id])])
 @endsection
 
 @section('scripts')
@@ -9,7 +9,7 @@
 		var deleteBtn = document.getElementById('deleteBtn');
 
 		deleteBtn.onclick = function(e) {
-			if(!confirm('This will permanently delete this post. If you wish to continue, click OK.')) {
+			if(!confirm('{{ trans('admin.post.delete_confirm') }}')) {
 				return false;
 			}
 		};

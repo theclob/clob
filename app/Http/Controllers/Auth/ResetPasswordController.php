@@ -23,7 +23,7 @@ class ResetPasswordController extends Controller
     /**
      * Where to redirect users after resetting their password.
      *
-     * @var string
+     * @return \Illuminate\Routing\UrlGenerator
      */
     protected function redirectTo() {
         return route('admin.index');

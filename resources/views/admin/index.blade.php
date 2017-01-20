@@ -1,24 +1,24 @@
-@extends('admin.layout', ['title' => 'Dashboard'])
+@extends('admin.layout', ['title' => trans('admin.dashboard.title')])
 
 
 @section('content')
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h4 class="panel-title">Manage Posts</h4>
+			<h4 class="panel-title">{{ trans('admin.post.manage') }}</h4>
 		</div>
 		@if($posts->count() > 0)
 			<div class="panel-body">
-				@if(session()->has('status'))			
-					<div class="alert alert-success">{{ session('status') }}</div>			
+				@if(session()->has('status'))
+					<div class="alert alert-success">{{ session('status') }}</div>
 				@endif
-				<a href="{{ route('admin.post.add') }}" class="btn btn-primary">Add New Post</a>
+				<a href="{{ route('admin.post.add') }}" class="btn btn-primary">{{ trans('admin.post.add') }}</a>
 			</div>
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Title</th>
-						<th class="hidden-xs">Publish Date</th>
-						<th class="hidden-xs hidden-sm">Tags</th>
+						<th>{{ trans('admin.post.title') }}</th>
+						<th class="hidden-xs">{{ trans('admin.post.publish_date') }}</th>
+						<th class="hidden-xs hidden-sm">{{ trans('admin.post.tags') }}</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -33,7 +33,7 @@
 			</table>
 		@else
 			<div class="panel-body text-center text-muted">
-				<a href="{{ route('admin.post.add') }}" class="btn btn-lg btn-primary">Create your first post.</a>
+				<a href="{{ route('admin.post.add') }}" class="btn btn-lg btn-primary">{{ trans('admin.post.create') }}</a>
 			</div>
 		@endif
 	</div>

@@ -31,7 +31,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'ready'], f
 	    Route::post('password/reset/{token}', 'ResetPasswordController@reset');
 	});
 
-    Route::group(['namespace' => 'Admin', 'middleware' => 'auth'], function() {
+    Route::group(['namespace' => 'Admin', 'middleware' => ['ready','auth']], function() {
     	Route::get('/', ['as' => 'index', 'uses' => 'MainController@index']);
 
     	Route::group(['prefix' => 'post', 'as' => 'post.'], function() {
@@ -43,7 +43,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'ready'], f
     });
 });
 
-Route::group(['as' => 'blog.'], function() {
+Route::group(['as' => 'blog.', 'middleware' => 'ready'], function() {
 	Route::get('/', 'BlogController@index')->name('index');
 	Route::get('{post}', 'BlogController@show')->name('show');
 });
