@@ -24,7 +24,7 @@
 				<br class="visible-xs">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="panel-title">About</h4>
+						<h4 class="panel-title">{{ trans('blog.about') }}</h4>
 					</div>
 					<div class="panel-body">
 						{{ $options->description }}
@@ -34,7 +34,7 @@
 		</div>
 
 		<hr>
-		<div class="small text-center"><a href="https://github.com/theclob/clob" target="_blank">Powered by clob</a></div>
+		<div class="small text-center"><a href="https://github.com/theclob/clob" target="_blank">{{ trans('app.name.powered') }}</a></div>
 	</div>
 
 	@yield('scripts')

@@ -13,7 +13,9 @@ return [
 
     'name' => [
     	'main' => 'clob',
-    	'admin' => 'clob Admin'
+    	'admin' => 'clob Admin',
+        'setup' => 'clob Setup',
+        'powered' => 'Powered by clob'
     ],
 
     'actions' => [
@@ -22,5 +24,6 @@ return [
     ],
 
     'form_error' => 'Whoops, we ran into a problem! Review the errors highlighted below.',
+    '503' => 'Be right back.',
 
 ];

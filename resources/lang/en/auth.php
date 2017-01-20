@@ -29,8 +29,11 @@ return [
     'reset' => [
         'title' => 'Password Recovery',
         'title_verbose' => 'Recover your clob Admin password',
+        'confirm' => 'Confirm Password',
         'send' => 'Send Reset Link',
-        'back' => 'Back to Login'
+        'back' => 'Back to Login',
+        'change_title' => 'Change your clob Admin password',
+        'change' => 'Change Password &raquo;'
     ]
 
 ];

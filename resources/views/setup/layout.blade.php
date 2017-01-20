@@ -4,29 +4,24 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{ $title }} | clob Setup</title>
+	<title>{{ $title }} | {{ trans('app.name.setup') }}</title>
 
 	<link rel="stylesheet" href="{{ elixir('css/app.css') }}">
 </head>
 <body>
 	<div class="container">
 		<div class="page-header">
-			<h1>clob Setup</h1>
+			<h1>{{ trans('app.name.setup') }}</h1>
 		</div>
 
 		<form method="post">
 			{!! csrf_field() !!}
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h4 class="panel-title">Step {{ $step }} of 2 - {{ $title }}</h4>
+					<h4 class="panel-title">{{ trans('setup.step', ['current' => $step, 'total' => 2, 'title' => $title]) }}</h4>
 				</div>
 				<div class="panel-body">
-					@if(session()->has('error'))
-						<div class="alert alert-danger">
-							<p>{{ session('error') }}</p><br>
-							<p>{{ session('message') }}</p>
-						</div>
-					@endif
+					@include('common.alerts')
 					@yield('content')
 				</div>
 				@yield('table')

@@ -5,9 +5,9 @@
 	{!! $post->html_content !!}
 	<hr>
 	<p class="small">
-		Posted by {{ $post->user->name }} on {{ $post->published_at->format('jS F Y @ g:ia') }}</small>
+		{{ trans('blog.meta', ['user' => $post->user->name, 'date' => $post->published_at->format('jS F Y @ g:ia')]) }}
 		@if($post->tags)
-			<br><strong>Tags:</strong> {{ $post->tags }}
+			<br><strong>{{ trans('blog.tags') }}</strong> {{ $post->tags }}
 		@endif
 	</p>
 @endsection
