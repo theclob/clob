@@ -22,7 +22,7 @@
 
 			<div class="row">
 				<div class="col-md-9">
-					{!! BootForm::text(trans('admin.post.title'), 'title') !!}
+					{!! BootForm::text(trans('admin.post.title'), 'title')->autofocus() !!}
 					{!! BootForm::textarea(trans('admin.post.post'), 'markdown_content')
 								->rows(25)
 								->helpBlock(trans('admin.post.post_help')) !!}

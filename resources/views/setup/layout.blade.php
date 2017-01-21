@@ -14,25 +14,7 @@
 			<h1>{{ trans('app.name.setup') }}</h1>
 		</div>
 
-		<form method="post">
-			{!! csrf_field() !!}
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h4 class="panel-title">{{ trans('setup.step', ['current' => $step, 'total' => 2, 'title' => $title]) }}</h4>
-				</div>
-				<div class="panel-body">
-					@include('common.alerts')
-					@yield('content')
-				</div>
-				@yield('table')
-				<div class="panel-body">
-					@yield('after-table')
-				</div>
-				<div class="panel-footer text-right">
-					@yield('footer')
-				</div>
-			</div>
-		</form>
+		@yield('content')
 	</div>
 
 	@yield('scripts')

@@ -11,14 +11,15 @@
 |
 */
 
+// Setup Routes
 Route::group(['prefix' => 'setup', 'as' => 'setup.', 'middleware' => 'setup'], function() {
 	Route::get('/', 'SetupController@index')->name('index');
-	Route::get('database', 'SetupController@database')->name('database');
-	Route::post('/', 'SetupController@blog')->name('blog');
+	Route::post('/', 'SetupController@setup');
 });
 
+// Admin Routes
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'ready'], function() {
-	// Authentication routes
+	// Admin authentication routes
 	Route::group(['as' => 'auth.', 'namespace' => 'Auth'], function() {
 		Route::get('login', 'LoginController@showLoginForm')->name('login');
 	    Route::post('login', 'LoginController@login');
@@ -43,6 +44,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'ready'], f
     });
 });
 
+// Public blog routes
 Route::group(['as' => 'blog.', 'middleware' => 'ready'], function() {
 	Route::get('/', 'BlogController@index')->name('index');
 	Route::get('{post}', 'BlogController@show')->name('show');

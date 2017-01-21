@@ -68,7 +68,7 @@ class PostController extends Controller
     	$user = request()->user();
     	$user->posts()->save($post);
 
-    	return redirect()->route('admin.index')->withStatus('Post added successfully.');
+    	return redirect()->route('admin.index')->withStatus(trans('admin.post.add_success'));
     }
 
     /**
@@ -84,13 +84,13 @@ class PostController extends Controller
         if(request()->action === 'delete') {
             $post->delete();
 
-            return redirect()->route('admin.index')->withStatus('Post deleted successfully.');
+            return redirect()->route('admin.index')->withStatus(trans('admin.post.delete_success'));
         }
 
         // Otherwise update the post
         $post = $this->setPostData($post);
         $post->save();
 
-        return redirect()->route('admin.index')->withStatus('Post updated successfully.');
+        return redirect()->route('admin.index')->withStatus(trans('admin.post.edit_success'));
     }
 }
