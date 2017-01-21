@@ -16,6 +16,10 @@ class MainController extends Controller
     | the clob Admin.
     |
     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
 	/**
 	 * Blog Admin Dashboard

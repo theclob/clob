@@ -18,7 +18,7 @@ Route::group(['prefix' => 'setup', 'as' => 'setup.', 'middleware' => 'setup'], f
 });
 
 // Admin Routes
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'ready'], function() {
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
 	// Admin authentication routes
 	Route::group(['as' => 'auth.', 'namespace' => 'Auth'], function() {
 		Route::get('login', 'LoginController@showLoginForm')->name('login');
@@ -32,7 +32,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'ready'], f
 	    Route::post('password/reset/{token}', 'ResetPasswordController@reset');
 	});
 
-    Route::group(['namespace' => 'Admin', 'middleware' => ['ready','auth']], function() {
+    Route::group(['namespace' => 'Admin'], function() {
     	Route::get('/', ['as' => 'index', 'uses' => 'MainController@index']);
 
     	Route::group(['prefix' => 'post', 'as' => 'post.'], function() {
