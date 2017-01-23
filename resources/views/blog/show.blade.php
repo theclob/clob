@@ -1,15 +1,19 @@
 @extends('blog.layout', ['title' => $post->title])
 
 @section('content')
-	<h2>{{ $post->title }}</h2>
-	{!! $post->html_content !!}
-	<hr>
-	<p class="small">
-		{{ trans('blog.meta', ['user' => $post->user->name, 'date' => $post->published_at->format('jS F Y @ g:ia')]) }}
-		@if($post->tags)
-			<br><strong>@lang('blog.tags')</strong> {{ $post->tags }}
-		@endif
-	</p>
+	<article class="post">
+		<div class="container">
+			<h2>{{ $post->title }}</h2>
+			{!! $post->html_content !!}
+			<hr>
+			<p class="small">
+				{{ trans('blog.meta', ['user' => $post->user->name, 'date' => $post->published_at->format('jS F Y @ g:ia')]) }}
+				@if($post->tags)
+					<br><strong>@lang('blog.tags')</strong> {{ $post->tags }}
+				@endif
+			</p>
+		</div>
+	</article>
 @endsection
 
 @section('styles')

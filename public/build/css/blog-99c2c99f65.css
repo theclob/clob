@@ -2096,17 +2096,36 @@ pre code {
   }
 }
 
-.home-header {
+.home-header, .post-header {
   background-color: #fff;
-  padding: 80px 0;
   box-shadow: 0 4px 2px -2px #e6e6e6;
+  padding: 20px 0;
+}
+
+.home-header h1, .post-header h1 {
+  margin: 0 0 10px;
+  font-weight: bold;
+  color: #555555;
+}
+
+.home-header h1 a, .post-header h1 a {
+  color: #555555;
+}
+
+.home-header h1 a:hover, .post-header h1 a:hover {
+  text-decoration: none;
+}
+
+.home-header p, .post-header p {
+  color: #888888;
+}
+
+.home-header {
+  padding: 80px 0;
 }
 
 .home-header h1 {
-  margin: 0 0 10px;
   padding: 0 20px;
-  font-weight: bold;
-  color: #555555;
 }
 
 .home-header p {

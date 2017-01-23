@@ -1,12 +1,6 @@
 @extends('blog.layout', ['title' => trans('blog.home')])
 
 @section('content')
-	<header class="home-header">
-		<div class="container">
-			<h1>{{ $options->title }}</h1>
-			<p>{{ $options->description }}</p>
-		</div>
-	</header>
 	<section class="posts">
 		<div class="container">
 			@forelse($posts as $post)
