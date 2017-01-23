@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4 class="panel-title">{{ trans('auth.login.title_verbose') }}</h4>
+                    <h4 class="panel-title">@lang('auth.login.title_verbose')</h4>
                 </div>
                 {!! BootForm::openHorizontal(['md' => [4, 6]]) !!}
                     <div class="panel-body">
@@ -16,8 +16,8 @@
                         {!! BootForm::checkbox(trans('auth.login.remember'), 'remember') !!}
                     </div>
                     <div class="panel-footer">
-                        <button type="submit" class="btn btn-primary pull-right">{{ trans('auth.login.login') }}</button>
-                        <a class="btn btn-link" href="{{ route('admin.auth.forgot') }}">{{ trans('auth.login.forgot') }}</a>
+                        <button type="submit" class="btn btn-primary pull-right">@lang('auth.login.login')</button>
+                        <a class="btn btn-link" href="{{ route('admin.auth.forgot') }}">@lang('auth.login.forgot')</a>
                     </div>
                 {!! BootForm::close() !!}
             </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ trans('app.503') }}</title>
+        <title>@lang('app.503')</title>
 
         <style>
             html, body {
@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">{{ trans('app.503') }}</div>
+                <div class="title">@lang('app.503')</div>
             </div>
         </div>
     </body>

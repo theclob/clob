@@ -12,7 +12,7 @@ return [
 
     'about' => 'About',
     'home' => 'Home',
-    'meta' => 'Posted by :user on :date',
+    'meta' => 'Posted :date',
     'no_posts' => 'No posts to display.',
     'tags' => 'Tags:'
 ];

@@ -1,0 +1,9 @@
+$gray-base: #333;
+$gray-lighter: lighten($gray-base, 70%);
+$body-bg: #fafafa;
+$white: #fff;
+
+$grid-gutter-width: 20px;
+$container-tablet: 740px + $grid-gutter-width;
+$container-desktop: $container-tablet;
+$container-large-desktop: $container-tablet;

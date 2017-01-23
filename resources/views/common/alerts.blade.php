@@ -1,5 +1,5 @@
 @if($errors->first())
-    <div class="alert alert-danger">{{ trans('app.form_error') }}</div>
+    <div class="alert alert-danger">@lang('app.form_error')</div>
 @elseif(session('error'))
 	<div class="alert alert-danger">{{ session('error') }}</div>
 @elseif(session('status'))

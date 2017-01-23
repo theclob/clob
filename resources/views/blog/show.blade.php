@@ -7,7 +7,7 @@
 	<p class="small">
 		{{ trans('blog.meta', ['user' => $post->user->name, 'date' => $post->published_at->format('jS F Y @ g:ia')]) }}
 		@if($post->tags)
-			<br><strong>{{ trans('blog.tags') }}</strong> {{ $post->tags }}
+			<br><strong>@lang('blog.tags')</strong> {{ $post->tags }}
 		@endif
 	</p>
 @endsection

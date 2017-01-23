@@ -13,6 +13,7 @@ const elixir = require('laravel-elixir');
 
 elixir((mix) => {
     mix.sass('app.scss')
+       .sass('blog.scss')
        .webpack('app.js')
-       .version(['css/app.css', 'js/app.js']);
+       .version(['css/app.css', 'css/blog.css', 'js/app.js']);
 });

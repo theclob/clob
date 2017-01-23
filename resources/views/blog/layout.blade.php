@@ -6,38 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{ $title }} | {{ $options->title }}</title>
 
-	<link rel="stylesheet" href="{{ elixir('css/app.css') }}">
+	<link rel="stylesheet" href="{{ elixir('css/blog.css') }}">
 	@yield('styles')
 </head>
 <body>
-	<div class="container">
-		<div class="page-header">
-			<h1><a href="{{ route('blog.index') }}">{{ $options->title }}</a></h1>
-		</div>
+	@yield('content')
 
-		<div class="row">
-			<div class="{{ $options->description ? 'col-sm-8 col-md-9' : 'col-xs-12' }}">
-				@yield('content')
-			</div>
-			@if($options->description)
-				<div class="col-sm-4 col-md-3">
-					<br class="visible-xs">
-					<br class="visible-xs">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">{{ trans('blog.about') }}</h4>
-						</div>
-						<div class="panel-body">
-							{{ $options->description }}
-						</div>
-					</div>
-				</div>
-			@endif
-		</div>
-
-		<hr>
-		<div class="small text-center"><a href="https://github.com/theclob/clob" target="_blank">{{ trans('app.name.powered') }}</a></div>
-	</div>
+	<div class="footer"><a href="https://github.com/theclob/clob" target="_blank">@lang('app.name.powered')</a></div>
 
 	@yield('scripts')
 </body>

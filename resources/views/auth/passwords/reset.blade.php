@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4 class="panel-title">{{ trans('auth.reset.change_title') }}</h4>
+                    <h4 class="panel-title">@lang('auth.reset.change_title')</h4>
                 </div>
 
                 {!! BootForm::openHorizontal(['md' => [4, 6]]) !!}
@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="panel-footer text-right">
-                        <button type="submit" class="btn btn-primary">{{ trans('auth.reset.change') }}</button>
+                        <button type="submit" class="btn btn-primary">@lang('auth.reset.change')</button>
                     </div>
                 {!! BootForm::close() !!}
             </div>
