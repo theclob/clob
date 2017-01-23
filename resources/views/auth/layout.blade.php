@@ -13,7 +13,7 @@
     <br>
     @yield('content')
     <div class="text-center">
-    	<a class="small" target="_blank" href="{{ route('blog.index') }}">View Blog</a>
+    	<a class="small" target="_blank" href="{{ route('blog.index') }}">{{ trans('admin.nav.view_blog') }}</a>
     </div>
 </body>
 </html>

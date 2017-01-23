@@ -33,8 +33,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
 	});
 
     Route::group(['namespace' => 'Admin'], function() {
+        // Admin Dashboard
     	Route::get('/', ['as' => 'index', 'uses' => 'MainController@index']);
 
+        // Blog Post Management
     	Route::group(['prefix' => 'post', 'as' => 'post.'], function() {
     		Route::get('add', 'PostController@add')->name('add');
     		Route::post('add', 'PostController@store');
@@ -43,6 +45,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
     		Route::delete('edit/{post}', 'PostController@destroy');
     	});
 
+        // Blog Settings
     	Route::group(['prefix' => 'settings', 'as' => 'settings.'], function() {
     		Route::get('/', 'SettingsController@index')->name('index');
 
