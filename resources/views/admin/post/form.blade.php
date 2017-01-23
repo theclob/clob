@@ -9,8 +9,8 @@
 			{!! method_field('delete') !!}
 
 			<div class="panel-toolbar">
-				<a href="{{ route('blog.show', $post) }}" target="_blank" class="btn btn-default">{{ trans('admin.post.view') }}</a>
-				<button type="submit" name="action" id="deleteBtn" class="btn btn-danger">{{ trans('admin.post.delete') }}</button>
+				<a href="{{ route('blog.show', $post) }}" target="_blank" class="btn btn-default">@lang('admin.post.view')</a>
+				<button type="submit" name="action" id="deleteBtn" class="btn btn-danger">@lang('admin.post.delete')</button>
 			</div>
 		{!! BootForm::close() !!}
 	@endif
@@ -21,7 +21,7 @@
 		@endif
 		<div class="panel-body">
 			@if($errors->first())
-				<div class="alert alert-danger">{{ trans('app.form_error') }}</div>
+				<div class="alert alert-danger">@lang('app.form_error')</div>
 			@endif
 
 			<div class="row">
@@ -49,8 +49,8 @@
 			</div>
 		</div>
 		<div class="panel-footer text-right">
-			<button type="submit" class="btn btn-primary">{{ trans('app.actions.save') }}</button>
-			<a href="{{ route('admin.index') }}" class="btn btn-link">{{ trans('app.actions.cancel') }}</a>
+			<button type="submit" class="btn btn-primary">@lang('app.actions.save')</button>
+			<a href="{{ route('admin.index') }}" class="btn btn-link">@lang('app.actions.cancel')</a>
 		</div>
 	{!! BootForm::close() !!}
 </div>

@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="page-header">
-		<h2>{{ trans('admin.settings.title')}}</h2>
+		<h2>@lang('admin.settings.title')</h2>
 	</div>
 	<div class="row">
 		<div class="col-sm-3">
@@ -11,7 +11,7 @@
 		<div class="col-sm-9">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h4 class="panel-title">{{ trans('admin.settings.blog.title') }}</h4>
+					<h4 class="panel-title">@lang('admin.settings.blog.title')</h4>
 				</div>
 				{!! BootForm::openHorizontal(['md' => [3, 9]]) !!}
 					{!! BootForm::bind($options) !!}

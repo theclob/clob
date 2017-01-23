@@ -9,7 +9,7 @@
 		var deleteBtn = document.getElementById('deleteBtn');
 
 		deleteBtn.onclick = function(e) {
-			if(!confirm('{{ trans('admin.post.delete_confirm') }}')) {
+			if(!confirm('@lang('admin.post.delete_confirm')')) {
 				return false;
 			}
 		};
