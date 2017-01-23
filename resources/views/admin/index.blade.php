@@ -1,6 +1,5 @@
 @extends('admin.layout', ['title' => trans('admin.dashboard.title')])
 
-
 @section('content')
 	<div class="panel panel-default">
 		<div class="panel-heading">
