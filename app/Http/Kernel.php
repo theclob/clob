@@ -54,6 +54,5 @@ class Kernel extends HttpKernel
         'guest' => \Clob\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'setup' => \Clob\Http\Middleware\RedirectIfSetupCompleted::class,
-        'ready' => \Clob\Http\Middleware\SetupRequired::class,
     ];
 }

@@ -2,19 +2,23 @@
 	<div class="panel-heading">
 		<h4 class="panel-title">{{ $title }}</h4>
 	</div>
-	{!! BootForm::open() !!}
-		{!! csrf_field() !!}
 
-		@if(isset($post))
+	@if(isset($post))
+		{!! BootForm::open() !!}
 			{!! BootForm::bind($post) !!}
+			{!! method_field('delete') !!}
 
 			<div class="panel-toolbar">
 				<a href="{{ route('blog.show', $post) }}" target="_blank" class="btn btn-default">{{ trans('admin.post.view') }}</a>
-				<button type="submit" name="action" value="default" class="hidden"></button>
-				<button type="submit" name="action" value="delete" id="deleteBtn" class="btn btn-danger">{{ trans('admin.post.delete') }}</button>
+				<button type="submit" name="action" id="deleteBtn" class="btn btn-danger">{{ trans('admin.post.delete') }}</button>
 			</div>
-		@endif
+		{!! BootForm::close() !!}
+	@endif
 
+	{!! BootForm::open() !!}
+		@if(isset($post))
+			{!! BootForm::bind($post) !!}
+		@endif
 		<div class="panel-body">
 			@if($errors->first())
 				<div class="alert alert-danger">{{ trans('app.form_error') }}</div>
@@ -45,7 +49,7 @@
 			</div>
 		</div>
 		<div class="panel-footer text-right">
-			<button type="submit" name="action" value="save" class="btn btn-primary">{{ trans('app.actions.save') }}</button>
+			<button type="submit" class="btn btn-primary">{{ trans('app.actions.save') }}</button>
 			<a href="{{ route('admin.index') }}" class="btn btn-link">{{ trans('app.actions.cancel') }}</a>
 		</div>
 	{!! BootForm::close() !!}

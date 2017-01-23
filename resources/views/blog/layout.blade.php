@@ -16,21 +16,23 @@
 		</div>
 
 		<div class="row">
-			<div class="col-sm-8 col-md-9">
+			<div class="{{ $options->description ? 'col-sm-8 col-md-9' : 'col-xs-12' }}">
 				@yield('content')
 			</div>
-			<div class="col-sm-4 col-md-3">
-				<br class="visible-xs">
-				<br class="visible-xs">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">{{ trans('blog.about') }}</h4>
-					</div>
-					<div class="panel-body">
-						{{ $options->description }}
+			@if($options->description)
+				<div class="col-sm-4 col-md-3">
+					<br class="visible-xs">
+					<br class="visible-xs">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">{{ trans('blog.about') }}</h4>
+						</div>
+						<div class="panel-body">
+							{{ $options->description }}
+						</div>
 					</div>
 				</div>
-			</div>
+			@endif
 		</div>
 
 		<hr>

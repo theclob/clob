@@ -10,7 +10,6 @@
                 </div>
 
                 {!! BootForm::openHorizontal(['md' => [4, 6]]) !!}
-                    {{ csrf_field() }}
                     <input type="hidden" name="token" value="{{ $token }}">
 
                     <div class="panel-body">

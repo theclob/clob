@@ -3,10 +3,9 @@
 namespace Clob\Http\Controllers\Admin;
 
 use Clob\Post;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Clob\Http\Requests\SaveBlogPost;
 use Clob\Http\Controllers\Controller;
+use Clob\Repositories\Posts as PostRepository;
 
 class PostController extends Controller
 {
@@ -19,6 +18,23 @@ class PostController extends Controller
     | the clob Admin.
     |
     */
+
+    /**
+     * The post repository instance.
+     */
+    protected $posts;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(PostRepository $posts)
+    {
+        $this->posts = $posts;
+
+        $this->middleware('auth');
+    }
 
     /**
      * Add New Post Page
@@ -41,22 +57,6 @@ class PostController extends Controller
     }
 
     /**
-     * Set post data values from request object
-     *
-     * @param \Clob\Post $post
-     * @return \Clob\Post
-     */
-    private function setPostData(Post $post)
-    {
-        $post->title = request()->title;
-        $post->markdown_content = request()->markdown_content; // The PostObserver class auto-converts this to HTML
-        $post->published_at = request()->published_at ?: Carbon::now(); // Default publish date to now if null
-        $post->tags = request()->tags ?: null;
-
-        return $post;
-    }
-
-    /**
      * Insert a new blog post
      *
      * @param \Clob\Http\Requests\SaveBlogPost $request
@@ -64,15 +64,16 @@ class PostController extends Controller
      */
     public function store(SaveBlogPost $request)
     {
-    	$post = $this->setPostData(new Post);
-    	$user = request()->user();
-    	$user->posts()->save($post);
+        $user = $request->user();
+        $post = $request->only(['title', 'markdown_content', 'published_at', 'tags']);
+
+        $this->posts->create($user, $post);
 
     	return redirect()->route('admin.index')->withStatus(trans('admin.post.add_success'));
     }
 
     /**
-     * Update or delete an existing blog post
+     * Update an existing blog post
      *
      * @param \Clob\Http\Requests\SaveBlogPost $request
      * @param \Clob\Post $post
@@ -80,17 +81,22 @@ class PostController extends Controller
      */
     public function update(SaveBlogPost $request, Post $post)
     {
-        // If the request contains an "action" property with a value "delete", delete the post
-        if(request()->action === 'delete') {
-            $post->delete();
-
-            return redirect()->route('admin.index')->withStatus(trans('admin.post.delete_success'));
-        }
-
-        // Otherwise update the post
-        $post = $this->setPostData($post);
-        $post->save();
+        $postData = $request->only(['title', 'markdown_content', 'published_at', 'tags']);
+        $this->posts->update($post, $postData);
 
         return redirect()->route('admin.index')->withStatus(trans('admin.post.edit_success'));
+    }
+
+    /**
+     * Delete an existing blog post
+     *
+     * @param \Clob\Post $post
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function destroy(Post $post)
+    {
+        $this->posts->delete($post);
+
+        return redirect()->route('admin.index')->withStatus(trans('admin.post.delete_success'));
     }
 }

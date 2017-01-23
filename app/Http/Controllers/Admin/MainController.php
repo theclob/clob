@@ -2,8 +2,8 @@
 
 namespace Clob\Http\Controllers\Admin;
 
-use Clob\Post;
 use Clob\Http\Controllers\Controller;
+use Clob\Repositories\Posts as PostRepository;
 
 class MainController extends Controller
 {
@@ -16,8 +16,22 @@ class MainController extends Controller
     | the clob Admin.
     |
     */
-    public function __construct()
+
+    /**
+     * The post repository instance.
+     */
+    protected $posts;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param PostRepository $posts
+     * @return void
+     */
+    public function __construct(PostRepository $posts)
     {
+        $this->posts = $posts;
+
         $this->middleware('auth');
     }
 
@@ -28,7 +42,7 @@ class MainController extends Controller
 	 */
     public function index()
     {
-    	$posts = Post::recentFirst()->get();
+    	$posts = $this->posts->all();
 
     	return view('admin.index')->withPosts($posts);
     }

@@ -7,11 +7,13 @@
 
     <title>{{ $title }} | {{ trans('app.name.admin') }}</title>
 
-    <!-- Styles -->
     <link href="{{ elixir('/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <br>
     @yield('content')
+    <div class="text-center">
+    	<a class="small" target="_blank" href="{{ route('blog.index') }}">View Blog</a>
+    </div>
 </body>
 </html>

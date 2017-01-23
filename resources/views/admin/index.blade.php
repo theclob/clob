@@ -8,9 +8,7 @@
 		</div>
 		@if($posts->count() > 0)
 			<div class="panel-body">
-				@if(session()->has('status'))
-					<div class="alert alert-success">{{ session('status') }}</div>
-				@endif
+				@include('common.alerts')
 				<a href="{{ route('admin.post.add') }}" class="btn btn-primary">{{ trans('admin.post.add') }}</a>
 			</div>
 			<table class="table">
@@ -32,8 +30,11 @@
 				</tbody>
 			</table>
 		@else
-			<div class="panel-body text-center text-muted">
-				<a href="{{ route('admin.post.add') }}" class="btn btn-lg btn-primary">{{ trans('admin.post.create') }}</a>
+			<div class="panel-body">
+				@include('common.alerts')
+				<div class="text-center text-muted">
+					<a href="{{ route('admin.post.add') }}" class="btn btn-lg btn-primary">{{ trans('admin.post.create') }}</a>
+				</div>
 			</div>
 		@endif
 	</div>

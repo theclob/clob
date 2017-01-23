@@ -6,21 +6,20 @@
 			<h4 class="panel-title">{{ trans('setup.title') }}</h4>
 		</div>
 		{!! BootForm::openHorizontal(['sm' => [3, 9], 'md' => [2, 10]]) !!}
-			{!! csrf_field() !!}
 			<div class="panel-body">
 				@include('common.alerts')
 				<p>{{ trans('setup.basic_info') }}</p>
 				<br>
 
-				{!! BootForm::text(trans('setup.form.title'), 'title')->autofocus()->required() !!}
-				{!! BootForm::textarea(trans('setup.form.description'), 'description')->rows(10) !!}
+				{!! BootForm::text(trans('admin.settings.blog.form.title'), 'title')->autofocus()->required() !!}
+				{!! BootForm::textarea(trans('admin.settings.blog.form.description'), 'description')->rows(10) !!}
 
 				<br>
 				<p>{!! trans('setup.account_info') !!}</p>
 				<br>
 
-				{!! BootForm::text(trans('setup.form.name'), 'name')->required() !!}
-				{!! BootForm::email(trans('setup.form.email'), 'email')->required() !!}
+				{!! BootForm::text(trans('admin.settings.user.form.name'), 'name')->required() !!}
+				{!! BootForm::email(trans('admin.settings.user.form.email'), 'email')->required() !!}
 				{!! BootForm::password(trans('setup.form.password'), 'password')->required() !!}
 			</div>
 

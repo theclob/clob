@@ -10,7 +10,6 @@
                     <h4 class="panel-title">{{ trans('auth.reset.title_verbose') }}</h4>
                 </div>
                 {!! BootForm::openHorizontal(['md' => [4, 6]]) !!}
-                    {{ csrf_field() }}
                     <div class="panel-body">
                         @include('common.alerts')
                         {!! BootForm::email(trans('auth.login.email'), 'email')->required()->autofocus() !!}

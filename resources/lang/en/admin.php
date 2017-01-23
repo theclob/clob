@@ -20,6 +20,35 @@ return [
 
     'settings' => [
     	'title' => 'Settings',
+
+        'blog' => [
+            'title' => 'Blog Settings',
+            'form' => [
+                'title' => 'Blog Title',
+                'description' => 'Description',
+            ],
+            'save_success' => 'Blog settings updated successfully.'
+        ],
+
+        'user' => [
+            'title' => 'User Settings',
+            'form' => [
+                'name' => 'Your Name',
+                'email' => 'Email Address',
+            ],
+            'save_success' => 'User settings updated successfully.'
+        ],
+
+        'password' => [
+            'title' => 'Change Password',
+            'form' => [
+                'current' => 'Current Password',
+                'new' => 'New Password',
+                'confirm' => 'Confirm New Password',
+            ],
+            'save_success' => 'Password changed successfully.',
+            'incorrect' => 'The current password is not correct.'
+        ],
     ],
 
     'post' => [

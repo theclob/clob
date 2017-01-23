@@ -2,13 +2,9 @@
 
 namespace Clob\Http\Controllers;
 
-use Clob\User;
-use Clob\Option;
 use PDOException;
 use Clob\Http\Requests\SetupBlog;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Database\QueryException;
 use Clob\Repositories\Users as UserRepository;
@@ -48,6 +44,8 @@ class SetupController extends Controller
     {
     	$this->users = $users;
     	$this->options = $options;
+
+    	$this->middleware('setup');
     }
 
 	/**
@@ -70,13 +68,15 @@ class SetupController extends Controller
 	{
 		try {
 			// Run migrations
-			$exitCode = Artisan::call('migrate');
+			Artisan::call('migrate');
 
 			// Save the blog options to the database
-			$options = $this->options->setupBlog(request());
+			$options = $request->only(['title', 'description']);
+			$this->options->setupBlog($options);
 
 			// Create admin user account and log in
-			$user = $this->users->createAdmin(request());
+			$userData = $request->only(['name', 'email', 'password']);
+			$user = $this->users->createAdmin($userData);
 			Auth::login($user, true);
 
 			// Redirect to the Admin Dashboard

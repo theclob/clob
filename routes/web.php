@@ -12,7 +12,7 @@
 */
 
 // Setup Routes
-Route::group(['prefix' => 'setup', 'as' => 'setup.', 'middleware' => 'setup'], function() {
+Route::group(['prefix' => 'setup', 'as' => 'setup.'], function() {
 	Route::get('/', 'SetupController@index')->name('index');
 	Route::post('/', 'SetupController@setup');
 });
@@ -39,13 +39,27 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
     		Route::get('add', 'PostController@add')->name('add');
     		Route::post('add', 'PostController@store');
     		Route::get('edit/{post}', 'PostController@edit')->name('edit');
-    		Route::post('edit/{post}', 'PostController@update');
+            Route::post('edit/{post}', 'PostController@update');
+    		Route::delete('edit/{post}', 'PostController@destroy');
+    	});
+
+    	Route::group(['prefix' => 'settings', 'as' => 'settings.'], function() {
+    		Route::get('/', 'SettingsController@index')->name('index');
+
+            Route::group(['namespace' => 'Settings'], function() {
+                Route::get('blog', 'BlogController@index')->name('blog');
+                Route::put('blog', 'BlogController@save');
+                Route::get('user', 'UserController@index')->name('user');
+                Route::put('user', 'UserController@save');
+                Route::get('password', 'PasswordController@index')->name('password');
+                Route::put('password', 'PasswordController@save');
+            });
     	});
     });
 });
 
 // Public blog routes
-Route::group(['as' => 'blog.', 'middleware' => 'ready'], function() {
+Route::group(['as' => 'blog.'], function() {
 	Route::get('/', 'BlogController@index')->name('index');
 	Route::get('{post}', 'BlogController@show')->name('show');
 });

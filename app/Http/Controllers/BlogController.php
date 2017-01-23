@@ -5,6 +5,7 @@ namespace Clob\Http\Controllers;
 use Clob\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Clob\Repositories\Posts as PostRepository;
 
 class BlogController extends Controller
 {
@@ -18,13 +19,29 @@ class BlogController extends Controller
     */
 
     /**
+     * The post repository instance.
+     */
+    protected $posts;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param PostRepository $posts
+     * @return void
+     */
+    public function __construct(PostRepository $posts)
+    {
+        $this->posts = $posts;
+    }
+
+    /**
      * Displays the blog home page
      *
      * @return \Illuminate\View\View
      */
     public function index()
     {
-    	$posts = Post::published()->recentFirst()->get();
+    	$posts = $this->posts->published();
 
     	return view('blog.index')->withPosts($posts);
     }

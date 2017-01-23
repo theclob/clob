@@ -19,7 +19,7 @@
 				<form method="post" action="{{ route('admin.auth.logout') }}">
 					{!! csrf_field() !!}
 					<a href="{{ route('blog.index') }}" target="_blank" class="btn btn-link">{{ trans('admin.nav.view_blog') }}</a>
-					<a href="#" class="btn btn-link">{{ trans('admin.settings.title') }}</a>
+					<a href="{{ route('admin.settings.index') }}" class="btn btn-link">{{ trans('admin.settings.title') }}</a>
 					<button class="btn btn-default" type="submit">{{ trans('admin.nav.logout') }}</button>
 				</form>
 				<br>

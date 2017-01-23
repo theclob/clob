@@ -15,10 +15,6 @@ return [
     'finish' => 'Finish &raquo;',
 
     'form' => [
-    	'title' => 'Blog Title',
-    	'description' => 'Description',
-    	'name' => 'Your Name',
-    	'email' => 'Email Address',
     	'password' => 'Password'
     ],
 
