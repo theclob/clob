@@ -64,6 +64,8 @@ return [
     	'delete_confirm' => 'This will permanently delete this post. If you wish to continue, click OK.',
         'delete_success' => 'Post deleted successfully.',
     	'title' => 'Title',
+        'slug' => 'Post URL / Permalink',
+        'slug_help' => 'This is the URL to your post. Leave blank to auto-generate based on title.',
         'subtitle' => 'Subtitle',
     	'post' => 'Post',
     	'post_help' => 'To format your post, use <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown</a>.',
@@ -72,7 +74,19 @@ return [
     	'tags' => 'Tags',
     	'tags_placeholder' => 'e.g. php, laravel, vue',
     	'tags_help' => 'Separate tags with commas.',
-        'read_time' => 'Read Time'
+        'read_time' => 'Read Time',
+
+        'seo' => [
+            'help_title' => 'What are these fields?',
+            'help_text' => 'These fields allow you to specify optimized data for how links to your post will appear in search engine results and when the post is shared on social media sites like Facebook and Twitter.',
+            'section' => 'SEO &amp; Social Sharing Optimization',
+            'title' => 'SEO Title',
+            'title_help' => 'Leave blank to use the post title. Max 60 characters.',
+            'description' => 'Meta/OpenGraph Description',
+            'description_help' => 'Leave blank to use start of post body. Max 160 characters.',
+            'image_url' => 'Image URL',
+            'image_url_help' => 'Image to display when post is shared on social media. Absolute URLs only.'
+        ]
     ],
 
 ];

@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->longText('markdown_content');
             $table->longText('html_content');
             $table->string('tags')->nullable();
-            $table->timestamp('published_at');
+            $table->datetime('published_at');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
         });

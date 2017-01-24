@@ -7,7 +7,14 @@
 	<title>{{ $title }} | {{ $options->title }}</title>
 
 	<link rel="stylesheet" href="{{ elixir('css/blog.css') }}">
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 	<link rel="alternate" type="application/rss+xml" title="@lang('blog.feed', ['title' => $options->title])" href="{{ route('blog.feed') }}" />
+	<meta name="generator" content="clob.io" />
+	<link rel="canonical" href="{{ url()->current() }}" />
+	@include('blog.seo')
 </head>
 <body>
 	<header class="{{ request()->route()->getName() === 'blog.index' ? 'home-header' : 'post-header' }}">

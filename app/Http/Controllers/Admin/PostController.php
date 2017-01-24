@@ -24,6 +24,11 @@ class PostController extends Controller
      */
     protected $posts;
 
+    protected const ALLOWED_FIELDS = [
+        'title', 'slug', 'subtitle', 'markdown_content', 'published_at', 'tags',
+        'seo_title', 'seo_description', 'seo_image_url'
+    ];
+
     /**
      * Create a new controller instance.
      *
@@ -65,7 +70,7 @@ class PostController extends Controller
     public function store(SaveBlogPost $request)
     {
         $user = $request->user();
-        $post = $request->only(['title', 'subtitle', 'markdown_content', 'published_at', 'tags']);
+        $post = $request->only(self::ALLOWED_FIELDS);
 
         $this->posts->create($user, $post);
 
@@ -81,7 +86,7 @@ class PostController extends Controller
      */
     public function update(SaveBlogPost $request, Post $post)
     {
-        $postData = $request->only(['title', 'subtitle', 'markdown_content', 'published_at', 'tags']);
+        $postData = $request->only(self::ALLOWED_FIELDS);
         $this->posts->update($post, $postData);
 
         return redirect()->route('admin.index')->withStatus(trans('admin.post.edit_success'));

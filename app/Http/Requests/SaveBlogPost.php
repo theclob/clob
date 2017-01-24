@@ -3,6 +3,7 @@
 namespace Clob\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class SaveBlogPost extends FormRequest
 {
@@ -25,8 +26,15 @@ class SaveBlogPost extends FormRequest
     {
         return [
             'title' => 'required',
+            'slug' => [
+                'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/',
+                Rule::unique('posts')->ignore($this->post ? $this->post->id : null)
+            ],
             'markdown_content' => 'required',
-            'published_at' => 'date'
+            'published_at' => 'date',
+            'seo_title' => 'max:60',
+            'seo_description' => 'max:160',
+            'seo_image_url' => 'url'
         ];
     }
 }
