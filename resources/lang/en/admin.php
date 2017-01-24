@@ -63,13 +63,15 @@ return [
     	'delete_confirm' => 'This will permanently delete this post. If you wish to continue, click OK.',
         'delete_success' => 'Post deleted successfully.',
     	'title' => 'Title',
+        'subtitle' => 'Subtitle',
     	'post' => 'Post',
     	'post_help' => 'To format your post, use <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown</a>.',
     	'publish_date' => 'Publish Date',
     	'publish_date_help' => 'Schedule posts for later by setting a publish date in the future. Leave blank to publish immediately.',
     	'tags' => 'Tags',
     	'tags_placeholder' => 'e.g. php, laravel, vue',
-    	'tags_help' => 'Separate tags with commas.'
+    	'tags_help' => 'Separate tags with commas.',
+        'read_time' => 'Read Time'
     ],
 
 ];

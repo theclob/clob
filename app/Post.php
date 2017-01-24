@@ -55,4 +55,18 @@ class Post extends Model
     {
     	return $query->orderBy('published_at', 'desc');
     }
+
+    public function scopePrevious($query, Post $post)
+    {
+        $id = $query->where('id', '<', $post->id)->max('id');
+
+        return $query->where('id', $id);
+    }
+
+    public function scopeNext($query, Post $post)
+    {
+        $id = $query->where('id', '>', $post->id)->min('id');
+
+        return $query->where('id', $id);
+    }
 }

@@ -5,14 +5,23 @@
 		<div class="container">
 			@forelse($posts as $post)
 				<a class="post" href="{{ route('blog.show', $post) }}">
-					<h2>{{ $post->title }}</h2>
-					<p class="snippet">{{ str_limit(strip_tags($post->html_content), 220) }}</p>
-					<p class="meta">
-						@lang('blog.meta', ['date' => $post->published_at->format('F j, Y')])
-						@if($post->tags)
-							<br><strong>Tags:</strong> {{ $post->tags }}
+					<p class="post-info">
+						{{ $post->published_at->format('F j, Y') }}
+						@if($post->read_time_minutes)
+							<span class="separator">&bull;</span>
+							@lang('blog.read_time', ['minutes' => $post->read_time_minutes])
 						@endif
 					</p>
+					<header>
+						<h2>{{ $post->title }}</h2>
+						@if($post->subtitle)
+							<h3>{{ $post->subtitle }}</h3>
+						@endif
+					</header>
+					<p class="snippet">{{ str_limit(strip_tags($post->html_content), 280) }}</p>
+					@if($post->tags)
+						<p class="meta"><strong>@lang('blog.tags')</strong> {{ $post->tags }}</p>
+					@endif
 				</a>
 			@empty
 				<p>@lang('blog.no_posts')</p>

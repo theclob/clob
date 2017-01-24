@@ -54,6 +54,12 @@ class BlogController extends Controller
      */
     public function show(Post $post)
     {
-    	return view('blog.show')->withPost($post);
+        $previous_post = $this->posts->previous($post);
+        $next_post = $this->posts->next($post);
+
+    	return view('blog.show')
+            ->withPost($post)
+            ->withPreviousPost($previous_post)
+            ->withNextPost($next_post);
     }
 }

@@ -3,24 +3,45 @@
 @section('content')
 	<article class="post">
 		<div class="container">
-			<h2>{{ $post->title }}</h2>
-			{!! $post->html_content !!}
-			<hr>
-			<p class="small">
+			<header>
+				<p class="post-info">
+					{{ $post->published_at->format('F j, Y') }}
+					@if($post->read_time_minutes)
+						<span class="separator">&bull;</span>
+						@lang('blog.read_time', ['minutes' => $post->read_time_minutes])
+					@endif
+				</p>
+				<h1>{{ $post->title }}</h1>
+				@if($post->subtitle)
+					<h2>{{ $post->subtitle }}</h2>
+				@endif
+			</header>
+			<div class="post-content">
+				{!! $post->html_content !!}
+			</div>
+			<div class="meta">
 				{{ trans('blog.meta', ['user' => $post->user->name, 'date' => $post->published_at->format('jS F Y @ g:ia')]) }}
 				@if($post->tags)
 					<br><strong>@lang('blog.tags')</strong> {{ $post->tags }}
 				@endif
-			</p>
+				<div class="post-links clearfix">
+					@if($next_post)
+						<div class="pull-right">
+							<small class="text-muted">@lang('blog.next')</small>
+							<a href="{{ route('blog.show', $next_post) }}">{{ $next_post->title }}</a>
+						</div>
+					@endif
+					@if($previous_post)
+						<small class="text-muted">@lang('blog.previous')</small>
+						<a href="{{ route('blog.show', $previous_post) }}">{{ $previous_post->title }}</a>
+					@endif
+				</div>
+			</div>
+			<p class="back"><a href="{{ route('blog.index') }}">@lang('blog.back')</a></p>
 		</div>
 	</article>
 @endsection
 
-@section('styles')
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-@endsection
-
 @section('scripts')
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
+	<script src="{{ elixir('js/blog.js') }}"></script>
 @endsection

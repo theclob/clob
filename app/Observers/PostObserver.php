@@ -32,8 +32,12 @@ class PostObserver
 	 */
 	public function saving(Post $post)
 	{
+		// Convert Markdown to HTML
 		$parsedown = new Parsedown;
-
 		$post->html_content = $parsedown->text($post->markdown_content);
+
+		$post->word_count = str_word_count(strip_tags($post->html_content));
+		$reading_time = floor($post->word_count / 225); // 275 wpm reading speed
+		$post->read_time_minutes = $reading_time ?: 1; // set at 1 minute if 0
 	}
 }

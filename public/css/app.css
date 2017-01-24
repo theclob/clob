@@ -7697,11 +7697,6 @@ button.close {
   margin-right: 5px;
 }
 
-.hljs {
-  padding: 0 !important;
-  background: transparent !important;
-}
-
 textarea.form-control {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 13px;

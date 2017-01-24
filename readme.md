@@ -128,6 +128,7 @@ Version 0.1 (January 2017):
 * Blog homepage
 * Post view
 * GitHub Flavored Markdown support
+* Estimated reading time calculation
 
 Version 0.2 (February 2017):
 

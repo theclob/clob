@@ -47,6 +47,7 @@ class Posts extends Repository
     private function setPostData(Post $post, $data)
     {
         $post->title = $data['title'];
+        $post->subtitle = $data['subtitle'] ?: null;
         $post->markdown_content = $data['markdown_content']; // The PostObserver class auto-converts this to HTML
         $post->published_at = $data['published_at'] ?: Carbon::now(); // Default publish date to now if null
         $post->tags = $data['tags'] ?: null;
@@ -93,5 +94,15 @@ class Posts extends Repository
     public function delete(Post $post)
     {
         $post->delete();
+    }
+
+    public function previous(Post $post)
+    {
+        return Post::published()->previous($post)->first();
+    }
+
+    public function next(Post $post)
+    {
+        return Post::published()->next($post)->first();
     }
 }

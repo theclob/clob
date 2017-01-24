@@ -22,7 +22,7 @@
 	</header>
 	@yield('content')
 
-	<div class="footer"><a href="https://github.com/theclob/clob" target="_blank">@lang('app.name.powered')</a></div>
+	<footer><a href="https://github.com/theclob/clob" target="_blank">@lang('app.name.powered')</a></footer>
 
 	@yield('scripts')
 </body>

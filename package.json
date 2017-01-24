@@ -11,5 +11,8 @@
     "laravel-elixir": "^6.0.0-14",
     "laravel-elixir-webpack-official": "^1.0.2",
     "lodash": "^4.16.2"
+  },
+  "dependencies": {
+    "highlight.js": "^9.9.0"
   }
 }

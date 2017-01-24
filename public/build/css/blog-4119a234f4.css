@@ -303,10 +303,10 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
-  color: #666666;
+  color: #535353;
   background-color: #fafafa;
 }
 
@@ -373,7 +373,7 @@ hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #e6e6e6;
+  border-top: 1px solid #ececec;
 }
 
 .sr-only {
@@ -403,64 +403,64 @@ hr {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: inherit;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1.1;
-  color: inherit;
+  color: #202020;
 }
 
 h1 small,
 h1 .small,
 h1 .posts .post .meta, .posts .post
 h1 .meta,
-h1 .footer, h2 small,
+h1 footer, h2 small,
 h2 .small,
 h2 .posts .post .meta, .posts .post
 h2 .meta,
-h2 .footer, h3 small,
+h2 footer, h3 small,
 h3 .small,
 h3 .posts .post .meta, .posts .post
 h3 .meta,
-h3 .footer, h4 small,
+h3 footer, h4 small,
 h4 .small,
 h4 .posts .post .meta, .posts .post
 h4 .meta,
-h4 .footer, h5 small,
+h4 footer, h5 small,
 h5 .small,
 h5 .posts .post .meta, .posts .post
 h5 .meta,
-h5 .footer, h6 small,
+h5 footer, h6 small,
 h6 .small,
 h6 .posts .post .meta, .posts .post
 h6 .meta,
-h6 .footer,
+h6 footer,
 .h1 small,
 .h1 .small,
 .h1 .posts .post .meta, .posts .post
 .h1 .meta,
-.h1 .footer, .h2 small,
+.h1 footer, .h2 small,
 .h2 .small,
 .h2 .posts .post .meta, .posts .post
 .h2 .meta,
-.h2 .footer, .h3 small,
+.h2 footer, .h3 small,
 .h3 .small,
 .h3 .posts .post .meta, .posts .post
 .h3 .meta,
-.h3 .footer, .h4 small,
+.h3 footer, .h4 small,
 .h4 .small,
 .h4 .posts .post .meta, .posts .post
 .h4 .meta,
-.h4 .footer, .h5 small,
+.h4 footer, .h5 small,
 .h5 .small,
 .h5 .posts .post .meta, .posts .post
 .h5 .meta,
-.h5 .footer, .h6 small,
+.h5 footer, .h6 small,
 .h6 .small,
 .h6 .posts .post .meta, .posts .post
 .h6 .meta,
-.h6 .footer {
+.h6 footer {
   font-weight: normal;
   line-height: 1;
-  color: #aaaaaa;
+  color: #979797;
 }
 
 h1, .h1,
@@ -474,29 +474,29 @@ h1 small,
 h1 .small,
 h1 .posts .post .meta, .posts .post
 h1 .meta,
-h1 .footer, .h1 small,
+h1 footer, .h1 small,
 .h1 .small,
 .h1 .posts .post .meta, .posts .post
 .h1 .meta,
-.h1 .footer,
+.h1 footer,
 h2 small,
 h2 .small,
 h2 .posts .post .meta, .posts .post
 h2 .meta,
-h2 .footer, .h2 small,
+h2 footer, .h2 small,
 .h2 .small,
 .h2 .posts .post .meta, .posts .post
 .h2 .meta,
-.h2 .footer,
+.h2 footer,
 h3 small,
 h3 .small,
 h3 .posts .post .meta, .posts .post
 h3 .meta,
-h3 .footer, .h3 small,
+h3 footer, .h3 small,
 .h3 .small,
 .h3 .posts .post .meta, .posts .post
 .h3 .meta,
-.h3 .footer {
+.h3 footer {
   font-size: 65%;
 }
 
@@ -511,29 +511,29 @@ h4 small,
 h4 .small,
 h4 .posts .post .meta, .posts .post
 h4 .meta,
-h4 .footer, .h4 small,
+h4 footer, .h4 small,
 .h4 .small,
 .h4 .posts .post .meta, .posts .post
 .h4 .meta,
-.h4 .footer,
+.h4 footer,
 h5 small,
 h5 .small,
 h5 .posts .post .meta, .posts .post
 h5 .meta,
-h5 .footer, .h5 small,
+h5 footer, .h5 small,
 .h5 .small,
 .h5 .posts .post .meta, .posts .post
 .h5 .meta,
-.h5 .footer,
+.h5 footer,
 h6 small,
 h6 .small,
 h6 .posts .post .meta, .posts .post
 h6 .meta,
-h6 .footer, .h6 small,
+h6 footer, .h6 small,
 .h6 .small,
 .h6 .posts .post .meta, .posts .post
 .h6 .meta,
-.h6 .footer {
+.h6 footer {
   font-size: 75%;
 }
 
@@ -581,7 +581,7 @@ p {
 small,
 .small,
 .posts .post .meta,
-.footer {
+footer {
   font-size: 85%;
 }
 
@@ -599,7 +599,7 @@ mark,
   text-align: right;
 }
 
-.text-center, .footer {
+.text-center, footer {
   text-align: center;
 }
 
@@ -624,7 +624,7 @@ mark,
 }
 
 .text-muted, .posts .post .meta {
-  color: #aaaaaa;
+  color: #979797;
 }
 
 .text-primary {
@@ -724,7 +724,7 @@ a.bg-danger:focus {
 .page-header {
   padding-bottom: 9px;
   margin: 40px 0 20px;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid lightgray;
 }
 
 ul,
@@ -802,7 +802,7 @@ dd {
 abbr[title],
 abbr[data-original-title] {
   cursor: help;
-  border-bottom: 1px dotted #aaaaaa;
+  border-bottom: 1px dotted #979797;
 }
 
 .initialism {
@@ -813,7 +813,7 @@ blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;
   font-size: 17.5px;
-  border-left: 5px solid #e6e6e6;
+  border-left: 5px solid lightgray;
 }
 
 blockquote p:last-child,
@@ -827,11 +827,11 @@ blockquote small,
 blockquote .small,
 blockquote .posts .post .meta, .posts .post
 blockquote .meta,
-blockquote .footer {
+blockquote footer {
   display: block;
   font-size: 80%;
   line-height: 1.428571429;
-  color: #aaaaaa;
+  color: #979797;
 }
 
 blockquote footer:before,
@@ -839,7 +839,7 @@ blockquote small:before,
 blockquote .small:before,
 blockquote .posts .post .meta:before, .posts .post
 blockquote .meta:before,
-blockquote .footer:before {
+blockquote footer:before {
   content: '\2014 \00A0';
 }
 
@@ -847,7 +847,7 @@ blockquote .footer:before {
 blockquote.pull-right {
   padding-right: 15px;
   padding-left: 0;
-  border-right: 5px solid #e6e6e6;
+  border-right: 5px solid lightgray;
   border-left: 0;
   text-align: right;
 }
@@ -857,13 +857,13 @@ blockquote.pull-right {
 .blockquote-reverse .small:before,
 .blockquote-reverse .posts .post .meta:before, .posts .post
 .blockquote-reverse .meta:before,
-.blockquote-reverse .footer:before,
+.blockquote-reverse footer:before,
 blockquote.pull-right footer:before,
 blockquote.pull-right small:before,
 blockquote.pull-right .small:before,
 blockquote.pull-right .posts .post .meta:before, .posts .post
 blockquote.pull-right .meta:before,
-blockquote.pull-right .footer:before {
+blockquote.pull-right footer:before {
   content: '';
 }
 
@@ -872,13 +872,13 @@ blockquote.pull-right .footer:before {
 .blockquote-reverse .small:after,
 .blockquote-reverse .posts .post .meta:after, .posts .post
 .blockquote-reverse .meta:after,
-.blockquote-reverse .footer:after,
+.blockquote-reverse footer:after,
 blockquote.pull-right footer:after,
 blockquote.pull-right small:after,
 blockquote.pull-right .small:after,
 blockquote.pull-right .posts .post .meta:after, .posts .post
 blockquote.pull-right .meta:after,
-blockquote.pull-right .footer:after {
+blockquote.pull-right footer:after {
   content: '\00A0 \2014';
 }
 
@@ -927,7 +927,7 @@ pre {
   line-height: 1.428571429;
   word-break: break-all;
   word-wrap: break-word;
-  color: #666666;
+  color: #535353;
   background-color: #f5f5f5;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -2096,20 +2096,109 @@ pre code {
   }
 }
 
+/*
+
+Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
+
+*/
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #F0F0F0;
+}
+
+/* Base color: saturation 0; */
+.hljs,
+.hljs-subst {
+  color: #444;
+}
+
+.hljs-comment {
+  color: #888888;
+}
+
+.hljs-keyword,
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-meta-keyword,
+.hljs-doctag,
+.hljs-name {
+  font-weight: bold;
+}
+
+/* User color: hue: 0 */
+.hljs-type,
+.hljs-string,
+.hljs-number,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+  color: #880000;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #880000;
+  font-weight: bold;
+}
+
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #BC6060;
+}
+
+/* Language color: hue: 90; */
+.hljs-literal {
+  color: #78A960;
+}
+
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code,
+.hljs-addition {
+  color: #397300;
+}
+
+/* Meta color: hue: 200 */
+.hljs-meta {
+  color: #1f7199;
+}
+
+.hljs-meta-string {
+  color: #4d99bf;
+}
+
+/* Misc effects */
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
 .home-header, .post-header {
   background-color: #fff;
-  box-shadow: 0 4px 2px -2px #e6e6e6;
+  box-shadow: 0 4px 2px -2px #ececec;
   padding: 20px 0;
 }
 
 .home-header h1, .post-header h1 {
   margin: 0 0 10px;
   font-weight: bold;
-  color: #555555;
+  color: #424242;
 }
 
 .home-header h1 a, .post-header h1 a {
-  color: #555555;
+  color: #424242;
 }
 
 .home-header h1 a:hover, .post-header h1 a:hover {
@@ -2117,7 +2206,7 @@ pre code {
 }
 
 .home-header p, .post-header p {
-  color: #888888;
+  color: #757575;
 }
 
 .home-header {
@@ -2130,7 +2219,7 @@ pre code {
 
 .home-header p {
   padding: 0 20px;
-  color: #888888;
+  color: #757575;
   font-size: 16.8px;
 }
 
@@ -2142,19 +2231,30 @@ pre code {
   display: block;
   padding: 20px;
   margin-bottom: 10px;
-  border: 1px solid #e6e6e6;
+  border: 1px solid lightgray;
   background-color: #fff;
-  color: #333;
+  color: #202020;
 }
 
 .posts .post:hover {
   text-decoration: none;
-  border-color: #aaaaaa;
+  border-color: #979797;
 }
 
-.posts .post h2 {
+.posts .post header {
+  margin-bottom: 15px;
+}
+
+.posts .post header h2 {
   font-size: 24px;
-  margin: 0 0 10px;
+  margin: 0 0 5px;
+}
+
+.posts .post header h3 {
+  font-size: 19.2px;
+  margin: 0;
+  font-weight: 300;
+  color: #757575;
 }
 
 .posts .post .snippet {
@@ -2162,12 +2262,175 @@ pre code {
   line-height: 1.5;
 }
 
-.footer {
+.post-info {
+  color: #979797;
+  text-transform: uppercase;
+  vertical-align: top;
+  letter-spacing: 1px;
+  font-size: 12.6px;
+}
+
+.post-info .separator {
+  margin: 0 5px;
+  color: lightgray;
+}
+
+article.post header {
   margin-top: 40px;
 }
 
-.footer a {
-  color: #aaaaaa;
+article.post header h1 {
+  font-size: 39.6px;
+}
+
+article.post header h2 {
+  font-size: 27px;
+  font-weight: 300;
+  color: #757575;
+}
+
+article.post .post-content h1, article.post .post-content h2 {
+  margin-top: 50px;
+}
+
+article.post .post-content h3, article.post .post-content h4, article.post .post-content h5, article.post .post-content h6 {
+  margin-top: 40px;
+}
+
+article.post .post-content h1 {
+  font-size: 33px;
+}
+
+article.post .post-content h2 {
+  font-size: 27px;
+}
+
+article.post .post-content h3 {
+  font-size: 20.4px;
+}
+
+article.post .post-content h4, article.post .post-content h5, article.post .post-content h6 {
+  font-size: 19.2px;
+}
+
+article.post .post-content hr {
+  margin: 40px 0;
+}
+
+article.post .post-content ul, article.post .post-content ol {
+  margin: 20px 0 40px;
+  padding: 0;
+}
+
+article.post .post-content blockquote {
+  border-width: 15px;
+  background: #f5f5f5;
+  padding: 20px 40px;
+  margin: 40px 0;
+  font-style: italic;
+  color: #424242;
+  font-size: 25.2px;
+}
+
+article.post .post-content blockquote p {
+  font-size: 22.4px;
+}
+
+article.post .post-content blockquote p:first-child {
+  margin-top: 0;
+}
+
+article.post .post-content blockquote code {
+  font-style: normal;
+  font-size: 22.4px;
+}
+
+article.post .post-content p, article.post .post-content li {
+  font-size: 21px;
+  line-height: 1.6;
+}
+
+article.post .post-content p code, article.post .post-content li code {
+  font-size: 15.4px;
+}
+
+article.post .post-content p {
+  margin-top: 20px;
+}
+
+article.post .post-content li {
+  margin-left: 20px;
+  padding-left: 10px;
+}
+
+article.post .post-content li ul, article.post .post-content li ol {
+  margin: 10px 0 10px;
+}
+
+article.post .post-content li p {
+  margin-top: 10px;
+}
+
+article.post .post-content pre {
+  margin: 30px 0;
+  font-size: 14px;
+  border-color: #ececec;
+  overflow-x: scroll;
+  white-space: pre;
+}
+
+article.post .post-content pre code {
+  white-space: pre;
+}
+
+article.post .post-content .hljs {
+  background: transparent;
+}
+
+article.post .post-content li {
+  margin-bottom: 10px;
+}
+
+article.post .post-content img {
+  display: block;
+  margin: 40px auto;
+  max-width: 100%;
+}
+
+article.post .post-content img::after {
+  content: "test";
+  display: block;
+}
+
+article.post .post-content .img-caption {
+  text-align: center;
+  font-size: 12px;
+  color: #757575;
+  margin: -30px 0 40px;
+}
+
+article.post .meta {
+  margin: 40px 0 20px;
+  padding: 20px;
+  border: 1px solid #ececec;
+  font-size: 14px;
+  background-color: #f5f5f5;
+}
+
+article.post .meta .post-links {
+  margin-top: 20px;
+}
+
+.post-nav {
+  margin-bottom: 40px;
+}
+
+footer {
+  margin: 40px 0 20px;
+}
+
+footer a {
+  color: #979797;
 }
 
 @media screen and (max-width: 767px) {
@@ -2180,6 +2443,12 @@ pre code {
   .home-header p {
     font-size: 15.4px;
   }
+  .post-header {
+    padding: 20px 10px;
+  }
+  .post-header h1 {
+    font-size: 30px;
+  }
   .posts {
     margin-top: 20px;
   }
@@ -2191,6 +2460,70 @@ pre code {
   }
   .posts .post .snippet {
     font-size: 14px;
+  }
+  article.post header, article.post .post-content {
+    padding: 0 10px;
+    margin-top: 30px;
+  }
+  article.post header h1, article.post .post-content h1 {
+    font-size: 32.4px;
+    margin-bottom: 0;
+  }
+  article.post header h2, article.post .post-content h2 {
+    font-size: 21px;
+    margin-top: 10px;
+  }
+  article.post .post-content h1, article.post .post-content h2 {
+    margin-top: 35px;
+  }
+  article.post .post-content h3, article.post .post-content h4, article.post .post-content h5, article.post .post-content h6 {
+    margin-top: 25px;
+  }
+  article.post .post-content h1 {
+    font-size: 30px;
+  }
+  article.post .post-content h2 {
+    font-size: 27px;
+  }
+  article.post .post-content h3 {
+    font-size: 20.4px;
+  }
+  article.post .post-content h4, article.post .post-content h5, article.post .post-content h6 {
+    font-size: 19.2px;
+  }
+  article.post .post-content ul, article.post .post-content ol {
+    margin: 10px 0 20px;
+  }
+  article.post .post-content p, article.post .post-content li {
+    font-size: 16.8px;
+  }
+  article.post .post-content p code {
+    font-size: 12.6px;
+  }
+  article.post .post-content hr {
+    margin: 30px 0;
+  }
+  article.post .post-content img {
+    margin: 20px auto;
+  }
+  article.post .post-content .img-caption {
+    margin: -10px 0 20px;
+  }
+  article.post .post-content blockquote {
+    font-size: 15.4px;
+    padding: 10px 20px;
+    margin: 25px 0;
+  }
+  article.post .post-content blockquote p {
+    font-size: 15.4px;
+  }
+  article.post .post-content pre {
+    margin: 20px 0;
+    font-size: 12.6px;
+  }
+  article.post .meta, article.post .back {
+    margin-left: 10px;
+    margin-right: 10px;
   }
   .footer {
     margin-top: 20px;

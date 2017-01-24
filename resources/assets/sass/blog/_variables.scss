@@ -1,7 +1,14 @@
-$gray-base: #333;
+$gray-base: #202020;
 $gray-lighter: lighten($gray-base, 70%);
+$gray-lightest: lighten($gray-base, 80%);
 $body-bg: #fafafa;
 $white: #fff;
+
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
+$headings-font-weight: bold;
+
+$headings-color: $gray-base;
+$hr-border: $gray-lightest;
 
 $grid-gutter-width: 20px;
 $container-tablet: 740px + $grid-gutter-width;
