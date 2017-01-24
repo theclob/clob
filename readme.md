@@ -129,19 +129,19 @@ Version 0.1 (January 2017):
 * Post view
 * GitHub Flavored Markdown support
 * Estimated reading time calculation
+* RSS and Atom Feeds
+* Share on Hacker News, Reddit, Twitter
+* SEO and Structured Data features
 
 Version 0.2 (February 2017):
 
-* Share on Hacker News, Reddit, Twitter
-* RSS and Atom Feeds
-* SEO and Structured Data features
+* Search
+* OAuth authentication
 * Integration with Google Analytics and other popular stats apps
 
 Version 0.3 (March 2017):
 
 * Comments Module
-* OAuth authentication
-* Search
 * Image upload
 
 Version 0.4 (April 2017):
