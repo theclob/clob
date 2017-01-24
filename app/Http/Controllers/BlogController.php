@@ -62,4 +62,18 @@ class BlogController extends Controller
             ->withPreviousPost($previous_post)
             ->withNextPost($next_post);
     }
+
+    /**
+     * Displays the blog home page
+     *
+     * @return \Illuminate\View\View
+     */
+    public function feed()
+    {
+        $posts = $this->posts->published();
+        $view = view('blog.feed')->withPosts($posts);
+
+        return response($view)
+            ->header('Content-Type', 'application/rss+xml');
+    }
 }

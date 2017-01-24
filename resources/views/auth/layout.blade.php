@@ -7,7 +7,7 @@
 
     <title>{{ $title }} | @lang('app.name.admin')</title>
 
-    <link href="{{ elixir('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ elixir('/css/admin.css') }}" rel="stylesheet">
 </head>
 <body>
     <br>
@@ -15,5 +15,7 @@
     <div class="text-center">
     	<a class="small" target="_blank" href="{{ route('blog.index') }}">@lang('admin.nav.view_blog')</a>
     </div>
+
+    @yield('scripts')
 </body>
 </html>

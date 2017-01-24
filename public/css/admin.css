@@ -1,9 +1,4 @@
 @charset "UTF-8";
-/*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -1376,7 +1371,7 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -1476,7 +1471,7 @@ hr {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: inherit;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 1.1;
   color: inherit;
 }
@@ -6866,7 +6861,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -7000,7 +6995,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -7687,16 +7682,6 @@ button.close {
   }
 }
 
-.panel-toolbar {
-  padding: 10px 20px;
-  border-bottom: 1px solid #ddd;
-  background-color: #f9f9f9;
-}
-
-.panel-toolbar .btn {
-  margin-right: 5px;
-}
-
 textarea.form-control {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 13px;
@@ -7708,4 +7693,21 @@ textarea.form-control {
   }
 }
 
-/*# sourceMappingURL=app.css.map */
+.panel-toolbar {
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.panel-toolbar .btn {
+  margin-right: 5px;
+}
+
+.list-group-header {
+  text-transform: uppercase;
+  color: #777777;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+/*# sourceMappingURL=admin.css.map */

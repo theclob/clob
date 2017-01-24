@@ -410,54 +410,54 @@ h1, h2, h3, h4, h5, h6,
 
 h1 small,
 h1 .small,
+h1 footer,
 h1 .posts .post .meta, .posts .post
-h1 .meta,
-h1 footer, h2 small,
+h1 .meta, h2 small,
 h2 .small,
+h2 footer,
 h2 .posts .post .meta, .posts .post
-h2 .meta,
-h2 footer, h3 small,
+h2 .meta, h3 small,
 h3 .small,
+h3 footer,
 h3 .posts .post .meta, .posts .post
-h3 .meta,
-h3 footer, h4 small,
+h3 .meta, h4 small,
 h4 .small,
+h4 footer,
 h4 .posts .post .meta, .posts .post
-h4 .meta,
-h4 footer, h5 small,
+h4 .meta, h5 small,
 h5 .small,
+h5 footer,
 h5 .posts .post .meta, .posts .post
-h5 .meta,
-h5 footer, h6 small,
+h5 .meta, h6 small,
 h6 .small,
+h6 footer,
 h6 .posts .post .meta, .posts .post
 h6 .meta,
-h6 footer,
 .h1 small,
 .h1 .small,
+.h1 footer,
 .h1 .posts .post .meta, .posts .post
-.h1 .meta,
-.h1 footer, .h2 small,
+.h1 .meta, .h2 small,
 .h2 .small,
+.h2 footer,
 .h2 .posts .post .meta, .posts .post
-.h2 .meta,
-.h2 footer, .h3 small,
+.h2 .meta, .h3 small,
 .h3 .small,
+.h3 footer,
 .h3 .posts .post .meta, .posts .post
-.h3 .meta,
-.h3 footer, .h4 small,
+.h3 .meta, .h4 small,
 .h4 .small,
+.h4 footer,
 .h4 .posts .post .meta, .posts .post
-.h4 .meta,
-.h4 footer, .h5 small,
+.h4 .meta, .h5 small,
 .h5 .small,
+.h5 footer,
 .h5 .posts .post .meta, .posts .post
-.h5 .meta,
-.h5 footer, .h6 small,
+.h5 .meta, .h6 small,
 .h6 .small,
+.h6 footer,
 .h6 .posts .post .meta, .posts .post
-.h6 .meta,
-.h6 footer {
+.h6 .meta {
   font-weight: normal;
   line-height: 1;
   color: #979797;
@@ -472,31 +472,31 @@ h3, .h3 {
 
 h1 small,
 h1 .small,
+h1 footer,
 h1 .posts .post .meta, .posts .post
-h1 .meta,
-h1 footer, .h1 small,
+h1 .meta, .h1 small,
 .h1 .small,
+.h1 footer,
 .h1 .posts .post .meta, .posts .post
 .h1 .meta,
-.h1 footer,
 h2 small,
 h2 .small,
+h2 footer,
 h2 .posts .post .meta, .posts .post
-h2 .meta,
-h2 footer, .h2 small,
+h2 .meta, .h2 small,
 .h2 .small,
+.h2 footer,
 .h2 .posts .post .meta, .posts .post
 .h2 .meta,
-.h2 footer,
 h3 small,
 h3 .small,
+h3 footer,
 h3 .posts .post .meta, .posts .post
-h3 .meta,
-h3 footer, .h3 small,
+h3 .meta, .h3 small,
 .h3 .small,
+.h3 footer,
 .h3 .posts .post .meta, .posts .post
-.h3 .meta,
-.h3 footer {
+.h3 .meta {
   font-size: 65%;
 }
 
@@ -509,31 +509,31 @@ h6, .h6 {
 
 h4 small,
 h4 .small,
+h4 footer,
 h4 .posts .post .meta, .posts .post
-h4 .meta,
-h4 footer, .h4 small,
+h4 .meta, .h4 small,
 .h4 .small,
+.h4 footer,
 .h4 .posts .post .meta, .posts .post
 .h4 .meta,
-.h4 footer,
 h5 small,
 h5 .small,
+h5 footer,
 h5 .posts .post .meta, .posts .post
-h5 .meta,
-h5 footer, .h5 small,
+h5 .meta, .h5 small,
 .h5 .small,
+.h5 footer,
 .h5 .posts .post .meta, .posts .post
 .h5 .meta,
-.h5 footer,
 h6 small,
 h6 .small,
+h6 footer,
 h6 .posts .post .meta, .posts .post
-h6 .meta,
-h6 footer, .h6 small,
+h6 .meta, .h6 small,
 .h6 .small,
+.h6 footer,
 .h6 .posts .post .meta, .posts .post
-.h6 .meta,
-.h6 footer {
+.h6 .meta {
   font-size: 75%;
 }
 
@@ -580,8 +580,8 @@ p {
 
 small,
 .small,
-.posts .post .meta,
-footer {
+footer,
+.posts .post .meta {
   font-size: 85%;
 }
 
@@ -825,9 +825,9 @@ blockquote ol:last-child {
 blockquote footer,
 blockquote small,
 blockquote .small,
+blockquote footer,
 blockquote .posts .post .meta, .posts .post
-blockquote .meta,
-blockquote footer {
+blockquote .meta {
   display: block;
   font-size: 80%;
   line-height: 1.428571429;
@@ -837,9 +837,9 @@ blockquote footer {
 blockquote footer:before,
 blockquote small:before,
 blockquote .small:before,
+blockquote footer:before,
 blockquote .posts .post .meta:before, .posts .post
-blockquote .meta:before,
-blockquote footer:before {
+blockquote .meta:before {
   content: '\2014 \00A0';
 }
 
@@ -855,30 +855,30 @@ blockquote.pull-right {
 .blockquote-reverse footer:before,
 .blockquote-reverse small:before,
 .blockquote-reverse .small:before,
+.blockquote-reverse footer:before,
 .blockquote-reverse .posts .post .meta:before, .posts .post
 .blockquote-reverse .meta:before,
-.blockquote-reverse footer:before,
 blockquote.pull-right footer:before,
 blockquote.pull-right small:before,
 blockquote.pull-right .small:before,
+blockquote.pull-right footer:before,
 blockquote.pull-right .posts .post .meta:before, .posts .post
-blockquote.pull-right .meta:before,
-blockquote.pull-right footer:before {
+blockquote.pull-right .meta:before {
   content: '';
 }
 
 .blockquote-reverse footer:after,
 .blockquote-reverse small:after,
 .blockquote-reverse .small:after,
+.blockquote-reverse footer:after,
 .blockquote-reverse .posts .post .meta:after, .posts .post
 .blockquote-reverse .meta:after,
-.blockquote-reverse footer:after,
 blockquote.pull-right footer:after,
 blockquote.pull-right small:after,
 blockquote.pull-right .small:after,
+blockquote.pull-right footer:after,
 blockquote.pull-right .posts .post .meta:after, .posts .post
-blockquote.pull-right .meta:after,
-blockquote.pull-right footer:after {
+blockquote.pull-right .meta:after {
   content: '\00A0 \2014';
 }
 
@@ -2209,6 +2209,33 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
   color: #757575;
 }
 
+.post-info {
+  color: #979797;
+  text-transform: uppercase;
+  vertical-align: top;
+  letter-spacing: 1px;
+  font-size: 12.6px;
+}
+
+.separator {
+  margin: 0 5px;
+  color: lightgray;
+}
+
+footer {
+  margin: 40px 0 20px;
+}
+
+footer a {
+  color: #979797;
+}
+
+@media screen and (max-width: 767px) {
+  .footer {
+    margin-top: 20px;
+  }
+}
+
 .home-header {
   padding: 80px 0;
 }
@@ -2262,17 +2289,28 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
   line-height: 1.5;
 }
 
-.post-info {
-  color: #979797;
-  text-transform: uppercase;
-  vertical-align: top;
-  letter-spacing: 1px;
-  font-size: 12.6px;
-}
-
-.post-info .separator {
-  margin: 0 5px;
-  color: lightgray;
+@media screen and (max-width: 767px) {
+  .home-header {
+    padding: 40px 0;
+  }
+  .home-header h1 {
+    font-size: 30px;
+  }
+  .home-header p {
+    font-size: 15.4px;
+  }
+  .posts {
+    margin-top: 20px;
+  }
+  .posts .post {
+    padding: 15px;
+  }
+  .posts .post h2 {
+    font-size: 18px;
+  }
+  .posts .post .snippet {
+    font-size: 14px;
+  }
 }
 
 article.post header {
@@ -2421,45 +2459,12 @@ article.post .meta .post-links {
   margin-top: 20px;
 }
 
-.post-nav {
-  margin-bottom: 40px;
-}
-
-footer {
-  margin: 40px 0 20px;
-}
-
-footer a {
-  color: #979797;
-}
-
 @media screen and (max-width: 767px) {
-  .home-header {
-    padding: 40px 0;
-  }
-  .home-header h1 {
-    font-size: 30px;
-  }
-  .home-header p {
-    font-size: 15.4px;
-  }
   .post-header {
     padding: 20px 10px;
   }
   .post-header h1 {
     font-size: 30px;
-  }
-  .posts {
-    margin-top: 20px;
-  }
-  .posts .post {
-    padding: 15px;
-  }
-  .posts .post h2 {
-    font-size: 18px;
-  }
-  .posts .post .snippet {
-    font-size: 14px;
   }
   article.post header, article.post .post-content {
     padding: 0 10px;
@@ -2524,9 +2529,6 @@ footer a {
   article.post .meta, article.post .back {
     margin-left: 10px;
     margin-right: 10px;
-  }
-  .footer {
-    margin-top: 20px;
   }
 }
 

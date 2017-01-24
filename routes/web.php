@@ -64,5 +64,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
 // Public blog routes
 Route::group(['as' => 'blog.'], function() {
 	Route::get('/', 'BlogController@index')->name('index');
+    Route::get('feed', 'BlogController@feed')->name('feed');
 	Route::get('{post}', 'BlogController@show')->name('show');
 });

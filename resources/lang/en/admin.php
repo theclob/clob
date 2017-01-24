@@ -20,6 +20,7 @@ return [
 
     'settings' => [
     	'title' => 'Settings',
+        'menu' => 'Navigation Menu',
 
         'blog' => [
             'title' => 'Blog Settings',

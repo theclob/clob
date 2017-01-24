@@ -7,7 +7,7 @@
 	<title>{{ $title }} | {{ $options->title }}</title>
 
 	<link rel="stylesheet" href="{{ elixir('css/blog.css') }}">
-	@yield('styles')
+	<link rel="alternate" type="application/rss+xml" title="@lang('blog.feed', ['title' => $options->title])" href="{{ route('blog.feed') }}" />
 </head>
 <body>
 	<header class="{{ request()->route()->getName() === 'blog.index' ? 'home-header' : 'post-header' }}">
@@ -22,7 +22,11 @@
 	</header>
 	@yield('content')
 
-	<footer><a href="https://github.com/theclob/clob" target="_blank">@lang('app.name.powered')</a></footer>
+	<footer>
+		<a href="{{ route('blog.feed') }}">RSS Feed</a>
+		<span class="separator">&bull;</span>
+		<a href="https://github.com/theclob/clob" target="_blank">@lang('app.name.powered')</a>
+	</footer>
 
 	@yield('scripts')
 </body>

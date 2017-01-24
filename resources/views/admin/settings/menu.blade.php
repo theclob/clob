@@ -1,3 +1,4 @@
+<div class="list-group-header visible-xs">@lang('admin.settings.menu')</div>
 <div class="list-group">
 	<a href="{{ route('admin.settings.blog') }}"
 		class="list-group-item @if(request()->route()->getName() === 'admin.settings.blog') active @endif">

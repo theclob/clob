@@ -1,0 +1,52 @@
+.home-header, .post-header {
+	background-color: $white;
+	box-shadow: 0 4px 2px -2px $gray-lightest;
+	padding: 20px 0;
+
+	h1 {
+		margin: 0 0 10px;
+		font-weight: bold;
+		color: $gray-darker;
+
+		a {
+			color: $gray-darker;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+
+	p {
+		color: $gray;
+	}
+}
+
+.post-info {
+	color: $gray-light;
+	text-transform: uppercase;
+	vertical-align: top;
+	letter-spacing: 1px;
+	font-size: $font-size-base * 0.9;
+}
+
+.separator {
+	margin: 0 5px;
+	color: $gray-lighter;
+}
+
+footer {
+	@extend .text-center;
+	@extend .small;
+	margin: 40px 0 20px;
+
+	a {
+		color: $gray-light;
+	}
+}
+
+@media screen and (max-width: $screen-xs-max) {
+	.footer {
+		margin-top: 20px;
+	}
+}

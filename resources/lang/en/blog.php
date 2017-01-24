@@ -18,5 +18,6 @@ return [
     'next' => 'Next:',
     'previous' => 'Previous:',
     'back' => 'Back to Blog Index',
-    'read_time' => ':minutes minute read'
+    'read_time' => ':minutes minute read',
+    'feed' => ':title &raquo; Feed'
 ];

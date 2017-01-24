@@ -1,0 +1,10 @@
+textarea.form-control {
+	font-family: $font-family-monospace;
+	font-size: 13px;
+}
+
+@media screen and (max-width: $screen-xs-max) {
+	textarea.form-control {
+		max-height: 200px;
+	}
+}
