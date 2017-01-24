@@ -132,7 +132,7 @@ Version 0.1 (January 2017):
 
 Version 0.2 (February 2017):
 
-* Search
+* Share on Hacker News, Reddit, Twitter
 * RSS and Atom Feeds
 * SEO and Structured Data features
 * Integration with Google Analytics and other popular stats apps
@@ -141,7 +141,7 @@ Version 0.3 (March 2017):
 
 * Comments Module
 * OAuth authentication
-* Share on Hacker News, Reddit, Twitter
+* Search
 * Image upload
 
 Version 0.4 (April 2017):
