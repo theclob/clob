@@ -19,5 +19,14 @@ return [
     'previous' => 'Previous:',
     'back' => 'Back to Blog Index',
     'read_time' => ':minutes minute read',
-    'feed' => ':title &raquo; Feed'
+    'feed' => ':title &raquo; Feed',
+
+    'share' => [
+        'title' => 'Share on:',
+        'hackernews' => 'Hacker News',
+        'reddit' => 'Reddit',
+        'twitter' => 'Twitter',
+        'email' => 'Email',
+        'email_body' => 'Check out :title at :link',
+    ]
 ];

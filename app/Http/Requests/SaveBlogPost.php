@@ -27,6 +27,7 @@ class SaveBlogPost extends FormRequest
         return [
             'title' => 'required',
             'slug' => [
+                'nullable',
                 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/',
                 Rule::unique('posts')->ignore($this->post ? $this->post->id : null)
             ],

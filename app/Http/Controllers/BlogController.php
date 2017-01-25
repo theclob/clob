@@ -79,4 +79,20 @@ class BlogController extends Controller
         return response($view)
             ->header('Content-Type', 'application/rss+xml');
     }
+
+    public function sitemap()
+    {
+        $posts = $this->posts->published();
+        $view = view('blog.sitemap', compact('posts'));
+
+        return response($view)
+            ->header('Content-Type', 'text/xml');
+    }
+
+    public function robots()
+    {
+        $view = view('blog.robots');
+        return response($view)
+            ->header('Content-Type', 'text/plain');
+    }
 }

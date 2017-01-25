@@ -15,5 +15,7 @@
 Route::group(['as' => 'blog.'], function() {
 	Route::get('/', 'BlogController@index')->name('index');
     Route::get('feed', 'BlogController@feed')->name('feed');
+    Route::get('sitemap', 'BlogController@sitemap')->name('sitemap');
+    Route::get('robots.txt', 'BlogController@robots')->name('robots');
 	Route::get('{post}', 'BlogController@show')->name('show');
 });

@@ -186,7 +186,9 @@ Version 1.0 (December 2017):
 
 ## Things to be considered before v1.0 release
 
+* Documentation
 * Automatic incremental updates
+* Automated backup and restore feature (to FTP, S3, Dropbox, others)
 * Major upgrades
 * Theming system
 * Plugin architecture

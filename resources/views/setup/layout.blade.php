@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{ $title }} | @lang('app.name.setup')</title>
 
-	<link rel="stylesheet" href="{{ elixir('css/app.css') }}">
+	<link rel="stylesheet" href="{{ elixir('css/admin.css') }}">
 </head>
 <body>
 	<div class="container">
