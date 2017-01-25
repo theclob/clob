@@ -167,7 +167,11 @@ return [
          * Package Service Providers...
          */
 
-        AdamWathan\BootForms\BootFormsServiceProvider::class,
+        // BootForms doesn't support Laravel 5.4 yet, so this is
+        // is a temporary fix until it does.
+
+        // AdamWathan\BootForms\BootFormsServiceProvider::class,
+        Clob\Providers\BootFormsServiceProvider::class,
 
         /*
          * Application Service Providers...
