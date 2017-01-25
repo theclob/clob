@@ -20,9 +20,15 @@ class CreatePostsTable extends Migration
             $table->longText('markdown_content');
             $table->longText('html_content');
             $table->string('tags')->nullable();
-            $table->datetime('published_at');
+            $table->datetime('published_at')->nullable();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
+            $table->string('subtitle')->nullable();
+            $table->integer('word_count')->nullable();
+            $table->integer('read_time_minutes')->nullable();
+            $table->string('seo_title')->nullable();
+            $table->text('seo_description')->nullable();
+            $table->string('seo_image_url')->nullable();
         });
     }
 

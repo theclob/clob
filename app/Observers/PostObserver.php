@@ -21,7 +21,7 @@ class PostObserver
 			$slug = Str::slug($post->title);
 
 			// TODO any way to do this without the raw SQL?
-			$count = Post::whereRaw("slug RLIKE '^{$slug}(-[0-9]+)?$'")->count();
+			$count = Post::whereRaw("slug REGEXP '^{$slug}(-[0-9]+)?$'")->count();
 
 			$post->slug = $count ? "{$slug}-{$count}" : $slug;
 		}

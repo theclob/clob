@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -21,4 +23,36 @@ $factory->define(Clob\User::class, function (Faker\Generator $faker) {
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
+});
+
+$factory->define(Clob\Option::class, function(Faker\Generator $faker) {
+	return [
+		'title' => 'Example Blog',
+	];
+});
+
+$factory->define(Clob\Post::class, function(Faker\Generator $faker) {
+	return [
+		'title' => 'An Example Post',
+		'subtitle' => 'Examining the simplicities of an example post',
+		'markdown_content' => '## A simple example Markdown heading',
+	];
+});
+
+$factory->state(Clob\Post::class, 'published', function($faker) {
+	return [
+		'published_at' => Carbon::parse('-1 week'),
+	];
+});
+
+$factory->state(Clob\Post::class, 'future', function($faker) {
+	return [
+		'published_at' => Carbon::parse('+1 week'),
+	];
+});
+
+$factory->state(Clob\Post::class, 'unpublished', function($faker) {
+	return [
+		'published_at' => null,
+	];
 });

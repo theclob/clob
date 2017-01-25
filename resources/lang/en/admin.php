@@ -70,7 +70,7 @@ return [
     	'post' => 'Post',
     	'post_help' => 'To format your post, use <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown</a>.',
     	'publish_date' => 'Publish Date',
-    	'publish_date_help' => 'Schedule posts for later by setting a publish date in the future. Leave blank to publish immediately.',
+    	'publish_date_help' => 'Schedule posts for later by setting a publish date in the future. Leave blank to save as draft and leave unpublished.',
     	'tags' => 'Tags',
     	'tags_placeholder' => 'e.g. php, laravel, vue',
     	'tags_help' => 'Separate tags with commas.',

@@ -54,6 +54,10 @@ class BlogController extends Controller
      */
     public function show(Post $post)
     {
+        if(!$post->published_at || $post->published_at->isFuture()) {
+            abort(404);
+        }
+
         $previous_post = $this->posts->previous($post);
         $next_post = $this->posts->next($post);
 

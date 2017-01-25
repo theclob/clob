@@ -50,7 +50,7 @@ class Posts extends Repository
         $post->slug = $data['slug'];
         $post->subtitle = $data['subtitle'] ?: null;
         $post->markdown_content = $data['markdown_content']; // The PostObserver class auto-converts this to HTML
-        $post->published_at = $data['published_at'] ?: Carbon::now(); // Default publish date to now if null
+        $post->published_at = $data['published_at'] ?: null;
         $post->tags = $data['tags'] ?: null;
         $post->seo_title = $data['seo_title'] ?: null;
         $post->seo_description = $data['seo_description'] ?: null;
