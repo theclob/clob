@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    protected const PRETTY_DATE_FORMAT = 'F j, Y';
+    protected const LONG_DATE_FORMAT = 'jS F Y @ g:ia';
+    protected const SNIPPET_LENGTH = 280;
+    protected const OPEN_GRAPH_TITLE_LENGTH = 57;
+    protected const OPEN_GRAPH_DESCRIPTION_LENGTH = 297;
+    protected const META_DESCRIPTION_LENGTH = 157;
+
     /**
      * The attributes that are dates.
      *
@@ -27,13 +34,111 @@ class Post extends Model
 	}
 
     /**
-     * Relationship to the User who wrote this Post
+     * Formatted publish date
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return string
      */
-    public function user()
+    public function getPublishedAtFormattedAttribute()
     {
-    	return $this->belongsTo('Clob\User');
+        return $this->published_at->format(self::PRETTY_DATE_FORMAT);
+    }
+
+    /**
+     * Long Formatted publish date
+     *
+     * @return string
+     */
+    public function getPublishedAtLongFormattedAttribute()
+    {
+        return $this->published_at->format(self::LONG_DATE_FORMAT);
+    }
+
+    /**
+     * Atom/RSS friendly formatted publish date
+     *
+     * @return string
+     */
+    public function getPublishedAtFeedFormatAttribute()
+    {
+        return $this->published_at->toRfc2822String();
+    }
+
+    /**
+     * OpenGraph friendly formatted publish date
+     *
+     * @return string
+     */
+    public function getPublishedAtOpenGraphFormatAttribute()
+    {
+        return $this->published_at->toAtomString();
+    }
+
+    /**
+     * OpenGraph friendly formatted modified date
+     *
+     * @return string
+     */
+    public function getUpdatedAtOpenGraphFormatAttribute()
+    {
+        return $this->updated_at->toAtomString();
+    }
+
+    /**
+     * Snippet of post for display in index
+     *
+     * @return string
+     */
+    public function getSnippetAttribute()
+    {
+        return str_limit(strip_tags($this->html_content), self::SNIPPET_LENGTH);
+    }
+
+    /**
+     * OpenGraph friendly snippet of HTML content
+     *
+     * @return string
+     */
+    public function getTitleOpenGraphAttribute()
+    {
+        return str_limit($this->title, self::OPEN_GRAPH_TITLE_LENGTH);
+    }
+
+    /**
+     * OpenGraph friendly snippet of HTML content
+     *
+     * @return string
+     */
+    public function getHtmlContentOpenGraphAttribute()
+    {
+        // Remove any newlines, strip HTML content
+        // and limit number of characters.
+        return str_replace(
+            ["\r", "\n"],
+            ' ',
+            str_limit(
+                strip_tags($this->html_content),
+                self::OPEN_GRAPH_DESCRIPTION_LENGTH
+            )
+        );
+    }
+
+    /**
+     * OpenGraph friendly snippet of HTML content
+     *
+     * @return string
+     */
+    public function getHtmlContentMetaDescriptionAttribute()
+    {
+        // Remove any newlines, strip HTML content
+        // and limit number of characters.
+        return str_replace(
+            ["\r", "\n"],
+            ' ',
+            str_limit(
+                strip_tags($this->html_content),
+                self::META_DESCRIPTION_LENGTH
+            )
+        );
     }
 
     /**
@@ -56,6 +161,11 @@ class Post extends Model
     	return $query->orderBy('published_at', 'desc');
     }
 
+    /**
+     * Get previous post related to a given post
+     *
+     * @return \Illuminate\Database\Query\Builder
+     */
     public function scopePrevious($query, Post $post)
     {
         $id = $query->where('id', '<', $post->id)->max('id');
@@ -63,10 +173,25 @@ class Post extends Model
         return $query->where('id', $id);
     }
 
+    /**
+     * Get next post related to a given post
+     *
+     * @return \Illuminate\Database\Query\Builder
+     */
     public function scopeNext($query, Post $post)
     {
         $id = $query->where('id', '>', $post->id)->min('id');
 
         return $query->where('id', $id);
+    }
+
+    /**
+     * Relationship to the User who wrote this Post
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('Clob\User');
     }
 }

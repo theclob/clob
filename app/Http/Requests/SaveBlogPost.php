@@ -31,10 +31,10 @@ class SaveBlogPost extends FormRequest
                 Rule::unique('posts')->ignore($this->post ? $this->post->id : null)
             ],
             'markdown_content' => 'required',
-            'published_at' => 'date',
+            'published_at' => 'nullable|date',
             'seo_title' => 'max:60',
             'seo_description' => 'max:160',
-            'seo_image_url' => 'url'
+            'seo_image_url' => 'nullable|url'
         ];
     }
 }

@@ -48,13 +48,13 @@ class Posts extends Repository
     {
         $post->title = $data['title'];
         $post->slug = $data['slug'];
-        $post->subtitle = $data['subtitle'] ?: null;
+        $post->subtitle = $data['subtitle'];
         $post->markdown_content = $data['markdown_content']; // The PostObserver class auto-converts this to HTML
-        $post->published_at = $data['published_at'] ?: null;
-        $post->tags = $data['tags'] ?: null;
-        $post->seo_title = $data['seo_title'] ?: null;
-        $post->seo_description = $data['seo_description'] ?: null;
-        $post->seo_image_url = $data['seo_image_url'] ?: null;
+        $post->published_at = $data['published_at'];
+        $post->tags = $data['tags'];
+        $post->seo_title = $data['seo_title'];
+        $post->seo_description = $data['seo_description'];
+        $post->seo_image_url = $data['seo_image_url'];
 
         return $post;
     }

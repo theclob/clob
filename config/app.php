@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'clob',
 
     /*
     |--------------------------------------------------------------------------
@@ -233,5 +233,16 @@ return [
 
         'BootForm' => AdamWathan\BootForms\Facades\BootForm::class,
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Twitter Username
+    |--------------------------------------------------------------------------
+    |
+    | Used for references to the application's Twitter username (Twitter Cards
+    | meta tags, for example).
+    */
+
+    'twitter_username' => 'theclob',
 
 ];

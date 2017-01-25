@@ -23,7 +23,7 @@
 					@foreach($posts as $post)
 						<tr>
 							<td><a href="{{ route('admin.post.edit', $post) }}">{{ $post->title }}</a></td>
-							<td class="hidden-xs">{{ $post->published_at }}</td>
+							<td class="hidden-xs">{{ $post->published_at ?: trans('admin.post.not_published') }}</td>
 							<td class="hidden-xs">@lang('blog.read_time', ['minutes' => $post->read_time_minutes])</td>
 							<td class="hidden-xs hidden-sm">{{ $post->tags }}</td>
 						</tr>

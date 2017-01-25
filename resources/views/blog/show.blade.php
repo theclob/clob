@@ -5,7 +5,7 @@
 		<div class="container">
 			<header>
 				<p class="post-info">
-					{{ $post->published_at->format('F j, Y') }}
+					{{ $post->published_at_formatted }}
 					@if($post->read_time_minutes)
 						<span class="separator">&bull;</span>
 						@lang('blog.read_time', ['minutes' => $post->read_time_minutes])
@@ -20,7 +20,7 @@
 				{!! $post->html_content !!}
 			</div>
 			<div class="meta">
-				{{ trans('blog.meta', ['user' => $post->user->name, 'date' => $post->published_at->format('jS F Y @ g:ia')]) }}
+				{{ trans('blog.meta', ['date' => $post->published_at_long_formatted]) }}
 				@if($post->tags)
 					<br><strong>@lang('blog.tags')</strong> {{ $post->tags }}
 				@endif

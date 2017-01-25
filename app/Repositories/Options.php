@@ -26,7 +26,7 @@ class Options extends Repository
 		$options = Option::firstOrNew([]);
 
 		$options->title = $data['title'];
-		$options->description = $data['description'] ?: null;
+		$options->description = $data['description'];
 		$options->save();
 
 		return $options;
@@ -53,7 +53,7 @@ class Options extends Repository
 		$options = Option::firstOrFail();
 
         $options->title = $data['title'];
-        $options->description = $data['description'] ?: null;
+        $options->description = $data['description'];
         $options->save();
 
         return $options;

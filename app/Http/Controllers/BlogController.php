@@ -43,7 +43,7 @@ class BlogController extends Controller
     {
     	$posts = $this->posts->published();
 
-    	return view('blog.index')->withPosts($posts);
+    	return view('blog.index', compact('posts'));
     }
 
     /**
@@ -61,10 +61,7 @@ class BlogController extends Controller
         $previous_post = $this->posts->previous($post);
         $next_post = $this->posts->next($post);
 
-    	return view('blog.show')
-            ->withPost($post)
-            ->withPreviousPost($previous_post)
-            ->withNextPost($next_post);
+    	return view('blog.show', compact('post', 'previous_post', 'next_post'));
     }
 
     /**
@@ -75,7 +72,8 @@ class BlogController extends Controller
     public function feed()
     {
         $posts = $this->posts->published();
-        $view = view('blog.feed')->withPosts($posts);
+        $build_date = Carbon::now()->toRfc2822String();
+        $view = view('blog.feed', compact('posts', 'build_date'));
 
         return response($view)
             ->header('Content-Type', 'application/rss+xml');

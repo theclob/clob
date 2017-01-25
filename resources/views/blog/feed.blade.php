@@ -5,14 +5,14 @@
 		<atom:link href="{{ route('blog.feed') }}" rel="self" type="application/rss+xml" />
 		<link>{{ route('blog.index') }}</link>
 		<description>{{ $options->description }}</description>
-		<lastBuildDate>{{ \Carbon\Carbon::now()->toRfc2822String() }}</lastBuildDate>
+		<lastBuildDate>{{ $build_date }}</lastBuildDate>
 		<generator>https://clob.io/</generator>
 		@foreach($posts as $post)
 			<item>
 				<title>{{ $post->title }}</title>
 				<link>{{ route('blog.show', $post) }}</link>
 				<guid>{{ route('blog.show', $post) }}</guid>
-				<pubDate>{{ $post->published_at->toRfc2822String() }}</pubDate>
+				<pubDate>{{ $post->published_at_feed_format }}</pubDate>
 				<description><![CDATA[{!! $post->html_content !!}]]></description>
 			</item>
 		@endforeach

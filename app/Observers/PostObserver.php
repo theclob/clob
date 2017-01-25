@@ -32,7 +32,7 @@ class PostObserver
 
 		// Calculate reading time
 		$post->word_count = str_word_count(strip_tags($post->html_content));
-		$reading_time = floor($post->word_count / 225); // 275 wpm reading speed
+		$reading_time = floor($post->word_count / 225); // 225 wpm reading speed
 		$post->read_time_minutes = $reading_time ?: 1; // set at 1 minute if 0
 	}
 }
