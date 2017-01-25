@@ -2,10 +2,10 @@
 
 namespace Clob\Http\Controllers;
 
-use Clob\Post;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
+use Clob\Post;
 use Clob\Repositories\Posts as PostRepository;
+use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
@@ -32,6 +32,7 @@ class BlogController extends Controller
     public function __construct(PostRepository $posts)
     {
         $this->posts = $posts;
+        $this->middleware('track')->only('index', 'show');
     }
 
     /**

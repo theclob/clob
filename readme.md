@@ -125,6 +125,7 @@ Version 0.1 (January 2017):
 * Authentication (Login, Logout, Password Reset)
 * Manage Posts (Add, Edit, Delete, View)
 * Post Editor (Markdown)
+* Post Preview
 * Blog homepage
 * Post view
 * GitHub Flavored Markdown support
@@ -132,12 +133,12 @@ Version 0.1 (January 2017):
 * RSS and Atom Feeds
 * Share on Hacker News, Reddit, Twitter
 * SEO and Structured Data features
+* Integration with Google Analytics (without using cookies)
 
 Version 0.2 (February 2017):
 
 * Search
 * OAuth authentication
-* Integration with Google Analytics and other popular stats apps
 
 Version 0.3 (March 2017):
 
@@ -161,7 +162,6 @@ Version 0.6 (June 2017):
 * Editor stats and targets (Word Count, Paragraph Count, Reading Time, etc.)
 * Support for pages (About, Profile, etc)
 * Call to action (CTA) at end of each post
-* EU cookie notice option (if using tracking such as Google Analytics)
 
 Version 0.7 (July 2017):
 

@@ -39,7 +39,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        $this->mapPublicRoutes();
     }
 
     /**
@@ -56,6 +56,23 @@ class RouteServiceProvider extends ServiceProvider
             'namespace' => $this->namespace,
         ], function ($router) {
             require base_path('routes/web.php');
+        });
+    }
+
+    /**
+     * Define the "public" routes for the application.
+     *
+     * These routes don't use sessions so we don't need any cookie notice.
+     *
+     * @return void
+     */
+    protected function mapPublicRoutes()
+    {
+        Route::group([
+            'middleware' => 'public',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/public.php');
         });
     }
 

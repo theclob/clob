@@ -35,6 +35,10 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
+        'public' => [
+            'bindings',
+        ],
+
         'api' => [
             'throttle:60,1',
             'bindings',
@@ -56,5 +60,6 @@ class Kernel extends HttpKernel
         'guest' => \Clob\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'setup' => \Clob\Http\Middleware\RedirectIfSetupCompleted::class,
+        'track' => \Clob\Http\Middleware\TrackPageViews::class,
     ];
 }

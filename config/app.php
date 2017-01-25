@@ -172,6 +172,7 @@ return [
 
         // AdamWathan\BootForms\BootFormsServiceProvider::class,
         Clob\Providers\BootFormsServiceProvider::class,
+        Irazasyed\LaravelGAMP\LaravelGAMPServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -232,6 +233,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'BootForm' => AdamWathan\BootForms\Facades\BootForm::class,
+        'GAMP' => Irazasyed\LaravelGAMP\Facades\GAMP::class,
     ],
 
     /*
