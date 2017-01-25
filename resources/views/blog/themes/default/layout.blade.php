@@ -14,7 +14,7 @@
 	<link rel="alternate" type="application/rss+xml" title="@lang('blog.feed', ['title' => $options->title])" href="{{ route('blog.feed') }}" />
 	<meta name="generator" content="clob.io" />
 	<link rel="canonical" href="{{ url()->current() }}" />
-	@include('blog.seo')
+	@include('blog.themes.default._partials.seo')
 </head>
 <body>
 	<header class="{{ request()->route()->getName() === 'blog.index' ? 'home-header' : 'post-header' }}">

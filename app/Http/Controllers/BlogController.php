@@ -44,7 +44,7 @@ class BlogController extends Controller
     {
     	$posts = $this->posts->published();
 
-    	return view('blog.index', compact('posts'));
+    	return view('blog.themes.default.index', compact('posts'));
     }
 
     /**
@@ -62,7 +62,7 @@ class BlogController extends Controller
         $previous_post = $this->posts->previous($post);
         $next_post = $this->posts->next($post);
 
-    	return view('blog.show', compact('post', 'previous_post', 'next_post'));
+    	return view('blog.themes.default.show', compact('post', 'previous_post', 'next_post'));
     }
 
     /**

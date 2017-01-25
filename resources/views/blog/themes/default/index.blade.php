@@ -1,4 +1,4 @@
-@extends('blog.layout', ['title' => trans('blog.home')])
+@extends('blog.themes.default.layout', ['title' => trans('blog.home')])
 
 @section('content')
 	<section class="posts">
