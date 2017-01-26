@@ -184,7 +184,9 @@ class Post extends Model
      */
     public function scopePrevious($query, Post $post)
     {
-        $id = $query->where('id', '<', $post->id)->max('id');
+        $published_at = $query->where('published_at', '<', $post->published_at)->max('published_at');
+        $post = Post::where('published_at', $published_at)->first();
+        $id = $post ? $post->id : null;
 
         return $query->where('id', $id);
     }
@@ -196,7 +198,9 @@ class Post extends Model
      */
     public function scopeNext($query, Post $post)
     {
-        $id = $query->where('id', '>', $post->id)->min('id');
+        $published_at = $query->where('published_at', '>', $post->published_at)->min('published_at');
+        $post = Post::where('published_at', $published_at)->first();
+        $id = $post ? $post->id : null;
 
         return $query->where('id', $id);
     }
