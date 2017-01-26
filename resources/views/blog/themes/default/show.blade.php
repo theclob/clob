@@ -9,7 +9,7 @@
 					<p><strong>@lang('admin.post.preview.title')</strong></p>
 					<p>
 						@lang('admin.post.preview.info')
-						@if($post->published_at)
+						@if($post->published_at && !$post->published_at->isFuture())
 							@lang('admin.post.preview.published_url')
 						@else
 							@lang('admin.post.preview.unpublished_url')
