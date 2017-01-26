@@ -59,8 +59,11 @@ return [
     	'create' => 'Create your first post.',
     	'edit' => 'Edit Post (ID: :id)',
         'edit_success' => 'Post updated successfully.',
-    	'view' => 'View Post',
+        'publish' => 'Publish',
+        'publish_success' => 'Post published successfully.',
+        'save_draft' => 'Save Draft',
     	'delete' => 'Delete Post',
+        'cancel_changes' => 'Cancel Changes',
     	'delete_confirm' => 'This will permanently delete this post. If you wish to continue, click OK.',
         'delete_success' => 'Post deleted successfully.',
     	'title' => 'Title',
@@ -87,6 +90,17 @@ return [
             'description_help' => 'Leave blank to use start of post body. Max 160 characters.',
             'image_url' => 'Image URL',
             'image_url_help' => 'Image to display when post is shared on social media. Absolute URLs only.'
+        ],
+
+        'preview' => [
+            'button' => 'Save &amp; Preview',
+            'title' => 'This is a preview',
+            'info' => 'This is a preview of what your post will look like. Don\'t share this page\'s URL,
+                        it will only work for blog admins.',
+            'published_url' => 'The public URL for this post is:',
+            'unpublished_url' => 'When this post is published, it will be available at the following public
+                            URL:',
+            'back' => 'Back to Edit Post',
         ]
     ],
 

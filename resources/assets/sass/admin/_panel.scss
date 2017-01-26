@@ -6,4 +6,18 @@
 	.btn {
 		margin-right: 5px;
 	}
+
+	form {
+		display: inline-block;
+	}
+}
+
+.panel-footer-buttons {
+	.text-right .btn {
+		margin-left: 5px;
+	}
+
+	.text-left .btn {
+		margin-right: 5px;
+	}
 }

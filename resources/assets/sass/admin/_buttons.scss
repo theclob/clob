@@ -1,0 +1,16 @@
+.btn-link-danger {
+	color: $brand-danger;
+
+	&:hover,
+	&:focus {
+		color: darken($brand-danger, 10%);
+	}
+
+	&[disabled],
+	fieldset[disabled] & {
+		&:hover,
+		&:focus {
+			color: $brand-danger;
+		}
+	}
+}

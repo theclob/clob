@@ -3,6 +3,23 @@
 @section('content')
 	<article class="post">
 		<div class="container">
+			@if(request()->route()->getName() === 'admin.post.show')
+				<br>
+				<div class="alert alert-info">
+					<p><strong>@lang('admin.post.preview.title')</strong></p>
+					<p>
+						@lang('admin.post.preview.info')
+						@if($post->published_at)
+							@lang('admin.post.preview.published_url')
+						@else
+							@lang('admin.post.preview.unpublished_url')
+						@endif
+					</p>
+					<p>
+						<a href="{{ route('blog.show', $post) }}">{{ route('blog.show', $post) }}</a>
+					</p>
+				</div>
+			@endif
 			<header>
 				<p class="post-info">
 					{{ $post->published_at_formatted }}
@@ -39,11 +56,17 @@
 					</div>
 				@endif
 			</div>
-			@include('blog.themes.default._partials.share')
-			<hr>
-			<p class="back">
-				<a href="{{ route('blog.index') }}">@lang('blog.back')</a>
-			</p>
+			@if(request()->route()->getName() !== 'admin.post.show')
+				@include('blog.themes.default._partials.share')
+				<hr>
+				<p class="back">
+					<a href="{{ route('blog.index') }}">@lang('blog.back')</a>
+				</p>
+			@else
+				<p class="back">
+					<a href="{{ route('admin.post.edit', $post) }}">@lang('admin.post.preview.back')</a>
+				</p>
+			@endif
 		</div>
 	</article>
 @endsection

@@ -19,7 +19,8 @@ return [
     ],
 
     'actions' => [
-    	'save' => 'Save',
+        'save' => 'Save',
+    	'save_draft' => 'Save Draft',
     	'cancel' => 'Cancel'
     ],
 

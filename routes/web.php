@@ -42,7 +42,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
     		Route::post('add', 'PostController@store');
     		Route::get('edit/{post}', 'PostController@edit')->name('edit');
             Route::post('edit/{post}', 'PostController@update');
-    		Route::delete('edit/{post}', 'PostController@destroy');
+            Route::get('show/{post}', 'PostController@show')->name('show');
+            Route::post('preview/{post}', 'PostController@preview');
     	});
 
         // Blog Settings

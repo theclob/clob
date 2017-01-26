@@ -7693,6 +7693,20 @@ textarea.form-control {
   }
 }
 
+.btn-link-danger {
+  color: #d9534f;
+}
+
+.btn-link-danger:hover, .btn-link-danger:focus {
+  color: #c9302c;
+}
+
+.btn-link-danger[disabled]:hover, .btn-link-danger[disabled]:focus,
+fieldset[disabled] .btn-link-danger:hover,
+fieldset[disabled] .btn-link-danger:focus {
+  color: #d9534f;
+}
+
 .panel-toolbar {
   padding: 10px 20px;
   border-bottom: 1px solid #ddd;
@@ -7700,6 +7714,18 @@ textarea.form-control {
 }
 
 .panel-toolbar .btn {
+  margin-right: 5px;
+}
+
+.panel-toolbar form {
+  display: inline-block;
+}
+
+.panel-footer-buttons .text-right .btn {
+  margin-left: 5px;
+}
+
+.panel-footer-buttons .text-left .btn {
   margin-right: 5px;
 }
 

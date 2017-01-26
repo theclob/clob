@@ -40,7 +40,11 @@ class Post extends Model
      */
     public function getPublishedAtFormattedAttribute()
     {
-        return $this->published_at->format(self::PRETTY_DATE_FORMAT);
+        if($this->published_at) {
+            return $this->published_at->format(self::PRETTY_DATE_FORMAT);
+        }
+
+        return null;
     }
 
     /**
@@ -50,7 +54,11 @@ class Post extends Model
      */
     public function getPublishedAtLongFormattedAttribute()
     {
-        return $this->published_at->format(self::LONG_DATE_FORMAT);
+        if($this->published_at) {
+            return $this->published_at->format(self::LONG_DATE_FORMAT);
+        }
+
+        return null;
     }
 
     /**
@@ -60,7 +68,11 @@ class Post extends Model
      */
     public function getPublishedAtFeedFormatAttribute()
     {
-        return $this->published_at->toRfc2822String();
+        if($this->published_at) {
+            return $this->published_at->toRfc2822String();
+        }
+
+        return null;
     }
 
     /**
@@ -70,7 +82,11 @@ class Post extends Model
      */
     public function getPublishedAtOpenGraphFormatAttribute()
     {
-        return $this->published_at->toAtomString();
+        if($this->published_at) {
+            return $this->published_at->toAtomString();
+        }
+
+        return null;
     }
 
     /**

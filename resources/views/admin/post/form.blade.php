@@ -3,18 +3,6 @@
 		<h4 class="panel-title">{{ $title }}</h4>
 	</div>
 
-	@if(isset($post))
-		{!! BootForm::open() !!}
-			{!! BootForm::bind($post) !!}
-			{!! method_field('delete') !!}
-
-			<div class="panel-toolbar">
-				<a href="{{ route('blog.show', $post) }}" target="_blank" class="btn btn-default">@lang('admin.post.view')</a>
-				<button type="submit" name="action" id="deleteBtn" class="btn btn-danger">@lang('admin.post.delete')</button>
-			</div>
-		{!! BootForm::close() !!}
-	@endif
-
 	{!! BootForm::open() !!}
 		@if(isset($post))
 			{!! BootForm::bind($post) !!}
@@ -74,9 +62,24 @@
 				</div>
 			</div>
 		</div>
-		<div class="panel-footer text-right">
-			<button type="submit" class="btn btn-primary">@lang('app.actions.save')</button>
-			<a href="{{ route('admin.index') }}" class="btn btn-link">@lang('app.actions.cancel')</a>
+		<div class="panel-footer panel-footer-buttons">
+			<div class="row">
+				<div class="col-xs-6 col-xs-push-6 text-right">
+					@if(!isset($post) or !$post->published_at)
+						<button type="submit" class="btn btn-default">@lang('admin.post.save_draft')</button>
+						<button type="submit" name="action" value="preview" formtarget="_blank" class="btn btn-default">@lang('admin.post.preview.button')</button>
+						<button type="submit" name="action" value="publish" class="btn btn-primary">@lang('admin.post.publish')</button>
+					@else
+						<button type="submit" class="btn btn-primary">@lang('app.actions.save')</button>
+						<button type="submit" name="action" value="preview" formtarget="_blank" class="btn btn-default">@lang('admin.post.preview.button')</button>
+					@endif
+				</div>
+				<div class="col-xs-6 col-xs-pull-6 text-left">
+					<a href="{{ route('admin.index') }}" class="btn btn-sm btn-link">@lang('admin.post.cancel_changes')</a>
+					@if(isset($post))
+						<button type="submit" name="action" value="delete" id="deleteBtn" class="btn btn-link btn-sm btn-link-danger">@lang('admin.post.delete')</button>
+					@endif
+				</div>
 		</div>
 	{!! BootForm::close() !!}
 </div>

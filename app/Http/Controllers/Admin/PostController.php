@@ -3,6 +3,7 @@
 namespace Clob\Http\Controllers\Admin;
 
 use Clob\Post;
+use Carbon\Carbon;
 use Clob\Http\Requests\SaveBlogPost;
 use Clob\Http\Controllers\Controller;
 use Clob\Repositories\Posts as PostRepository;
@@ -58,7 +59,22 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.post.edit')->withPost($post);
+        return view('admin.post.edit')->with(compact('post'));
+    }
+
+    /**
+     * Preview Post - enables admins to view posts,
+     * even unpublished ones to see what the output
+     * will look like.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function show(Post $post)
+    {
+        $previous_post = $this->posts->previous($post);
+        $next_post = $this->posts->next($post);
+
+        return view('blog.themes.default.show')->with(compact('post', 'previous_post', 'next_post'));
     }
 
     /**
@@ -72,7 +88,15 @@ class PostController extends Controller
         $user = $request->user();
         $post = $request->only(self::ALLOWED_FIELDS);
 
+        if(!$request->published_at && $request->has('action') && $request->action === 'publish') {
+            $post['published_at'] = Carbon::now();
+        }
+
         $this->posts->create($user, $post);
+
+        if($request->has('action') && $request->action === 'preview') {
+            return redirect()->route('admin.post.show', $post);
+        }
 
     	return redirect()->route('admin.index')->withStatus(trans('admin.post.add_success'));
     }
@@ -86,22 +110,29 @@ class PostController extends Controller
      */
     public function update(SaveBlogPost $request, Post $post)
     {
+        // Handle delete post request
+        if($request->has('action') && $request->action === 'delete') {
+            $this->posts->delete($post);
+
+            return redirect()->route('admin.index')->withStatus(trans('admin.post.delete_success'));
+        }
+
         $postData = $request->only(self::ALLOWED_FIELDS);
+        $successMsg = trans('admin.post.edit_success');
+
+        // If publish request, set published_at to current date/time
+        if(!$request->published_at && $request->has('action') && $request->action === 'publish') {
+            $postData['published_at'] = Carbon::now();
+            $successMsg = trans('admin.post.publish_success');
+        }
+
         $this->posts->update($post, $postData);
 
-        return redirect()->route('admin.index')->withStatus(trans('admin.post.edit_success'));
-    }
+        // If preview request, show the blog post preview
+        if($request->has('action') && $request->action === 'preview') {
+            return redirect()->route('admin.post.show', $post);
+        }
 
-    /**
-     * Delete an existing blog post
-     *
-     * @param \Clob\Post $post
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
-    public function destroy(Post $post)
-    {
-        $this->posts->delete($post);
-
-        return redirect()->route('admin.index')->withStatus(trans('admin.post.delete_success'));
+        return redirect()->route('admin.index')->withStatus($successMsg);
     }
 }

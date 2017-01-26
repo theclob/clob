@@ -4,7 +4,7 @@
 	@include('admin.post.form', ['title' => trans('admin.post.edit', ['id' => $post->id])])
 @endsection
 
-@section('scripts')
+@push('scripts')
 	<script>
 		var deleteBtn = document.getElementById('deleteBtn');
 
@@ -14,4 +14,5 @@
 			}
 		};
 	</script>
-@endsection
+@endpush
+
