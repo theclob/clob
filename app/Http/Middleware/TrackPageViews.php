@@ -30,8 +30,8 @@ class TrackPageViews
 
             $gamp = GAMP::setClientId($clientId);
             $gamp->setDocumentPath($request->path());
-            $gamp->sendPageView();
             $gamp->setIpOverride($ip);
+            $gamp->sendPageView();
         }
 
         return $next($request);
