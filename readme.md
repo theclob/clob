@@ -1,197 +1,90 @@
 # clob
 
-`clob` is a blog platform for developers.
+The blog platform for developers.
 
-The following is our planned feature list for version 1.0. We are targeting December 2017 as the release date for version 1.0.
+## Features
 
-* Open source (MIT license)
-* Excellent code syntax highlighting
-* Write posts in GitHub Flavored Markdown (GFM)
-* Full RESTful API
-* Excellent accessibility
-* No JavaScript requirement, displays great in Lynx and text-based browsers
-* Webhooks
-* Two factor authentication
-* Sign in with GitHub or Bitbucket options
-* Comprehensive structured data support (SEO, OpenGraph, Microformats, etc.)
-* Accelerated Mobile Pages (AMP) support
-* RSS and email subscriptions
-* Hacker News, Reddit and Twitter integration
-* Embed Gists, Pastebins, Codepen, JSbin and other snippets in your posts
-* Elasticsearch-powered search
-* Full data import/export (WordPress, Ghost, Tumblr, Jekyll compatibility)
-* Command line interface to manage posts
-* IDE inspired color schemes
-* Native desktop and mobile apps for Linux, Mac, Windows, Android and iOS
-* Editor Stats and Targets - Word Count, Reading Time, etc.
-* Private Blog option
-* Support for multiple editors
-* Ultra-fast performance (no bloated client-side code)
+* Write posts in GitHub Flavored Markdown
+* Excellent syntax highlighting
+* Developer-oriented sharing links - Hacker News, Reddit, Twitter, Email (no JS dependency)
+* Comprehensive metadata support (SEO, OpenGraph, Twitter Cards, etc)
+* Automatic XML Sitemap generation
+* RSS 2.0 and Atom feeds
+* Superfast out-of-the-box performance
+* Strong accessibility with default theme
+* Graceful degradation (works great with JavaScript disabled)
+* Strong privacy by default (no cookies)
+* Open source under MIT license
 
-You will be able to install `clob` on your own server. We will supply prebuilt images for EC2, DigitalOcean and Heroku that allow you to deploy `clob` quickly and easily. The one-step setup will configure everything to get you started.
+This is a very early release (v0.1.0) of clob. The next minor release (v0.2.0) will include the following new features:
 
-## Stack
+* Media management and upload
+* Comments module
 
-`clob` is written in PHP 7.1 and uses Laravel 5.3. We use Bootstrap 3.3.7 and jQuery 3.1.1 on the front-end.
+If there's a specific feature you'd like to see in clob, let us know. We're [@theclob](https://twitter.com/theclob) on Twitter.
 
-The following databases are supported:
+## Requirements
 
-* MySQL
-* MariaDB
-* Postgres
-* SQLite
-* SQL Server
+clob is built with Laravel 5.4. To install it, you'll need the following:
 
-Session data can be stored in any of the following:
+* PHP 7.1
+* OpenSSL, PDO, Mbstring, Tokenizer and XML PHP extensions
+* Composer
+* MySQL, MariaDB or SQLite
 
-* Local filesystem
-* Cookie
-* Database
-* Memcached
-* Redis
+## Installation
 
-The following OAuth providers are supported for social login:
+1. Clone the repository from GitHub.  
+	`$ git clone git@github.com:theclob/clob.git`
 
-* GitHub
-* Bitbucket
-* Facebook
-* Twitter
-* LinkedIn
+1. Change into the `clob` directory  
+	`$ cd clob`
 
-The following cache storage options are available:
+1. Install dependencies with Composer  
+	`$ composer install`
 
-* Local filesystem
-* Database
-* Memcached
-* Redis
+1. Configure the following environment variables in your system:
 
-Uploaded assets can be stored in any of the following:
+	`APP_KEY`: (Required) Set this to a random 32-character string (used for encryption)  
+	`DB_DATABASE`: (Required) Set this to the name of your database (make sure to create it first!)  
+	`DB_USERNAME`: (Required) Set this to your database username  
+	`DB_PASSWORD`: (Required) Set this to your database password  
+	`DB_CONNECTION`: (Optional) If you want to use SQLite, set this to `sqlite`  
+	`DB_HOST`: (Optional) Hostname for the database. Only required if your database is on a different server to your Web server  
+	`DB_PORT`: (Optional) Port number for the database. Only required if your database is not running on port 3306.  
+	`APP_URL`: (Optional) Set this to the base URL for your app (e.g. http://example.com) - used by Laravel's Artisan CLI  
+	`GAMP_TRACKING_ID`: (Optional) Set this to your Google Analytics Tracking ID to enable server-side analytics integration
 
-* Local filesystem
-* FTP server
-* Amazon S3
-* Rackspace
+	If this is a local or dev installation, you can copy the `.env.example` file in the project root to `.env` and set the values there. This is not recommended for use in a production environment, however.
 
-Any of the following email services can be used for sending transactional emails (password resets, subscription confirmations, notifications, etc.):
+1. Configure your Web server's document root to point to the `/public` directory in your clob installation. For guidelines on ensuring pretty URLs are set up in Apache or nginx, see the [relevant section](https://laravel.com/docs/5.4/installation#web-server-configuration) in the Laravel documentation.
 
-* SMTP
-* `mail` function
-* `sendmail`
-* Amazon SES
-* Mailgun
-* SparkPost
+1. Navigate to **https://{yourdomain}/setup** in your browser. You should see a setup form like the screenshot below. Fill out the form to complete the setup. If you don't see the setup form, your Web server is probably not configured correctly. If you see an error message about your database configuration, check your environment variables are set up correctly.
 
-This document will be updated with any additional dependencies as they are added to the platform.
+1. Once your blog is setup, you'll be logged straight into the clob Admin. This can be accessed in future at **https://{yourdomain}/admin**. The blog itself can be reached at **https://{yourdomain}/**.
 
-## Browser Support
+**NOTE** The URLs above assume you have HTTPS configured on your Web server. If you don't, replace *https://* in the URLs above with *http://*.
 
-`clob` supports the following Web browsers:
+## Frequently Asked Questions (FAQ)
 
-* Latest Chrome (Linux, Mac, Windows)
-* Latest Firefox (Linux, Mac, Windows)
-* Latest Firefox ESR (Linux, Mac, Windows)
-* Latest Opera (Mac, Windows)
-* Latest Safari (Mac)
-* Latest Edge (Windows)
-* Internet Explorer 8 and above (Windows)
+1. **Does clob work in a load balanced environment?**  
+	Yes. By default, clob will store session data on the filesystem. This will cause problems in a load balanced environment, however, as session data could be stored on a different server to the one currently serving up a HTTP response. To fix this, use one of Laravel's other session drivers by setting the `SESSION_DRIVER` environment variable. For more information on available drivers and how to configure them, see the [relevant section](https://laravel.com/docs/5.4/session) of the Laravel documentation.
 
-We support the following mobile browsers:
+1. **Why doesn't clob support {feature}?**  
+	The short answer is that clob is still in an early stage of development, and as such is missing a lot of features and traits of other blog platforms. We are working on a website for clob that will include a detailed roadmap for clob's development as we look to reach version 1.0 later this year.
 
-* Latest Chrome (Android, iOS)
-* Latest Firefox (Android, iOS)
-* Latest Safari (iOS)
+1. **How do I customise the appearance of my blog?**  
+	The views for the blog are in `resources/views/blog/themes/default`.
 
-## Hosted Version
+	To customise the CSS styling, see the `resources/assets/sass` directory. For JavaScript, see `resources/assets/js/blog.js`. If you make changes to any of these files, you will need to rebuild public assets using Gulp. Make sure you have Node and Gulp installed, and simply run `gulp` in your project directory to recompile assets.
 
-We are also working on a hosted version of `clob`, which will be available on [https://clob.io](https://clob.io). This will include all the features of the self-hosted version, as well as:
+	Feel free to customize views and assets as you wish, but note that we haven't worked out an upgrade strategy for clob yet. As a result, it's vital that you backup any changes you make to these folders as you will probably lose these changes when you upgrade. We are investigating the best strategy for upgrades and hope to have this figured out in the coming months.  
 
-* Entire blog and back-end served exclusively over HTTPS
-* Content Delivery Network (CDN) for optimal performance
-* HTTP/2
-* A complete commitment to privacy
-* One-click option to delete your account and all your data
-* {yourname}.clob.io (Free)
-* Custom domains support ($20/year)
+1. **Help! Something's not working right!**  
+	For now, there are two primary ways to get support for clob. You can [create a GitHub Issue](https://github.com/theclob/clob/issues/new). Please search [existing issues](https://github.com/theclob/clob/issues?utf8=%E2%9C%93&q=is%3Aissue) to make sure your question hasn't been asked before. Alternatively, visit the [#clob channel on Freenode](http://webchat.freenode.net/?channels=%23clob). We are working on a more complete set of documentation for clob, and we are also planning to make a discussion forum available to enable you to seek help from others in the community.
 
-We plan to have an alpha release of the hosted version ready for May 2017, with a beta to follow in August 2017. We will go live with the hosted version simultaneously with the release of version 1.0 of `clob` in December 2017.
-
-## Roadmap
-
-The following is the roadmap for `clob` feature development
-
-Version 0.1 (January 2017):
-
-* Setup blog
-* Authentication (Login, Logout, Password Reset)
-* Manage Posts (Add, Edit, Delete, View)
-* Post Editor (Markdown)
-* Post Preview
-* Blog homepage
-* Post view
-* GitHub Flavored Markdown support
-* Estimated reading time calculation
-* RSS and Atom Feeds
-* Share on Hacker News, Reddit, Twitter
-* SEO and Structured Data features
-* Integration with Google Analytics (without using cookies)
-
-Version 0.2 (February 2017):
-
-* Search
-* OAuth authentication
-
-Version 0.3 (March 2017):
-
-* Comments Module
-* Image upload
-
-Version 0.4 (April 2017):
-
-* Two Factor Authentication
-* API & Webhooks
-* Accelerated Mobile Pages (AMP)
-
-Version 0.5 (May 2017):
-
-* Color Schemes and Font Customization
-* Embeddable content (Gists, YouTube, Tweets, etc)
-* Add support for callout boxes to editor
-
-Version 0.6 (June 2017):
-
-* Editor stats and targets (Word Count, Paragraph Count, Reading Time, etc.)
-* Support for pages (About, Profile, etc)
-* Call to action (CTA) at end of each post
-
-Version 0.7 (July 2017):
-
-* Post and comment subscriptions
-* Mailing list sign up, export and integration with Mailchimp, etc.
-
-Version 0.8 (August 2017):
-
-* Import from Wordpress, Tumblr, Ghost, Blogger, Jekyll, others
-* Export JSON, XML or SQL
-
-Version 0.9 (September 2017):
-
-* Multi-user with authorization (can edit, can view, can create, etc)
-* Private blog support
-
-Version 1.0 (December 2017):
-
-* CLI
-* Native apps for Linux, Mac, Windows, Android and iOS
-* Hosted version live
-
-## Things to be considered before v1.0 release
-
-* Documentation
-* Automatic incremental updates
-* Automated backup and restore feature (to FTP, S3, Dropbox, others)
-* Major upgrades
-* Theming system
-* Plugin architecture
+1. **Are there any examples of clob Blogs I can see?**  
+	Well clob is brand new so there's not many traces of it in the wild just yet! You can check out the blog of [Joe Lennon](https://joelennon.com), the maintainer of clob, which is powered by clob. Very soon we'll have an official clob website, which will of course be powered by clob. If you have a clob blog that you'd like to list here, let us know [@theclob](https://twitter.com/theclob) on Twitter.
 
 ## License (MIT)
 
