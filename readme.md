@@ -34,8 +34,7 @@ clob is built with Laravel 5.4. To install it, you'll need the following:
 
 ## Installation
 
-1. Clone the repository from GitHub.  
-	`$ git clone git@github.com:theclob/clob.git`
+1. Download the latest version of clob from [GitHub](https://github.com/theclob/clob/releases).
 
 1. Change into the `clob` directory  
 	`$ cd clob`
