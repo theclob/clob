@@ -58,7 +58,9 @@ clob is built with Laravel 5.4. To install it, you'll need the following:
 
 1. Configure your Web server's document root to point to the `/public` directory in your clob installation. For guidelines on ensuring pretty URLs are set up in Apache or nginx, see the [relevant section](https://laravel.com/docs/5.4/installation#web-server-configuration) in the Laravel documentation.
 
-1. Navigate to **https://{yourdomain}/setup** in your browser. You should see a setup form like the screenshot below. Fill out the form to complete the setup. If you don't see the setup form, your Web server is probably not configured correctly. If you see an error message about your database configuration, check your environment variables are set up correctly.
+1. Navigate to **https://{yourdomain}/setup** in your browser. You should see a setup form like the screenshot below. Fill out the form to complete the setup. If you don't see the setup form, your Web server is probably not configured correctly. If you see an error message about your database configuration, check your environment variables are set up correctly.  
+	
+	![clob Setup](https://s3-eu-west-1.amazonaws.com/clob/images/clobsetup.png)
 
 1. Once your blog is setup, you'll be logged straight into the clob Admin. This can be accessed in future at **https://{yourdomain}/admin**. The blog itself can be reached at **https://{yourdomain}/**.
 
