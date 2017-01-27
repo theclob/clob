@@ -34,10 +34,10 @@ clob is built with Laravel 5.4. To install it, you'll need the following:
 
 ## Installation
 
-1. Download the latest version of clob from [GitHub](https://github.com/theclob/clob/releases).
+1. Download the latest version of clob from [GitHub](https://github.com/theclob/clob/releases) and extract the archive.
 
-1. Change into the `clob` directory  
-	`$ cd clob`
+1. Change into the `clob-0.1.0` directory  
+	`$ cd clob-0.1.0`
 
 1. Install dependencies with Composer  
 	`$ composer install`
