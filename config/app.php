@@ -173,6 +173,7 @@ return [
         // AdamWathan\BootForms\BootFormsServiceProvider::class,
         Clob\Providers\BootFormsServiceProvider::class,
         Irazasyed\LaravelGAMP\LaravelGAMPServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
 
         /*
          * Application Service Providers...

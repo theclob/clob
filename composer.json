@@ -10,7 +10,8 @@
         "doctrine/dbal": "^2.5",
         "erusev/parsedown": "^1.6",
         "irazasyed/laravel-gamp": "^1.1",
-        "laravel/framework": "5.4.*"
+        "laravel/framework": "5.4.*",
+        "laravel/tinker": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
