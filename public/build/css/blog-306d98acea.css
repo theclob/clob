@@ -2799,7 +2799,7 @@ article.post .post-content img {
 }
 
 article.post .post-content img::after {
-  content: "test";
+  content: " ";
   display: block;
 }
 

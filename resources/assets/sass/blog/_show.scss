@@ -117,7 +117,7 @@ article.post {
 			max-width: 100%;
 
 			&::after {
-				content: "test";
+				content: " ";
 				display: block;
 			}
 		}
