@@ -80,6 +80,7 @@
 						<button type="submit" name="action" value="delete" id="deleteBtn" class="btn btn-link btn-sm btn-link-danger">@lang('admin.post.delete')</button>
 					@endif
 				</div>
+			</div>
 		</div>
 	{!! BootForm::close() !!}
 </div>

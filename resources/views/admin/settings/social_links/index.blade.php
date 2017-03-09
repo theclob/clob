@@ -14,7 +14,8 @@
 					<h4 class="panel-title">@lang('admin.settings.social_links.title')</h4>
 				</div>
 				<div class="panel-body">
-					<a href="#" class="btn btn-default">Add Social Link</a>
+					@include('common.alerts')
+					<a href="{{ route('admin.settings.social_links.add') }}" class="btn btn-default">@lang('admin.settings.social_links.add')</a>
 				</div>
 				<table class="table">
 					<colgroup>
@@ -25,9 +26,9 @@
 					</colgroup>
 					<thead>
 						<tr>
-							<th>Type</th>
-							<th>URL</th>
-							<th class="text-right">Position</th>
+							<th>@lang('admin.settings.social_links.form.type')</th>
+							<th>@lang('admin.settings.social_links.form.url')</th>
+							<th class="text-right">@lang('admin.settings.social_links.form.position')</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -38,10 +39,9 @@
 								<td>{{ $link->url }}</td>
 								<td class="text-right">{{ $link->position }}</td>
 								<td class="text-right">
-									<a href="#" class="btn btn-xs btn-default">⬆ <span class="sr-only">Move Up</span></a>
-									<a href="#" class="btn btn-xs btn-default">⬇<span class="sr-only">Move Down</span></a>
-									<a href="#" class="btn btn-xs btn-default">Edit</a>
-									<a href="#" class="btn btn-xs btn-default">Delete</a>
+									<a href="#" class="btn btn-xs btn-default">⬆ <span class="sr-only">@lang('admin.common.move_up')</span></a>
+									<a href="#" class="btn btn-xs btn-default">⬇<span class="sr-only">@lang('admin.common.move_down')</span></a>
+									<a href="{{ route('admin.settings.social_links.edit', $link) }}" class="btn btn-xs btn-default">Edit</a>
 								</td>
 							</tr>
 						@endforeach

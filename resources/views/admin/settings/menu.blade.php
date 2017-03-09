@@ -5,7 +5,7 @@
 		@lang('admin.settings.blog.title')
 	</a>
 	<a href="{{ route('admin.settings.social_links.index') }}"
-		class="list-group-item @if(request()->route()->getName() === 'admin.settings.social_links.index') active @endif">
+		class="list-group-item @if(str_contains(request()->route()->getName(), 'admin.settings.social_links.')) active @endif">
 		@lang('admin.settings.social_links.title')
 	</a>
 	<a href="{{ route('admin.settings.user') }}"

@@ -3,7 +3,9 @@
 namespace Clob\Providers;
 
 use Clob\Observers\PostObserver;
+use Clob\Observers\SocialLinkObserver;
 use Clob\Post;
+use Clob\SocialLink;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,8 +18,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Attach PostObserver to listen for Post events
+        // Attach model observers
         Post::observe(PostObserver::class);
+        SocialLink::observe(SocialLinkObserver::class);
 
         if(DB::connection() instanceof \Illuminate\Database\SQLiteConnection) {
             DB::statement(DB::raw('PRAGMA foreign_keys=1'));

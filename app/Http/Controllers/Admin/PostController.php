@@ -55,6 +55,7 @@ class PostController extends Controller
     /**
      * Edit Post Page
      *
+     * @param Post $post
      * @return \Illuminate\View\View
      */
     public function edit(Post $post)

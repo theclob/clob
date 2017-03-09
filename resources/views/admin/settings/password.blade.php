@@ -23,7 +23,6 @@
 					</div>
 					<div class="panel-footer text-right">
 						<button type="submit" class="btn btn-primary">@lang('app.actions.save')</button>
-						<a href="{{ route('admin.index') }}" class="btn btn-link">@lang('app.actions.cancel')</a>
 					</div>
 				{!! BootForm::close() !!}
 			</div>

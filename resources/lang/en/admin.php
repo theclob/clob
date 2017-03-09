@@ -18,6 +18,12 @@ return [
     	'title' => 'Dashboard'
     ],
 
+    'common' => [
+        'edit' => 'Edit',
+        'move_up' => 'Move Up',
+        'move_down' => 'Move Down',
+    ],
+
     'settings' => [
     	'title' => 'Settings',
         'menu' => 'Navigation Menu',
@@ -36,6 +42,18 @@ return [
 
         'social_links' => [
             'title' => 'Social Links',
+            'add' => 'Add Social Link',
+            'add_success' => 'Social Link added successfully.',
+            'edit' => 'Edit Social Link (ID: :id)',
+            'edit_success' => 'Social Link updated successfully.',
+            'delete' => 'Delete Link',
+            'delete_confirm' => 'This will permanently delete this link. If you wish to continue, click OK.',
+            'delete_success' => 'Social Link deleted successfully.',
+            'form' => [
+                'type' => 'Type',
+                'url' => 'URL',
+                'position' => 'Position',
+            ],
         ],
 
         'user' => [

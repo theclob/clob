@@ -98,7 +98,7 @@ class Posts extends Repository
      */
     public function update(Post $post, $data)
     {
-        $posts = $this->setPostData($post, $data);
+        $post = $this->setPostData($post, $data);
         $post->save();
 
         return $post;

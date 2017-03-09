@@ -56,6 +56,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
 
                 Route::group(['prefix' => 'social-links', 'as' => 'social_links.'], function() {
                     Route::get('/', 'SocialLinksController@index')->name('index');
+                    Route::get('add', 'SocialLinksController@add')->name('add');
+                    Route::post('add', 'SocialLinksController@store');
+                    Route::get('edit/{link}', 'SocialLinksController@edit')->name('edit');
+                    Route::post('edit/{link}', 'SocialLinksController@update');
                 });
 
                 Route::get('user', 'UserController@index')->name('user');

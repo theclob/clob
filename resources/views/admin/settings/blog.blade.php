@@ -25,7 +25,6 @@
 					</div>
 					<div class="panel-footer text-right">
 						<button type="submit" class="btn btn-primary">{{ trans('app.actions.save') }}</button>
-						<a href="{{ route('admin.index') }}" class="btn btn-link">{{ trans('app.actions.cancel') }}</a>
 					</div>
 				{!! BootForm::close() !!}
 			</div>

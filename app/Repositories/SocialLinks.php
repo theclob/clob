@@ -40,4 +40,59 @@ class SocialLinks extends Repository
 
 		return $types;
 	}
+
+	/**
+     * Set link data values from passed array.
+     *
+     * @param \Clob\SocialLink $link
+     * @param array $data
+     * @return \Clob\SocialLink
+     */
+	private function setLinkData(SocialLink $link, $data)
+    {
+        $link->type = $data['type'];
+        $link->url = $data['url'];
+
+        return $link;
+    }
+
+	/**
+     * Create a new social link.
+     *
+     * @param array $data
+     * @return \Clob\SocialLink
+     */
+    public function create($data)
+    {
+        $link = $this->setLinkData(new SocialLink, $data);
+        $link->save();
+
+        return $link;
+    }
+
+    /**
+     * Update an existing link.
+     *
+     * @param \Clob\SocialLink $link
+     * @param array $data
+     * @return \Clob\SocialLink
+     */
+    public function update(SocialLink $link, $data)
+    {
+        $link = $this->setLinkData($link, $data);
+        $link->save();
+
+        return $link;
+    }
+
+    /**
+     * Delete an existing link.
+     *
+     * @param \Clob\SocialLink $link
+     * @return void
+     */
+    public function delete(SocialLink $link)
+    {
+        $link->delete();
+    }
 }
