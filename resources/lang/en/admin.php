@@ -49,6 +49,7 @@ return [
             'delete' => 'Delete Link',
             'delete_confirm' => 'This will permanently delete this link. If you wish to continue, click OK.',
             'delete_success' => 'Social Link deleted successfully.',
+            'move_success' => 'Social Link position updated successfully.',
             'form' => [
                 'type' => 'Type',
                 'url' => 'URL',

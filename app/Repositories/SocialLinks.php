@@ -86,6 +86,40 @@ class SocialLinks extends Repository
     }
 
     /**
+     * Rearrange link order by moving link up/down.
+     *
+     * @param \Clob\SocialLink $link
+     * @param string $direction
+     * @return void
+     */
+    public function rearrange(SocialLink $link, $direction)
+    {
+        $all = SocialLink::orderBy('position')->get();
+        $pos = $all->search($link);
+
+        if(($pos !== 0 && $direction === 'up') || ($pos !== $all->count()-1 && $direction === 'down')) {
+            $reordered = [];
+
+            foreach($all as $key => $item) {
+                if($direction === 'up' && $key === $pos - 1) {
+                    $reordered[] = $link;
+                    $reordered[] = $item;
+                } elseif($direction === 'down' && $key === $pos + 1) {
+                    $reordered[] = $item;
+                    $reordered[] = $link;
+                } elseif($key !== $pos) {
+                    $reordered[] = $item;
+                }
+            }
+
+            foreach($reordered as $i => $item) {
+                $item->position = $i+1;
+                $item->save();
+            }
+        }
+    }
+
+    /**
      * Delete an existing link.
      *
      * @param \Clob\SocialLink $link
@@ -94,5 +128,13 @@ class SocialLinks extends Repository
     public function delete(SocialLink $link)
     {
         $link->delete();
+
+        // Rearrange position attribute of remaining items.
+        $all = SocialLink::orderBy('position')->get();
+
+        foreach($all as $i => $link) {
+            $link->position = $i+1;
+            $link->save();
+        }
     }
 }

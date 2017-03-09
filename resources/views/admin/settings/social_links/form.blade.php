@@ -26,7 +26,7 @@
 								<div class="alert alert-danger">@lang('app.form_error')</div>
 							@endif
 
-							{!! BootForm::text(trans('admin.settings.social_links.form.type'), 'type')->autofocus()->required() !!}
+							{!! BootForm::select(trans('admin.settings.social_links.form.type'), 'type')->options($types)->autofocus()->required() !!}
 							{!! BootForm::text(trans('admin.settings.social_links.form.url'), 'url')->required() !!}
 
 						</div>

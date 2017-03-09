@@ -60,6 +60,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
                     Route::post('add', 'SocialLinksController@store');
                     Route::get('edit/{link}', 'SocialLinksController@edit')->name('edit');
                     Route::post('edit/{link}', 'SocialLinksController@update');
+                    Route::post('move/{link}', 'SocialLinksController@move')->name('move');
                 });
 
                 Route::get('user', 'UserController@index')->name('user');

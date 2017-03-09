@@ -50,6 +50,7 @@ class SocialLinksController extends Controller
     public function index()
     {
         $social_links = $this->social_links->getLinks();
+
     	return view('admin.settings.social_links.index', compact('social_links'));
     }
 
@@ -60,7 +61,13 @@ class SocialLinksController extends Controller
      */
     public function add()
     {
-        return view('admin.settings.social_links.add');
+        $link_types = $this->social_links->getLinkTypes();
+        $types = [];
+        foreach($link_types as $type) {
+            $types[$type] = ucfirst($type);
+        }
+
+        return view('admin.settings.social_links.add', compact('types'));
     }
 
     /**
@@ -71,7 +78,13 @@ class SocialLinksController extends Controller
      */
     public function edit(SocialLink $link)
     {
-        return view('admin.settings.social_links.edit')->with(compact('link'));
+        $link_types = $this->social_links->getLinkTypes();
+        $types = [];
+        foreach($link_types as $type) {
+            $types[$type] = ucfirst($type);
+        }
+
+        return view('admin.settings.social_links.edit')->with(compact('link', 'types'));
     }
 
     /**
@@ -111,5 +124,22 @@ class SocialLinksController extends Controller
         $this->social_links->update($link, $linkData);
 
         return redirect()->route('admin.settings.social_links.index')->withStatus($successMsg);
+    }
+
+    /**
+     * Move the position of a link up or down
+     *
+     * @param \Clob\SocialLink $link
+     * @param string $direction
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function move(SocialLink $link)
+    {
+        // TODO move to repository
+        $direction = request()->direction;
+
+        $this->social_links->rearrange($link, $direction);
+
+        return redirect()->route('admin.settings.social_links.index')->withStatus(trans('admin.settings.social_links.move_success'));
     }
 }
