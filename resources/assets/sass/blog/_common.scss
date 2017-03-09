@@ -40,8 +40,30 @@ footer {
 	@extend .small;
 	margin: 40px 0 20px;
 
+	.social svg {
+		max-width: 24px;
+		max-height: 24px;
+		margin: 0 5px;
+	}
+
 	a {
 		color: $gray-light;
+
+		.social-icon {
+			fill: $gray;
+			transition: fill 0.5s;
+		}
+
+		&:hover {
+			.twitter { fill: #1da1f2; }
+			.facebook { fill: #3c5a99; }
+			.linkedin { fill: #006699; }
+			.github { fill: #000000; }
+		}
+	}
+
+	.social a:hover {
+		text-decoration: none;
 	}
 }
 

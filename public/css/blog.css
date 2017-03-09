@@ -2696,8 +2696,40 @@ footer {
   margin: 40px 0 20px;
 }
 
+footer .social svg {
+  max-width: 24px;
+  max-height: 24px;
+  margin: 0 5px;
+}
+
 footer a {
   color: #979797;
+}
+
+footer a .social-icon {
+  fill: #757575;
+  -webkit-transition: fill 0.5s;
+  transition: fill 0.5s;
+}
+
+footer a:hover .twitter {
+  fill: #1da1f2;
+}
+
+footer a:hover .facebook {
+  fill: #3c5a99;
+}
+
+footer a:hover .linkedin {
+  fill: #006699;
+}
+
+footer a:hover .github {
+  fill: #000000;
+}
+
+footer .social a:hover {
+  text-decoration: none;
 }
 
 @media screen and (max-width: 767px) {

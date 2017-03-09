@@ -33,7 +33,7 @@ class Posts extends Repository
     /**
      * Get all posts, most recent posts first.
      *
-     * @return \Illuminate\Database\Eloquent\Collectiion
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function all()
     {
@@ -43,7 +43,7 @@ class Posts extends Repository
     /**
      * Get published posts, most recent first.
      *
-     * @return \Illuminate\Database\Eloquent\Collectiion
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function published()
     {

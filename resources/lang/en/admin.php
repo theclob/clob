@@ -34,6 +34,10 @@ return [
             'save_success' => 'Blog settings updated successfully.'
         ],
 
+        'social_links' => [
+            'title' => 'Social Links',
+        ],
+
         'user' => [
             'title' => 'User Settings',
             'form' => [

@@ -14,8 +14,9 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Attach OptionsComposer to public blog views
+        // Attach view composers to public blog views
         View::composer('blog.*', \Clob\Http\ViewComposers\OptionsComposer::class);
+        View::composer('blog.*', \Clob\Http\ViewComposers\SocialLinksComposer::class);
     }
 
     /**

@@ -4,6 +4,10 @@
 		class="list-group-item @if(request()->route()->getName() === 'admin.settings.blog') active @endif">
 		@lang('admin.settings.blog.title')
 	</a>
+	<a href="{{ route('admin.settings.social_links.index') }}"
+		class="list-group-item @if(request()->route()->getName() === 'admin.settings.social_links.index') active @endif">
+		@lang('admin.settings.social_links.title')
+	</a>
 	<a href="{{ route('admin.settings.user') }}"
 		class="list-group-item @if(request()->route()->getName() === 'admin.settings.user') active @endif">
 		@lang('admin.settings.user.title')

@@ -30,6 +30,9 @@
 	@yield('content')
 
 	<footer>
+		@if($social_links->count() > 0)
+			@include('blog.themes.default._partials.social_links')
+		@endif
 		<p>
 			<a href="{{ route('blog.feed') }}">RSS Feed</a>
 			<span class="separator">&bull;</span>

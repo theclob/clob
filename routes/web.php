@@ -53,6 +53,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
             Route::group(['namespace' => 'Settings'], function() {
                 Route::get('blog', 'BlogController@index')->name('blog');
                 Route::put('blog', 'BlogController@save');
+
+                Route::group(['prefix' => 'social-links', 'as' => 'social_links.'], function() {
+                    Route::get('/', 'SocialLinksController@index')->name('index');
+                });
+
                 Route::get('user', 'UserController@index')->name('user');
                 Route::put('user', 'UserController@save');
                 Route::get('password', 'PasswordController@index')->name('password');
