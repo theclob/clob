@@ -135,9 +135,7 @@ class SocialLinksController extends Controller
      */
     public function move(SocialLink $link)
     {
-        // TODO move to repository
         $direction = request()->direction;
-
         $this->social_links->rearrange($link, $direction);
 
         return redirect()->route('admin.settings.social_links.index')->withStatus(trans('admin.settings.social_links.move_success'));

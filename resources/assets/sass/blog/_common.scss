@@ -49,9 +49,17 @@ footer {
 	a {
 		color: $gray-light;
 
-		.social-icon {
+		.social-icon, .social-icon path {
 			fill: $gray;
 			transition: fill 0.5s;
+		}
+
+		.social-icon.dribbble.fill1 {
+			fill: $gray-lighter;
+		}
+
+		.gitlab path {
+			fill: $gray;
 		}
 
 		&:hover {
@@ -59,6 +67,14 @@ footer {
 			.facebook { fill: #3c5a99; }
 			.linkedin { fill: #006699; }
 			.github { fill: #000000; }
+			.bitbucket { fill: #205081; }
+			.gitlab {
+				.fill1 { fill: #E24329; }
+				.fill2 { fill: #FC6D26; }
+				.fill3 { fill: #FCA326; }
+			}
+			.dribbble.fill1 { fill: #E74D89; }
+			.dribbble.fill2 { fill: #B2215A; }
 		}
 	}
 

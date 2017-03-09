@@ -2706,10 +2706,18 @@ footer a {
   color: #979797;
 }
 
-footer a .social-icon {
+footer a .social-icon, footer a .social-icon path {
   fill: #757575;
   -webkit-transition: fill 0.5s;
   transition: fill 0.5s;
+}
+
+footer a .social-icon.dribbble.fill1 {
+  fill: lightgray;
+}
+
+footer a .gitlab path {
+  fill: #757575;
 }
 
 footer a:hover .twitter {
@@ -2726,6 +2734,30 @@ footer a:hover .linkedin {
 
 footer a:hover .github {
   fill: #000000;
+}
+
+footer a:hover .bitbucket {
+  fill: #205081;
+}
+
+footer a:hover .gitlab .fill1 {
+  fill: #E24329;
+}
+
+footer a:hover .gitlab .fill2 {
+  fill: #FC6D26;
+}
+
+footer a:hover .gitlab .fill3 {
+  fill: #FCA326;
+}
+
+footer a:hover .dribbble.fill1 {
+  fill: #E74D89;
+}
+
+footer a:hover .dribbble.fill2 {
+  fill: #B2215A;
 }
 
 footer .social a:hover {
