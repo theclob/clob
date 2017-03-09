@@ -26,6 +26,8 @@
 			@empty
 				<p>@lang('blog.no_posts')</p>
 			@endforelse
+
+			<div class="text-center">{{ $posts->links() }}</div>
 		</div>
 	</section>
 @endsection

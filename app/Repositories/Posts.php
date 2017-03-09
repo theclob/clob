@@ -5,6 +5,7 @@ namespace Clob\Repositories;
 use Clob\Post;
 use Clob\User;
 use Carbon\Carbon;
+use Clob\Repositories\Options as OptionRepository;
 
 class Posts extends Repository
 {
@@ -16,6 +17,18 @@ class Posts extends Repository
     | This class handles interacting with blog posts data in the database.
     |
     */
+
+    /**
+     * Repository constructor
+     * Inject the OptionRepository so we can read options from the database.
+     *
+     * @param \Clob\Repositories\Options $options
+     * @return void
+     */
+    public function __construct(OptionRepository $options)
+    {
+        $this->options = $options->getBlogSettings();
+    }
 
     /**
      * Get all posts, most recent posts first.
@@ -34,7 +47,9 @@ class Posts extends Repository
      */
     public function published()
     {
-    	return Post::published()->recentFirst()->get();
+        $posts_per_page = $this->options->posts_per_page;
+
+    	return Post::published()->recentFirst()->paginate($posts_per_page);
     }
 
     /**

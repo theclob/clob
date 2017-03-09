@@ -20,6 +20,8 @@
 						@include('common.alerts')
 						{!! BootForm::text(trans('admin.settings.blog.form.title'), 'title')->autofocus()->required() !!}
 						{!! BootForm::textarea(trans('admin.settings.blog.form.description'), 'description')->rows(10) !!}
+						{!! BootForm::text(trans('admin.settings.blog.form.footer_text'), 'footer_text')->placeholder(trans('admin.settings.blog.form.footer_text_help')) !!}
+						{!! BootForm::text(trans('admin.settings.blog.form.posts_per_page'), 'posts_per_page')->required() !!}
 					</div>
 					<div class="panel-footer text-right">
 						<button type="submit" class="btn btn-primary">{{ trans('app.actions.save') }}</button>

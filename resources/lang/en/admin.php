@@ -27,6 +27,9 @@ return [
             'form' => [
                 'title' => 'Blog Title',
                 'description' => 'Description',
+                'footer_text' => 'Footer Text',
+                'footer_text_help' => 'e.g. Copyright notice',
+                'posts_per_page' => 'Posts per page',
             ],
             'save_success' => 'Blog settings updated successfully.'
         ],

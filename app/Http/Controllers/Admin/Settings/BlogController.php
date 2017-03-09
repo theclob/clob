@@ -55,7 +55,8 @@ class BlogController extends Controller
      */
     public function save(SaveBlogSettings $request)
     {
-        $options = $request->only(['title', 'description']);
+        $fields = ['title', 'description', 'footer_text', 'posts_per_page'];
+        $options = $request->only($fields);
         $this->options->saveBlogSettings($options);
 
         return redirect()->back()->withStatus(trans('admin.settings.blog.save_success'));

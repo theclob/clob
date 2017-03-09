@@ -24,7 +24,8 @@ class SaveBlogSettings extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required'
+            'title' => 'required',
+            'posts_per_page' => 'required|integer|min:1',
         ];
     }
 }

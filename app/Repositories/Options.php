@@ -54,6 +54,8 @@ class Options extends Repository
 
         $options->title = $data['title'];
         $options->description = $data['description'];
+        $options->footer_text = $data['footer_text'];
+        $options->posts_per_page = $data['posts_per_page'];
         $options->save();
 
         return $options;

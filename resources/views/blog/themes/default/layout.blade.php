@@ -30,9 +30,14 @@
 	@yield('content')
 
 	<footer>
-		<a href="{{ route('blog.feed') }}">RSS Feed</a>
-		<span class="separator">&bull;</span>
-		<a href="https://github.com/theclob/clob" target="_blank">@lang('app.name.powered')</a>
+		<p>
+			<a href="{{ route('blog.feed') }}">RSS Feed</a>
+			<span class="separator">&bull;</span>
+			<a href="https://github.com/theclob/clob" target="_blank">@lang('app.name.powered')</a>
+		</p>
+		@if($options->footer_text)
+			<p>{{ $options->footer_text }}</p>
+		@endif
 	</footer>
 
 	@yield('scripts')
