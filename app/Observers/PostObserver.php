@@ -35,4 +35,17 @@ class PostObserver
 		$reading_time = floor($post->word_count / 225); // 225 wpm reading speed
 		$post->read_time_minutes = $reading_time ?: 1; // set at 1 minute if 0
 	}
+
+	/**
+	 * Remove menu items when deleting pages.
+	 *
+	 * @param \Clob\Post $post
+	 * @return void
+	 */
+	public function deleted(Post $post)
+	{
+		if($post->type === 'page') {
+			$post->menu_items()->delete();
+		}
+	}
 }
