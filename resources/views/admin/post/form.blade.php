@@ -75,7 +75,7 @@
 					@endif
 				</div>
 				<div class="col-xs-6 col-xs-pull-6 text-left">
-					<a href="{{ route('admin.index') }}" class="btn btn-sm btn-link">@lang('admin.post.cancel_changes')</a>
+					<a href="{{ route('admin.post.index') }}" class="btn btn-sm btn-link">@lang('admin.post.cancel_changes')</a>
 					@if(isset($post))
 						<button type="submit" name="action" value="delete" id="deleteBtn" class="btn btn-link btn-sm btn-link-danger">@lang('admin.post.delete')</button>
 					@endif

@@ -17,7 +17,7 @@ return [
     'tags' => 'Tags:',
     'next' => 'Next:',
     'previous' => 'Previous:',
-    'back' => 'Back to Blog Index',
+    'back' => 'Back to Home',
     'read_time' => ':minutes minute read',
     'feed' => ':title &raquo; Feed',
 

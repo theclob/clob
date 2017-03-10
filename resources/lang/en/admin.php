@@ -10,7 +10,13 @@ return [
     |
     */
     'nav' => [
-    	'view_blog' => 'View Blog',
+        'toggle' => 'Toggle navigation',
+        'posts' => 'Posts',
+        'pages' => 'Pages',
+        'menu' => 'Menu',
+        'current' => '(current)',
+        'view_blog' => 'View Blog',
+    	'settings' => 'Settings',
     	'logout' => 'Logout',
     ],
 
@@ -22,6 +28,8 @@ return [
         'edit' => 'Edit',
         'move_up' => 'Move Up',
         'move_down' => 'Move Down',
+        'yes' => 'Yes',
+        'no' => 'No',
     ],
 
     'settings' => [
@@ -130,4 +138,59 @@ return [
         ]
     ],
 
+    'page' => [
+        'manage' => 'Manage Pages',
+        'add' => 'Add New Page',
+        'add_success' => 'Page added successfully.',
+        'create' => 'Create your first page.',
+        'edit' => 'Edit Page (ID: :id)',
+        'edit_success' => 'Page updated successfully.',
+        'delete' => 'Delete Page',
+        'cancel_changes' => 'Cancel Changes',
+        'delete_confirm' => 'This will permanently delete this page. If you wish to continue, click OK.',
+        'delete_success' => 'Page deleted successfully.',
+        'title' => 'Title',
+        'slug' => 'Page URL / Permalink',
+        'slug_help' => 'This is the URL to your page. Leave blank to auto-generate based on title.',
+        'subtitle' => 'Subtitle',
+        'page' => 'Page Content',
+        'page_help' => 'To format your page content, use <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown</a>.',
+
+        'seo' => [
+            'help_title' => 'What are these fields?',
+            'help_text' => 'These fields allow you to specify optimized data for how links to your page will appear in search engine results and when the page is shared on social media sites like Facebook and Twitter.',
+            'section' => 'SEO &amp; Social Sharing Optimization',
+            'title' => 'SEO Title',
+            'title_help' => 'Leave blank to use the page title. Max 60 characters.',
+            'description' => 'Meta/OpenGraph Description',
+            'description_help' => 'Leave blank to use start of page body. Max 160 characters.',
+            'image_url' => 'Image URL',
+            'image_url_help' => 'Image to display when page is shared on social media. Absolute URLs only.'
+        ],
+    ],
+
+    'menu' => [
+        'manage' => 'Manage Menu',
+        'add' => 'Add New Item',
+        'add_success' => 'Menu item added successfully.',
+        'create' => 'Create your first menu item.',
+        'edit' => 'Edit menu Item (ID: :id)',
+        'edit_success' => 'Menu item updated successfully.',
+        'delete' => 'Delete Menu Item',
+        'cancel_changes' => 'Cancel Changes',
+        'delete_confirm' => 'This will permanently delete this menu item. If you wish to continue, click OK.',
+        'delete_success' => 'Menu item deleted successfully.',
+        'menuable_type' => 'Item Type',
+        'menuable_id' => 'Item',
+        'menuable_id_help' => 'Required only if Item Type is "Page"',
+        'label' => 'Label',
+        'url' => 'URL',
+        'url_help' => 'Required only if Item Type is "Custom Link"',
+        'position' => 'Pos',
+        'enabled' => 'Enabled',
+        'item' => 'Item',
+        'page_link_to' => 'Page Link to <a href=":url" target="_blank">:text</a>',
+        'custom_link_to' => 'Custom Link to <a href=":url" target="_blank">:url</a>',
+        'move_success' => 'Menu item position updated successfully.',
+    ]
 ];

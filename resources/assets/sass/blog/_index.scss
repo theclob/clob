@@ -1,5 +1,5 @@
 .home-header {
-	padding: 80px 0;
+	padding: 60px 0 0;
 
 	h1 {
 		padding: 0 20px;
@@ -9,6 +9,15 @@
 		padding: 0 20px;
 		color: $gray;
 		font-size: $font-size-base * 1.2;
+	}
+
+	nav {
+		padding: 0 20px;
+		margin-top: 40px;
+	}
+
+	.nomenu {
+		margin-top: 60px;
 	}
 }
 
@@ -58,7 +67,7 @@
 
 @media screen and (max-width: $screen-xs-max) {
 	.home-header {
-		padding: 40px 0;
+		padding: 40px 0 0;
 
 		h1 {
 			font-size: $font-size-h2;

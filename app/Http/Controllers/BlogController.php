@@ -55,14 +55,18 @@ class BlogController extends Controller
      */
     public function show(Post $post)
     {
-        if(!$post->published_at || $post->published_at->isFuture()) {
+        if($post->type === 'post' && (!$post->published_at || $post->published_at->isFuture())) {
             abort(404);
         }
 
-        $previous_post = $this->posts->previous($post);
-        $next_post = $this->posts->next($post);
+        if($post->type === 'post') {
+            $previous_post = $this->posts->previous($post);
+            $next_post = $this->posts->next($post);
 
-    	return view('blog.themes.default.show', compact('post', 'previous_post', 'next_post'));
+            return view('blog.themes.default.show', compact('post', 'previous_post', 'next_post'));
+        }
+
+    	return view('blog.themes.default.show', compact('post'));
     }
 
     /**

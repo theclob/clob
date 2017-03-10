@@ -158,13 +158,34 @@ class Post extends Model
     }
 
     /**
+     * Return just blog posts
+     *
+     * @return \Illuminate\Database\Query\Builder
+     */
+    public function scopePosts($query)
+    {
+        return $query->where('type', 'post');
+    }
+
+    /**
+     * Return just pages
+     *
+     * @return \Illuminate\Database\Query\Builder
+     */
+    public function scopePages($query)
+    {
+        return $query->where('type', 'page');
+    }
+
+    /**
      * Return posts that have a publish date in the past
      *
      * @return \Illuminate\Database\Query\Builder
      */
     public function scopePublished($query)
     {
-    	return $query->where('published_at', '<=', Carbon::now());
+    	return $query->where('type', 'post')
+            ->where('published_at', '<=', Carbon::now());
     }
 
     /**
@@ -175,6 +196,16 @@ class Post extends Model
     public function scopeRecentFirst($query)
     {
     	return $query->orderBy('published_at', 'desc');
+    }
+
+    /**
+     * Return posts in alphabetical order (by title)
+     *
+     * @return \Illuminate\Database\Query\Builder
+     */
+    public function scopeAlpha($query)
+    {
+        return $query->orderBy('title');
     }
 
     /**
@@ -213,5 +244,10 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo('Clob\User');
+    }
+
+    public function menu_items()
+    {
+        return $this->morphMany('Clob\MenuItem', 'menuable');
     }
 }

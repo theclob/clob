@@ -25,6 +25,24 @@
 				<h1>{{ $options->title }}</h1>
 			@endif
 			<p>{{ $options->description }}</p>
+
+			@if($menu->count() > 0)
+				<nav>
+					<ul class="list-inline">
+						@foreach($menu as $item)
+							<li>
+								@if($item->menuable_type === 'page')
+									<a @if(request()->url() === route('blog.show', $item->menuable)) class="active" @endif href="{{ route('blog.show', $item->menuable) }}">{{ $item->label }}</a>
+								@elseif($item->menuable_type === 'custom')
+									<a href="{{ $item->url }}">{{ $item->label }}</a>
+								@endif
+							</li>
+						@endforeach
+					</ul>
+				</nav>
+			@else
+				<div class="nomenu"></div>
+			@endif
 		</div>
 	</header>
 	@yield('content')

@@ -1,10 +1,20 @@
 // Variables
+@import "admin/vendor/material-colors";
 @import "admin/variables";
 
 // Bootstrap
 @import "admin/vendor/bootstrap";
 
 @import "admin/form";
+@import "admin/nav";
 @import "admin/buttons";
 @import "admin/panel";
 @import "admin/list-group";
+
+.page-header {
+	&,
+	h1, h2, h3, h4, h5, h6,
+	.h1, .h2, .h3, .h4, .h5, .h6 {
+		margin-top: 0;
+	}
+}

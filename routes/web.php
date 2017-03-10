@@ -34,10 +34,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
 
     Route::group(['namespace' => 'Admin'], function() {
         // Admin Dashboard
-    	Route::get('/', ['as' => 'index', 'uses' => 'MainController@index']);
+    	Route::get('/', 'MainController@index')->name('index');
 
         // Blog Post Management
     	Route::group(['prefix' => 'post', 'as' => 'post.'], function() {
+            Route::get('/', 'PostController@index')->name('index');
     		Route::get('add', 'PostController@add')->name('add');
     		Route::post('add', 'PostController@store');
     		Route::get('edit/{post}', 'PostController@edit')->name('edit');
@@ -45,6 +46,25 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
             Route::get('show/{post}', 'PostController@show')->name('show');
             Route::post('preview/{post}', 'PostController@preview');
     	});
+
+        // Page Management
+        Route::group(['prefix' => 'page', 'as' => 'page.'], function() {
+            Route::get('/', 'PageController@index')->name('index');
+            Route::get('add', 'PageController@add')->name('add');
+            Route::post('add', 'PageController@store');
+            Route::get('edit/{page}', 'PageController@edit')->name('edit');
+            Route::post('edit/{page}', 'PageController@update');
+        });
+
+        // Menu Management
+        Route::group(['prefix' => 'menu', 'as' => 'menu.'], function() {
+            Route::get('/', 'MenuController@index')->name('index');
+            Route::get('add', 'MenuController@add')->name('add');
+            Route::post('add', 'MenuController@store');
+            Route::get('edit/{item}', 'MenuController@edit')->name('edit');
+            Route::post('edit/{item}', 'MenuController@update');
+            Route::post('move/{item}', 'MenuController@move')->name('move');
+        });
 
         // Blog Settings
     	Route::group(['prefix' => 'settings', 'as' => 'settings.'], function() {

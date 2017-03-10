@@ -14,6 +14,7 @@ const elixir = require('laravel-elixir');
 elixir((mix) => {
     mix.sass('admin.scss')
        .sass('blog.scss')
+       .webpack('admin.js')
        .webpack('blog.js')
-       .version(['css/admin.css', 'css/blog.css', 'js/blog.js']);
+       .version(['css/admin.css', 'css/blog.css', 'js/admin.js', 'js/blog.js']);
 });

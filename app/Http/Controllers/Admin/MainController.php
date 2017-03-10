@@ -36,14 +36,12 @@ class MainController extends Controller
     }
 
 	/**
-	 * Blog Admin Dashboard
-	 *
-	 * @return \Illuminate\View\View
-	 */
+     * Blog Admin Dashboard
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
-    	$posts = $this->posts->all();
-
-    	return view('admin.index')->withPosts($posts);
+        return redirect()->route('admin.post.index');
     }
 }

@@ -1,7 +1,18 @@
+$brand-primary: material-color('blue', '700');
+$brand-info: material-color('orange', 'a400');
+$body-bg: #f9f9f9;
+
 $border-radius-base: 0;
 $border-radius-small: 0;
 $border-radius-large: 0;
-$body-bg: #f9f9f9;
 
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
 $headings-font-weight: bold;
+
+$navbar-default-bg: material-color('blue', '50');
+$navbar-inverse-bg: material-color('blue', '800');
+$navbar-inverse-color: material-color('grey', '200');
+$navbar-inverse-link-color: material-color('grey', '300');
+$navbar-inverse-link-hover-bg: darken($navbar-inverse-bg, 5%);
+$navbar-inverse-toggle-hover-bg: material-color('blue', '900');
+$navbar-inverse-toggle-border-color: material-color('blue', '900');

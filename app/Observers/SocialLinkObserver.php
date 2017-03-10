@@ -3,7 +3,6 @@
 namespace Clob\Observers;
 
 use Clob\SocialLink;
-use Illuminate\Support\Str;
 
 class SocialLinkObserver
 {
@@ -15,6 +14,6 @@ class SocialLinkObserver
 	 */
 	public function creating(SocialLink $socialLink)
 	{
-		$socialLink->position = SocialLink::count() + 1;
+		$socialLink->position = SocialLink::max('position') + 1;
 	}
 }

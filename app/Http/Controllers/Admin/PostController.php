@@ -43,6 +43,18 @@ class PostController extends Controller
     }
 
     /**
+     * Post Index
+     *
+     * @return \Illuminate\View\View
+     */
+    public function index()
+    {
+        $posts = $this->posts->all();
+
+        return view('admin.post.index')->withPosts($posts);
+    }
+
+    /**
      * Add New Post Page
      *
      * @return \Illuminate\View\View
@@ -99,7 +111,7 @@ class PostController extends Controller
             return redirect()->route('admin.post.show', $post);
         }
 
-    	return redirect()->route('admin.index')->withStatus(trans('admin.post.add_success'));
+    	return redirect()->route('admin.post.index')->withStatus(trans('admin.post.add_success'));
     }
 
     /**
@@ -115,7 +127,7 @@ class PostController extends Controller
         if($request->has('action') && $request->action === 'delete') {
             $this->posts->delete($post);
 
-            return redirect()->route('admin.index')->withStatus(trans('admin.post.delete_success'));
+            return redirect()->route('admin.post.index')->withStatus(trans('admin.post.delete_success'));
         }
 
         $postData = $request->only(self::ALLOWED_FIELDS);
@@ -134,6 +146,6 @@ class PostController extends Controller
             return redirect()->route('admin.post.show', $post);
         }
 
-        return redirect()->route('admin.index')->withStatus($successMsg);
+        return redirect()->route('admin.post.index')->withStatus($successMsg);
     }
 }

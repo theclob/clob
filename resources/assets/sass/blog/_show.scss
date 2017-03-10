@@ -145,7 +145,7 @@ article.post {
 
 @media screen and (max-width: $screen-xs-max) {
 	.post-header {
-		padding: 20px 10px;
+		padding: 20px 10px 0;
 
 		h1 {
 			font-size: $font-size-h2;
@@ -221,7 +221,7 @@ article.post {
 			}
 		}
 
-		.meta, .back {
+		.meta, .back, .share {
 			margin-left: 10px;
 			margin-right: 10px;
 		}

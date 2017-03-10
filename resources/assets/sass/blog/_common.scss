@@ -1,7 +1,7 @@
 .home-header, .post-header {
 	background-color: $white;
 	box-shadow: 0 4px 2px -2px $gray-lightest;
-	padding: 20px 0;
+	padding: 20px 0 0;
 
 	h1 {
 		margin: 0 0 10px;
@@ -19,6 +19,37 @@
 
 	p {
 		color: $gray;
+	}
+
+	nav {
+		margin-top: 20px;
+
+		ul {
+			margin-bottom: 0;
+		}
+
+		li {
+			margin-right: 15px;
+		}
+
+		a {
+			display: block;
+			text-transform: uppercase;
+			font-weight: 500;
+			padding: 10px 5px;
+			border-bottom: 3px solid transparent;
+
+			&:hover, &.active, &:focus {
+				text-decoration: none;
+			}
+			&:hover, &.active {
+				border-bottom-color: $brand-primary;
+			}
+		}
+	}
+
+	.nomenu {
+		margin-top: 20px;
 	}
 }
 

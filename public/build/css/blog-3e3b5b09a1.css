@@ -2658,7 +2658,7 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .home-header, .post-header {
   background-color: #fff;
   box-shadow: 0 4px 2px -2px #ececec;
-  padding: 20px 0;
+  padding: 20px 0 0;
 }
 
 .home-header h1, .post-header h1 {
@@ -2677,6 +2677,38 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 
 .home-header p, .post-header p {
   color: #757575;
+}
+
+.home-header nav, .post-header nav {
+  margin-top: 20px;
+}
+
+.home-header nav ul, .post-header nav ul {
+  margin-bottom: 0;
+}
+
+.home-header nav li, .post-header nav li {
+  margin-right: 15px;
+}
+
+.home-header nav a, .post-header nav a {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 10px 5px;
+  border-bottom: 3px solid transparent;
+}
+
+.home-header nav a:hover, .home-header nav a.active, .home-header nav a:focus, .post-header nav a:hover, .post-header nav a.active, .post-header nav a:focus {
+  text-decoration: none;
+}
+
+.home-header nav a:hover, .home-header nav a.active, .post-header nav a:hover, .post-header nav a.active {
+  border-bottom-color: #337ab7;
+}
+
+.home-header .nomenu, .post-header .nomenu {
+  margin-top: 20px;
 }
 
 .post-info {
@@ -2799,7 +2831,7 @@ footer .social a:hover {
 }
 
 .home-header {
-  padding: 80px 0;
+  padding: 60px 0 0;
 }
 
 .home-header h1 {
@@ -2810,6 +2842,15 @@ footer .social a:hover {
   padding: 0 20px;
   color: #757575;
   font-size: 16.8px;
+}
+
+.home-header nav {
+  padding: 0 20px;
+  margin-top: 40px;
+}
+
+.home-header .nomenu {
+  margin-top: 60px;
 }
 
 .posts {
@@ -2853,7 +2894,7 @@ footer .social a:hover {
 
 @media screen and (max-width: 767px) {
   .home-header {
-    padding: 40px 0;
+    padding: 40px 0 0;
   }
   .home-header h1 {
     font-size: 30px;
@@ -3023,7 +3064,7 @@ article.post .meta .post-links {
 
 @media screen and (max-width: 767px) {
   .post-header {
-    padding: 20px 10px;
+    padding: 20px 10px 0;
   }
   .post-header h1 {
     font-size: 30px;
@@ -3088,7 +3129,7 @@ article.post .meta .post-links {
     margin: 20px 0;
     font-size: 12.6px;
   }
-  article.post .meta, article.post .back {
+  article.post .meta, article.post .back, article.post .share {
     margin-left: 10px;
     margin-right: 10px;
   }

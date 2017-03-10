@@ -1,4 +1,4 @@
-@extends('admin.layout', ['title' => trans('admin.dashboard.title')])
+@extends('admin.layout', ['title' => trans('admin.post.manage')])
 
 @section('content')
 	<div class="panel panel-default">
