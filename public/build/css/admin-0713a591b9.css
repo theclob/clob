@@ -7745,6 +7745,10 @@ fieldset[disabled] .btn-link-danger:focus {
   margin-right: 5px;
 }
 
+.panel-body .pagination {
+  margin: 0;
+}
+
 .list-group-header {
   text-transform: uppercase;
   color: #777777;

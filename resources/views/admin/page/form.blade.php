@@ -12,10 +12,24 @@
 				<div class="alert alert-danger">@lang('app.form_error')</div>
 			@endif
 
-			{!! BootForm::text(trans('admin.page.title'), 'title')->autofocus()->required() !!}
-			{!! BootForm::inputGroup(trans('admin.page.slug'), 'slug')
-						->beforeAddon(url()->to('/') . '/')
-						->helpBlock(trans('admin.page.slug_help')) !!}
+			<div class="row">
+				<div class="@if(!isset($page)) col-sm-8 @else col-sm-12 @endif">
+					{!! BootForm::text(trans('admin.page.title'), 'title')->autofocus()->required() !!}
+					{!! BootForm::inputGroup(trans('admin.page.slug'), 'slug')
+								->beforeAddon(url()->to('/') . '/')
+								->helpBlock(trans('admin.page.slug_help')) !!}
+				</div>
+				@if(!isset($page))
+					<div class="col-sm-4">
+						<div class="well">
+							{!! BootForm::text(trans('admin.page.menu_label'), 'menu_label')
+										->placeholder(trans('admin.page.menu_label_placeholder'))
+										->helpBlock(trans('admin.page.menu_label_help')) !!}
+						</div>
+					</div>
+				@endif
+			</div>
+
 			{!! BootForm::text(trans('admin.page.subtitle'), 'subtitle') !!}
 			{!! BootForm::textarea(trans('admin.page.page'), 'markdown_content')
 						->rows(25)

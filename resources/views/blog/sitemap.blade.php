@@ -5,6 +5,14 @@
 		<changefreq>weekly</changefreq>
 		<priority>1.0</priority>
 	</url>
+    @foreach($pages as $page)
+        <url>
+            <loc>{{ route('blog.show', $page) }}</loc>
+            <lastmod>{{ $page->updated_at_open_graph_format }}</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.8</priority>
+        </url>
+    @endforeach
     @foreach($posts as $post)
         <url>
             <loc>{{ route('blog.show', $post) }}</loc>

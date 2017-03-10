@@ -18,6 +18,8 @@ class Posts extends Repository
     |
     */
 
+    protected const ITEMS_PER_PAGE = 10;
+
     /**
      * Repository constructor
      * Inject the OptionRepository so we can read options from the database.
@@ -37,7 +39,17 @@ class Posts extends Repository
      */
     public function all()
     {
-    	return Post::posts()->recentFirst()->get();
+        return Post::posts()->recentFirst()->get();
+    }
+
+    /**
+     * Get paged posts, most recent posts first.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function paged()
+    {
+    	return Post::posts()->recentFirst()->paginate(self::ITEMS_PER_PAGE);
     }
 
     /**

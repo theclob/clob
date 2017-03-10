@@ -25,6 +25,7 @@
 		margin-top: 20px;
 
 		ul {
+			@extend .list-inline;
 			margin-bottom: 0;
 		}
 
@@ -127,6 +128,36 @@ footer {
 }
 
 @media screen and (max-width: $screen-xs-max) {
+	.home-header, .post-header {
+		nav {
+			.btn {
+				margin-bottom: 10px;
+			}
+
+			ul {
+				display: none;
+				margin-bottom: 10px;
+
+				&.show {
+					display: block;
+				}
+
+				> li {
+					display: block;
+					margin: 0;
+				}
+			}
+
+			a {
+				border: none;
+
+				&.active {
+					background-color: material-color('blue', '50');
+				}
+			}
+		}
+	}
+
 	.footer {
 		margin-top: 20px;
 	}

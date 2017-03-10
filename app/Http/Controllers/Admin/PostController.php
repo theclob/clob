@@ -49,7 +49,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = $this->posts->all();
+        $posts = $this->posts->paged();
 
         return view('admin.post.index')->withPosts($posts);
     }
@@ -84,10 +84,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $previous_post = $this->posts->previous($post);
-        $next_post = $this->posts->next($post);
-
-        return view('blog.themes.default.show')->with(compact('post', 'previous_post', 'next_post'));
+        return view('blog.themes.default.show')->with(compact('post'));
     }
 
     /**
@@ -105,7 +102,7 @@ class PostController extends Controller
             $post['published_at'] = Carbon::now();
         }
 
-        $this->posts->create($user, $post);
+        $post = $this->posts->create($user, $post);
 
         if($request->has('action') && $request->action === 'preview') {
             return redirect()->route('admin.post.show', $post);
@@ -139,7 +136,7 @@ class PostController extends Controller
             $successMsg = trans('admin.post.publish_success');
         }
 
-        $this->posts->update($post, $postData);
+        $post = $this->posts->update($post, $postData);
 
         // If preview request, show the blog post preview
         if($request->has('action') && $request->action === 'preview') {

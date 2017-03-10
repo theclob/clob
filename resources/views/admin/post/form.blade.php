@@ -67,7 +67,7 @@
 				<div class="col-xs-6 col-xs-push-6 text-right">
 					@if(!isset($post) or !$post->published_at)
 						<button type="submit" class="btn btn-default">@lang('admin.post.save_draft')</button>
-						<button type="submit" name="action" value="preview" formtarget="_blank" class="btn btn-default">@lang('admin.post.preview.button')</button>
+						<button type="submit" name="action" value="preview" class="btn btn-default">@lang('admin.post.preview.button')</button>
 						<button type="submit" name="action" value="publish" class="btn btn-primary">@lang('admin.post.publish')</button>
 					@else
 						<button type="submit" class="btn btn-primary">@lang('app.actions.save')</button>

@@ -28,7 +28,8 @@
 
 			@if($menu->count() > 0)
 				<nav>
-					<ul class="list-inline">
+					<button id="mobileMenuBtn" class="btn btn-block btn-info visible-xs">Menu</button>
+					<ul id="mobileMenu">
 						@foreach($menu as $item)
 							<li>
 								@if($item->menuable_type === 'page')
@@ -61,6 +62,20 @@
 		@endif
 	</footer>
 
+	<script>
+		var mobileMenuBtn = document.getElementById('mobileMenuBtn'),
+			mobileMenu = document.getElementById('mobileMenu');
+
+		mobileMenuBtn.onclick = function(e) {
+			if(mobileMenu.dataset.status && mobileMenu.dataset.status === 'show') {
+				mobileMenu.dataset.status = 'hide';
+				mobileMenu.className = '';
+			} else {
+				mobileMenu.dataset.status = 'show';
+				mobileMenu.className = 'show';
+			}
+		};
+	</script>
 	@yield('scripts')
 </body>
 </html>

@@ -30,6 +30,9 @@
 					@endforeach
 				</tbody>
 			</table>
+			@if($posts->lastPage() > 1)
+				<div class="panel-body text-center">{{ $posts->links() }}</div>
+			@endif
 		@else
 			<div class="panel-body">
 				@include('common.alerts')

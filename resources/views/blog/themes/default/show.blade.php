@@ -38,13 +38,13 @@
 			<div class="post-content">
 				{!! $post->html_content !!}
 			</div>
-			@if($post->type === 'post')
+			@if($post->type === 'post' && $post->published_at)
 				<div class="meta">
 					{{ trans('blog.meta', ['date' => $post->published_at_long_formatted]) }}
 					@if($post->tags)
 						<br><strong>@lang('blog.tags')</strong> {{ $post->tags }}
 					@endif
-					@if($next_post or $previous_post)
+					@if(isset($next_post) and isset($previous_post) and ($next_post or $previous_post))
 						<div class="post-links clearfix">
 							@if($next_post)
 								<div class="pull-right">

@@ -17,6 +17,7 @@ class Pages extends Repository
     | This class handles interacting with pages data in the database.
     |
     */
+    protected const ITEMS_PER_PAGE = 10;
 
     /**
      * Repository constructor
@@ -31,13 +32,23 @@ class Pages extends Repository
     }
 
     /**
-     * Get all pages in alphabetical order by title.
+     * Get all posts, most recent posts first.
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function all()
     {
-    	return Post::pages()->alpha()->get();
+        return Post::pages()->alpha()->get();
+    }
+
+    /**
+     * Get paged pages in alphabetical order by title.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function paged()
+    {
+    	return Post::pages()->alpha()->paginate(self::ITEMS_PER_PAGE);
     }
 
     /**

@@ -49,7 +49,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = $this->pages->all();
+        $pages = $this->pages->paged();
 
         return view('admin.page.index')->withPages($pages);
     }
@@ -84,9 +84,16 @@ class PageController extends Controller
     public function store(SavePage $request)
     {
         $user = $request->user();
-        $page = $request->only(self::ALLOWED_FIELDS);
+        $pageData = $request->only(self::ALLOWED_FIELDS);
 
-        $this->pages->create($user, $page);
+        $page = $this->pages->create($user, $pageData);
+
+        if($request->menu_label) {
+            $page->menu_items()->create([
+                'menuable_type' => 'page',
+                'label' => $request->menu_label,
+            ]);
+        }
 
     	return redirect()->route('admin.page.index')->withStatus(trans('admin.page.add_success'));
     }

@@ -246,6 +246,11 @@ class Post extends Model
         return $this->belongsTo('Clob\User');
     }
 
+    /**
+     * Relationship to the menu items that point to this post.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function menu_items()
     {
         return $this->morphMany('Clob\MenuItem', 'menuable');

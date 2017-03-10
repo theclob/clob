@@ -5,6 +5,7 @@ namespace Clob\Http\Controllers;
 use Carbon\Carbon;
 use Clob\Post;
 use Clob\Repositories\Posts as PostRepository;
+use Clob\Repositories\Pages as PageRepository;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -24,14 +25,20 @@ class BlogController extends Controller
     protected $posts;
 
     /**
+     * The page repository instance.
+     */
+    protected $pages;
+
+    /**
      * Create a new controller instance.
      *
      * @param PostRepository $posts
      * @return void
      */
-    public function __construct(PostRepository $posts)
+    public function __construct(PostRepository $posts, PageRepository $pages)
     {
         $this->posts = $posts;
+        $this->pages = $pages;
         $this->middleware('track')->only('index', 'show');
     }
 
@@ -87,7 +94,8 @@ class BlogController extends Controller
     public function sitemap()
     {
         $posts = $this->posts->published();
-        $view = view('blog.sitemap', compact('posts'));
+        $pages = $this->pages->all();
+        $view = view('blog.sitemap', compact('posts', 'pages'));
 
         return response($view)
             ->header('Content-Type', 'text/xml');

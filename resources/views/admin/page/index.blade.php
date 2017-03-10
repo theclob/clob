@@ -24,6 +24,9 @@
 					@endforeach
 				</tbody>
 			</table>
+			@if($pages->lastPage() > 1)
+				<div class="panel-body text-center">{{ $pages->links() }}</div>
+			@endif
 		@else
 			<div class="panel-body">
 				@include('common.alerts')
