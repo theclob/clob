@@ -2706,7 +2706,7 @@ footer a {
   color: #979797;
 }
 
-footer a .social-icon, footer a .social-icon path {
+footer a .social-icon, footer a .social-icon path, footer a .social-icon polygon {
   fill: #757575;
   -webkit-transition: fill 0.5s;
   transition: fill 0.5s;
@@ -2738,6 +2738,34 @@ footer a:hover .github {
 
 footer a:hover .bitbucket {
   fill: #205081;
+}
+
+footer a:hover .behance {
+  fill: #1769ff;
+}
+
+footer a:hover .soundcloud path {
+  fill: #ff5500;
+}
+
+footer a:hover .youtube {
+  fill: #e02f2f;
+}
+
+footer a:hover .vimeo {
+  fill: #01ADEE;
+}
+
+footer a:hover .pinterest {
+  fill: #CB1F27;
+}
+
+footer a:hover .instagram {
+  fill: #d93175;
+}
+
+footer a:hover .google-plus path, footer a:hover .google-plus polygon {
+  fill: #dc4d40;
 }
 
 footer a:hover .gitlab .fill1 {

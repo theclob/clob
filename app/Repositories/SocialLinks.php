@@ -33,9 +33,10 @@ class SocialLinks extends Repository
 	public function getLinkTypes()
 	{
 		$types = [
-			'twitter', 'facebook', 'github', 'gitlab', 'bitbucket', 'linkedin',
+			'twitter', 'facebook', 'google+', 'linkedin',
+            'github', 'gitlab', 'bitbucket',
+            'dribbble', 'behance',
 			'instagram', 'youtube', 'vimeo', 'soundcloud', 'pinterest',
-			'dribbble', 'behance',
 		];
 
 		return $types;
