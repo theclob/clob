@@ -28,7 +28,8 @@
 
 			@if($menu->count() > 0)
 				<nav>
-					<button id="mobileMenuBtn" class="btn btn-block btn-info visible-xs">Menu</button>
+					<button id="mobileMenuBtn" class="btn btn-block btn-info visible-xs">
+				        @lang('blog.menu')</button>
 					<ul id="mobileMenu">
 						@foreach($menu as $item)
 							<li>
@@ -53,7 +54,7 @@
 			@include('blog.themes.default._partials.social_links')
 		@endif
 		<p>
-			<a href="{{ route('blog.feed') }}">RSS Feed</a>
+			<a href="{{ route('blog.feed') }}">@lang('blog.rss')</a>
 			<span class="separator">&bull;</span>
 			<a href="https://github.com/theclob/clob" target="_blank">@lang('app.name.powered')</a>
 		</p>

@@ -20,6 +20,8 @@ return [
     'back' => 'Back to Home',
     'read_time' => ':minutes minute read',
     'feed' => ':title &raquo; Feed',
+    'rss' => 'RSS Feed',
+    'menu' => 'Menu',
 
     'share' => [
         'title' => 'Share on:',
