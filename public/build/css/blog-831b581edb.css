@@ -3275,6 +3275,7 @@ footer .social a:hover {
   .home-header nav ul > li, .post-header nav ul > li {
     display: block;
     margin: 0;
+    padding-right: 0;
   }
   .home-header nav a, .post-header nav a {
     border: none;
