@@ -26,11 +26,26 @@ class TrackPageViews
             // combination of IP address and User Agent to do this.
             $ip = $request->ip();
             $userAgent = $request->header('User-Agent');
+            $referer = $request->header('referer');
+            $language = $request->header('accept-language');
             $clientId = md5($ip . $userAgent);
 
             $gamp = GAMP::setClientId($clientId);
             $gamp->setDocumentPath($request->path());
             $gamp->setIpOverride($ip);
+            $gamp->setUserAgentOverride($userAgent);
+            $gamp->setDocumentReferrer($referer);
+            $gamp->setUserLanguage($language);
+
+            // TODO send document title (need to determine based on current request)
+
+            if($request->query('utm_campaign')) $gamp->setCampaignName($request->query('utm_campaign'));
+            if($request->query('utm_source')) $gamp->setCampaignSource($request->query('utm_source'));
+            if($request->query('utm_medium')) $gamp->setCampaignMedium($request->query('utm_medium'));
+            if($request->query('utm_keyword')) $gamp->setCampaignKeyword($request->query('utm_keyword'));
+            if($request->query('utm_content')) $gamp->setCampaignContent($request->query('utm_content'));
+            if($request->query('utm_id')) $gamp->setCampaignId($request->query('utm_id'));
+
             $gamp->sendPageView();
         }
 
