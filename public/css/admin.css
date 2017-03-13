@@ -7703,6 +7703,10 @@ textarea.form-control {
   }
 }
 
+.navbar-brand {
+  font-family: Monaco, Menlo, Consolas, monospace;
+}
+
 @media screen and (min-width: 768px) {
   .navbar-logout {
     float: right;
