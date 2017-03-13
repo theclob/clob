@@ -38,6 +38,7 @@ class FormSubmission extends Mailable implements ShouldQueue
     public function build()
     {
         return $this
+            ->to(config('mail.inbound_to.address'), config('mail.inbound_to.name'))
             ->replyTo($this->submission->email, $this->submission->name)
             ->subject(trans('blog.form.email_subject', ['title' => $this->submission->post->title]))
             ->markdown('email.blog.form.submission');
