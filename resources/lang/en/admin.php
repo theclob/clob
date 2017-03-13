@@ -64,7 +64,8 @@ return [
             'form' => [
                 'type' => 'Type',
                 'url' => 'URL',
-                'position' => 'Position',
+                'link' => 'Link',
+                'position' => 'Pos.',
             ],
         ],
 
