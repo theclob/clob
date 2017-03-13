@@ -61,8 +61,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
             Route::get('/', 'FormController@index')->name('index');
             Route::get('add', 'FormController@add')->name('add');
             Route::post('add', 'FormController@store');
-            Route::get('edit/{page}', 'FormController@edit')->name('edit');
-            Route::post('edit/{page}', 'FormController@update');
+            Route::get('edit/{form}', 'FormController@edit')->name('edit');
+            Route::post('edit/{form}', 'FormController@update');
             Route::get('submissions/{form}', 'FormController@submissions')->name('submissions');
             Route::get('submissions/{form}/show/{submission}', 'FormController@submission')->name('submission');
         });
