@@ -32,10 +32,10 @@ class TrackPageViews
 
             $gamp = GAMP::setClientId($clientId);
             $gamp->setDocumentPath($request->path());
-            $gamp->setIpOverride($ip);
-            $gamp->setUserAgentOverride($userAgent);
-            $gamp->setDocumentReferrer($referer);
-            $gamp->setUserLanguage($language);
+            if($ip) $gamp->setIpOverride($ip);
+            if($userAgent) $gamp->setUserAgentOverride($userAgent);
+            if($referer) $gamp->setDocumentReferrer($referer);
+            if($language) $gamp->setUserLanguage($language);
 
             // TODO send document title (need to determine based on current request)
 
