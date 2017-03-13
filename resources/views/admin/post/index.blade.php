@@ -3,6 +3,7 @@
 @section('content')
 	<div class="panel panel-default">
 		<div class="panel-heading">
+			<div class="pull-right">Count: <strong>{{ $posts->total() }}</strong></div>
 			<h4 class="panel-title">@lang('admin.post.manage')</h4>
 		</div>
 		@if($posts->count() > 0)
