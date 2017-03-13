@@ -30,5 +30,15 @@ return [
         'twitter' => 'Twitter',
         'email' => 'Email',
         'email_body' => 'Check out :title at :link',
+    ],
+
+    'form' => [
+        'name' => 'Your name',
+        'email' => 'Email address',
+        'message' => 'Message',
+        'send' => 'Send',
+        'submit_success' => 'Your message has been sent successfully.',
+        'email_subject' => ':title Form Submission Received',
+        'email_thanks' => 'Thanks,'
     ]
 ];

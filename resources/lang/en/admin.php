@@ -13,6 +13,7 @@ return [
         'toggle' => 'Toggle navigation',
         'posts' => 'Posts',
         'pages' => 'Pages',
+        'forms' => 'Forms',
         'menu' => 'Menu',
         'current' => '(current)',
         'view_blog' => 'View Blog',
@@ -25,11 +26,13 @@ return [
     ],
 
     'common' => [
+        'view' => 'View',
         'edit' => 'Edit',
         'move_up' => 'Move Up',
         'move_down' => 'Move Down',
         'yes' => 'Yes',
         'no' => 'No',
+        'back' => 'Back',
     ],
 
     'settings' => [
@@ -169,6 +172,51 @@ return [
             'description_help' => 'Leave blank to use start of page body. Max 160 characters.',
             'image_url' => 'Image URL',
             'image_url_help' => 'Image to display when page is shared on social media. Absolute URLs only.'
+        ],
+    ],
+
+    'form' => [
+        'manage' => 'Manage Forms',
+        'add' => 'Add New Form',
+        'add_success' => 'Form added successfully.',
+        'create' => 'Create your first form.',
+        'edit' => 'Edit Form (ID: :id)',
+        'edit_success' => 'Form updated successfully.',
+        'delete' => 'Delete Form',
+        'cancel_changes' => 'Cancel Changes',
+        'delete_confirm' => 'This will permanently delete this form. If you wish to continue, click OK.',
+        'delete_success' => 'Form deleted successfully.',
+        'title' => 'Title',
+        'slug' => 'Form URL / Permalink',
+        'slug_help' => 'This is the URL to your form. Leave blank to auto-generate based on title.',
+        'menu_label' => 'Add Menu Item',
+        'menu_label_placeholder' => 'Enter menu item label',
+        'menu_label_help' => 'Leave blank for no menu item.',
+        'subtitle' => 'Subtitle',
+        'form' => 'Form Content',
+        'form_help' => 'To format your form content, use <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown</a>.',
+
+        'submissions' => [
+            'button' => 'Submissions',
+            'title' => ':form Form Submissions',
+            'name' => 'Name',
+            'email' => 'Email Address',
+            'date' => 'Date Sent',
+            'message' => 'Message',
+            'empty' => 'No submissions to display.',
+            'item_title' => ':form Form Submission',
+        ],
+
+        'seo' => [
+            'help_title' => 'What are these fields?',
+            'help_text' => 'These fields allow you to specify optimized data for how links to your form will appear in search engine results and when the form is shared on social media sites like Facebook and Twitter.',
+            'section' => 'SEO &amp; Social Sharing Optimization',
+            'title' => 'SEO Title',
+            'title_help' => 'Leave blank to use the form title. Max 60 characters.',
+            'description' => 'Meta/OpenGraph Description',
+            'description_help' => 'Leave blank to use start of form body. Max 160 characters.',
+            'image_url' => 'Image URL',
+            'image_url_help' => 'Image to display when form is shared on social media. Absolute URLs only.'
         ],
     ],
 

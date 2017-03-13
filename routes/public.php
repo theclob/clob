@@ -18,4 +18,5 @@ Route::group(['as' => 'blog.'], function() {
     Route::get('sitemap', 'BlogController@sitemap')->name('sitemap');
     Route::get('robots.txt', 'BlogController@robots')->name('robots');
 	Route::get('{post}', 'BlogController@show')->name('show');
+	Route::post('{post}', 'BlogController@process');
 });

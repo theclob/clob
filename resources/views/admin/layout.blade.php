@@ -38,6 +38,14 @@
 							@endif
 						</a>
 					</li>
+					<li @if(str_contains(request()->route()->getName(), 'admin.form.')) class="active" @endif>
+						<a href="{{ route('admin.form.index') }}">
+							@lang('admin.nav.forms')
+							@if(str_contains(request()->route()->getName(), 'admin.form.'))
+								<span class="sr-only">@lang('admin.nav.current')</span>
+							@endif
+						</a>
+					</li>
 					<li @if(str_contains(request()->route()->getName(), 'admin.menu.')) class="active" @endif>
 						<a href="{{ route('admin.menu.index') }}">
 							@lang('admin.nav.menu')

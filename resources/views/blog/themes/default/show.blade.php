@@ -38,6 +38,9 @@
 			<div class="post-content">
 				{!! $post->html_content !!}
 			</div>
+			@if($post->type === 'form')
+				@include('blog.themes.default._partials.form')
+			@endif
 			@if($post->type === 'post' && $post->published_at)
 				<div class="meta">
 					{{ trans('blog.meta', ['date' => $post->published_at_long_formatted]) }}
