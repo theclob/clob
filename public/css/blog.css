@@ -4114,6 +4114,15 @@ article.post .meta .post-links {
   margin-top: 20px;
 }
 
+article.post .post-form {
+  margin: 20px;
+}
+
+article.post .post-form .form-group label,
+article.post .post-form .form-control {
+  font-size: 16.8px;
+}
+
 @media screen and (max-width: 767px) {
   .post-header {
     padding: 20px 10px 0;
@@ -4180,6 +4189,13 @@ article.post .meta .post-links {
   article.post .post-content pre {
     margin: 20px 0;
     font-size: 12.6px;
+  }
+  article.post .post-form {
+    margin: 20px 10px;
+  }
+  article.post .post-form .form-group label,
+  article.post .post-form .form-control {
+    font-size: 15.4px;
   }
   article.post .meta, article.post .back, article.post .share {
     margin-left: 10px;

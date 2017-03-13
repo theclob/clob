@@ -141,6 +141,15 @@ article.post {
 			margin-top: 20px;
 		}
 	}
+
+	.post-form {
+		margin: 20px;
+
+		.form-group label,
+		.form-control {
+			font-size: $font-size-base * 1.2;
+		}
+	}
 }
 
 @media screen and (max-width: $screen-xs-max) {
@@ -218,6 +227,15 @@ article.post {
 			pre {
 				margin: 20px 0;
 				font-size: $font-size-base * 0.9;
+			}
+		}
+
+		.post-form {
+			margin: 20px 10px;
+
+			.form-group label,
+			.form-control {
+				font-size: $font-size-base * 1.1;
 			}
 		}
 
